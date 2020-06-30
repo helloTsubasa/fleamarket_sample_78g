@@ -1,5 +1,5 @@
 # DB設計
-![データベース ER 図](https://user-images.githubusercontent.com/66294265/86111607-ee900a00-bb01-11ea-8781-e9d935bbd33c.jpeg)
+![データベース ER 図](https://user-images.githubusercontent.com/66294265/86114066-03ba6800-bb05-11ea-9b24-83bc457a622d.jpeg)
 
 
 ## usersテーブル
@@ -49,7 +49,7 @@
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
 |customer_id|string|null: false|
-|card_id|string|null: false|
+|card_token|string|null: false|
 
 ### Association
 - belongs_to :user
@@ -89,6 +89,7 @@
 
 ### Association
 - has_many :items
+- has_ancestry
 
 
 
@@ -109,7 +110,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |image|string|null: false|
-|image_id|integer|null: false, foreign_key: true|
+|item_id|integer|null: false, foreign_key: true|
 
 
 
