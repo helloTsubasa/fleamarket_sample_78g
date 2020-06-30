@@ -1,5 +1,5 @@
 # DB設計
-
+![データベース ER 図](https://user-images.githubusercontent.com/66294265/86107359-ade1c200-bafc-11ea-9380-d10fb5fd8127.jpeg)
 
 ## usersテーブル
 
