@@ -1,5 +1,6 @@
 # DB設計
-![データベース ER 図](https://user-images.githubusercontent.com/66294265/86107359-ade1c200-bafc-11ea-9380-d10fb5fd8127.jpeg)
+![データベース ER 図](https://user-images.githubusercontent.com/66294265/86111607-ee900a00-bb01-11ea-8781-e9d935bbd33c.jpeg)
+
 
 ## usersテーブル
 
@@ -16,9 +17,9 @@
 |birth_day|date|null: false|
 
 ### Association
-- has_many :orders
 - has_many :items
 - has_many :cards
+- has_one :order
 
 
 ## ordersテーブル
@@ -66,7 +67,6 @@
 |size|string|null: false|
 |shipping_fee|string|null: false|
 |shipping_date|integer|null: false|
-|address_id|integer|null: false|
 |user_id|integer|null: false, foreign_key: true|
 |category_id|integer|null: false, foreign_key: true|
 |brand_id|integer|null: false, foreign_key: true|
