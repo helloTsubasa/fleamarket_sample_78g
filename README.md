@@ -1,6 +1,5 @@
 # DB設計
-![データベース ER 図](https://user-images.githubusercontent.com/66294265/86114066-03ba6800-bb05-11ea-9b24-83bc457a622d.jpeg)
-
+![データベース ER 図](https://user-images.githubusercontent.com/66294265/86117198-8e9d6180-bb09-11ea-86c4-9588eca436ba.jpeg)
 
 ## usersテーブル
 
@@ -9,7 +8,7 @@
 |nickname|string|null: false|
 |email|string|null: false, unique: true|
 |password|string|null: false|
-|user_image|string||
+|avatar|string||
 |family_name|string|null: false|
 |first_name|string|null: false|
 |family_name_kana|string|null: false|
@@ -116,4 +115,5 @@
 
 ### Association
 - belongs_to :item
+
 
