@@ -1,0 +1,36 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @item.name
+%p
+  %b Price:
+  = @item.price
+%p
+  %b Text:
+  = @item.text
+%p
+  %b Status:
+  = @item.status
+%p
+  %b Size:
+  = @item.size
+%p
+  %b Shipping fee:
+  = @item.shipping_fee
+%p
+  %b Shipping date:
+  = @item.shipping_date
+%p
+  %b User:
+  = @item.user
+%p
+  %b Category:
+  = @item.category
+%p
+  %b Brand:
+  = @item.brand
+
+= link_to 'Edit', edit_item_path(@item)
+\|
+= link_to 'Back', items_path
