@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :brands
+  resources :images
   resources :orders
   root 'items#index'
   resources :items
