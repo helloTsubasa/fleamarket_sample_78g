@@ -1,0 +1,41 @@
+%h1 Listing orders
+
+%table
+  %thead
+    %tr
+      %th Family name
+      %th First name
+      %th Family name kana
+      %th First name kana
+      %th Zip code
+      %th Prefecture
+      %th City
+      %th Local
+      %th Building name
+      %th Phone number
+      %th User
+      %th
+      %th
+      %th
+
+  %tbody
+    - @orders.each do |order|
+      %tr
+        %td= order.family_name
+        %td= order.first_name
+        %td= order.family_name_kana
+        %td= order.first_name_kana
+        %td= order.zip_code
+        %td= order.prefecture
+        %td= order.city
+        %td= order.local
+        %td= order.building_name
+        %td= order.phone_number
+        %td= order.user
+        %td= link_to 'Show', order
+        %td= link_to 'Edit', edit_order_path(order)
+        %td= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Order', new_order_path

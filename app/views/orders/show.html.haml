@@ -1,0 +1,39 @@
+%p#notice= notice
+
+%p
+  %b Family name:
+  = @order.family_name
+%p
+  %b First name:
+  = @order.first_name
+%p
+  %b Family name kana:
+  = @order.family_name_kana
+%p
+  %b First name kana:
+  = @order.first_name_kana
+%p
+  %b Zip code:
+  = @order.zip_code
+%p
+  %b Prefecture:
+  = @order.prefecture
+%p
+  %b City:
+  = @order.city
+%p
+  %b Local:
+  = @order.local
+%p
+  %b Building name:
+  = @order.building_name
+%p
+  %b Phone number:
+  = @order.phone_number
+%p
+  %b User:
+  = @order.user
+
+= link_to 'Edit', edit_order_path(@order)
+\|
+= link_to 'Back', orders_path
