@@ -27,8 +27,8 @@
 |------|----|-------|
 |family_name|string|null: false|
 |first_name|string|null: false|
-|family_name|string|null: false|
-|first_name|string|null: false|
+|family_name_kana|string|null: false|
+|first_name_kana|string|null: false|
 |zip_code|string|null: false|
 |prefecture|string|null: false|
 |city|string|null: false|
@@ -36,6 +36,7 @@
 |building_name|string|null: false|
 |phone_number|string|null: false|
 |user_id|integer|null: false, foreign_key: true|
+
 
 ### Association
 - belongs_to :user
