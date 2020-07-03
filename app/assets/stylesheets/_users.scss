@@ -1,0 +1,133 @@
+// .main-container部分
+.mypage-main{
+  // display: flex;
+  background-color: #f5f5f5;
+  .main {
+    display: flex;
+    flex-flow: row-reverse;
+    justify-content: center;
+    color: #333333;
+    .main-container{
+      width: 700px;
+      float: right;
+      .main-content{
+        background-color: #ffffff;
+        text-align: center;
+        width: 700px;
+      }
+      // clear: right; //floatプロパティで左寄せ、 または右寄せを指定された要素に対する回り込みを解除。
+    }
+// side-content部分
+    .main-side-mypage{
+      .mypage-action{
+        width: 250px;
+        height: 100%;
+      }
+    }
+  }
+}
+
+.mypage {
+  list-style: none;
+}
+
+.mypage-nav__list{
+  .mypage-nav__list-item {
+    font-size: 14px;
+    color: #333333;
+    text-decoration: none;
+    padding: 16px;
+    background-color: #ffffff;
+    width: 200px;
+    display: block;
+    margin: 1px;
+  }
+}
+
+// 設定部分
+.sales-action {
+  margin-top: 40px;
+}
+.setting-action {
+  margin-top: 40px;
+}
+
+// クレカ追加画面
+.card-content{
+    background-color: #ffffff;
+    text-align: center;
+    width: 700px;
+    height: 360px;
+  
+  .chapter-header{
+    font-size: 24px;
+    width: 700px;
+    height: 50px;
+    // padding: 8px 24px;???
+
+    .chapter-inner{
+      // background-color: indianred;
+      width:700px;
+      height: 310px;
+      margin: 0 auto;
+      border-top: solid 1px #f5f5f5;
+
+      .inner-content{
+        // background-color: blue;
+
+        .chapter-sub-head {
+          // background-color: cornflowerblue;
+          height: 15px;
+          font-size: 15px;
+
+          .inner-head{
+            height: 50px;
+            padding: 8px 24px;
+            // background-color: khaki;
+            padding: 24px;
+            font-size: 15px;
+            border-bottom: solid 1px #f5f5f5;
+
+            .red-submit-btn{
+              // background-color: red;
+              display: block;
+              text-decoration: none;
+              color: red;
+            }
+            button{
+              background-color: red;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.logout-container{
+  background-color: cadetblue;
+  .logout-content{
+    background-color: chartreuse;
+    width: 80%;
+    height: 30%;
+    padding: 30% 30%;
+    .setting-container{
+      text-align: center;
+      .logout-btn{
+        background-color: darkred;
+      }
+    }
+  }
+}
+
+// ・mainとsideの左右の入れ替え    →OK
+// ・side部分が大きい
+// ・payjp調べて導入→岸さんがやるらしい？
+//  クレカ登録用のビュー。先にpayjp見てからQiitaに入力フォームの記載あり
+// ・ログアウト機能調べて実装
+//  →devise入れて良い？→良いなら自分で入れてみる→別府さん
+//  ログアウト用のhtml
+// ・FURIMAでビューへの遷移が出来ん→岸さんがやってくれた
+// ・リンク(side)を踏んでそれぞれの内容に
+//   遷移するには？→ロジックをきく→OK
+// mypageの  background-color: #f5f5f5;の全画面適用が出来ない
