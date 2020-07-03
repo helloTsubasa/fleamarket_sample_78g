@@ -100,21 +100,20 @@
           }
         }
       }
-    }
+    } 
   }
 }
 
 .logout-container{
-  background-color: cadetblue;
+  background-color: #ffffff;
   .logout-content{
-    background-color: chartreuse;
-    width: 80%;
-    height: 30%;
+    // width: 80%;
+    // height: 30%;
     padding: 30% 30%;
     .setting-container{
       text-align: center;
+      background-color: #3CCACE;
       .logout-btn{
-        background-color: darkred;
       }
     }
   }
