@@ -1,11 +1,6 @@
--# %h1 New item
-
--# = render 'form'
-
--# = link_to 'Back', items_path
 .new-item
-  .new-item-header
-    =link_to 'FURIMA', "#"
+  .new-item_header
+    =link_to image_tag("logo.png"), "#"
   .new-item-main
     =form_with model: @item, local: true do |f|
       .frame
@@ -13,7 +8,11 @@
           .image_title.title
             =f.label :image, '出品画像'
             %span.style-need 必須
-          =f.file_field :image, class:'image_form'
+          .image_box
+            =f.fields_for :images do |i|
+              .image_file{data:{index: i.index}}
+                =i.file_field :image, class: "image_form"
+                %span.image_remove 削除
       .frame
         .item-info
           .name_area.area
@@ -33,7 +32,8 @@
               =f.label :category, 'カテゴリー'
               %span.style-need 必須
             .select-form#parent-category
-              =f.collection_select :category_id, Category.all.order("id ASC").limit(13), :id,:name, { prompt: "選択してください" }, { class: "category_form", id: "parent-form" }
+              =f.select :category_id, options_for_select( @category_parent_array.map{|c| [c[:name], c[:id]]}), {include_blank: "選択してください"}, { class: "category_form", id: "parent-form"}
+              -# =f.collection_select :category_id, Category.all.order("id ASC").limit(13), :id,:name, { prompt: "選択してください" }, { class: "category_form", id: "parent-form" }
             .select-form#children-category
             .select-form#grandchildren-category
           .area#size_area
@@ -47,7 +47,7 @@
               =f.label :brand, 'ブランド'
               %span.style-any 任意
             .brand-form.select-form
-              =f.collection_select :brand_id, Brand.all, :id,:name, :include_blank => true
+              =f.collection_select :brand_id, Brand.all, :id,:name, {include_blank: "選択してください"}
           .status_area.area
             .status_title.title
               =f.label :status, '商品の状態'
@@ -57,21 +57,22 @@
       .frame
         .delivery-fee_area.area
           .shopping_fee_title.title
-            =f.label :shopping_fee, '配送料の負担'
+            =f.label :shipping_fee, '配送料の負担'
             %span.style-need 必須
           .delivery_fee-form.select-form
-            =f.select :shopping_fee, [["選択してください",""],["送料込み(出品者負担)","送料込み(出品者負担)"],["着払い(購入者負担)","着払い(購入者負担)"]]
+            =f.select :shipping_fee, [["選択してください",""],["送料込み(出品者負担)","送料込み(出品者負担)"],["着払い(購入者負担)","着払い(購入者負担)"]]
         .delivery-from_area.area
-          %label 配送元の地域
-          %span.style-need 必須
+          .shopping_from_title.title
+            =f.label :shipping_from, '配送元の地域'
+            %span.style-need 必須
           .delivery_from-form.select-form
             =f.collection_select :prefecture_id, Prefecture.all, :id, :name, { prompt: "選択してください" }
         .delivery-day_area.area
           .shopping_date_title.title
-            =f.label :shopping_date, '発送までの日数'
+            =f.label :shipping_date, '発送までの日数'
             %span.style-need 必須
           .delivery_day-form.select-form
-            =f.select :shopping_date, [["選択してください","0"],["1日〜2日","1日〜2日"]]
+            =f.select :shipping_date, [["選択してください","0"],["1日〜2日","1日〜2日"]]
       .price-frame
         .price_area.area
           .price_title.title

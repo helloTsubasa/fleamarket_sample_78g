@@ -16,7 +16,8 @@ class ItemsController < ApplicationController
   # GET /items/new
   def new
     @item = Item.new
-    @category = Category.all.order("id ASC").limit(13)
+    @item.images.new
+    # @category = Category.all.order("id ASC").limit(13)
   end
 
   def get_category_children
