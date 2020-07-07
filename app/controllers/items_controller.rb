@@ -54,10 +54,16 @@ class ItemsController < ApplicationController
   # DELETE /items/1
   # DELETE /items/1.json
   def destroy
-    @item.destroy
-    respond_to do |format|
-      format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
-      format.json { head :no_content }
+    if @item.user == current_user do
+      if @item.destroy do
+      respond_to do |format|
+        format.html { redirect_to items_url, notice: '商品が削除されました' }
+        format.json { head :no_content }
+      end
+      respond_to do |format|
+        format.html { redirect_to items_url, notice: '商品の削除に失敗しました' }
+        format.json { head :no_content }
+      end
     end
   end
 
