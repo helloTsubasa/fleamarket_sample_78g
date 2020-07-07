@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   
-  has_many :items,  dependent: :destroy
+  has_many :user_buyer_items, class_name: 'Item', :foreign_key => 'user_buyer_id'
+  has_many :user_seller_items, class_name: 'Item', :foreign_key => 'user_seller_id'
   has_one  :order,  dependent: :destroy
 
   # Include default devise modules. Others available are:

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_02_074922) do
+ActiveRecord::Schema.define(version: 2020_07_03_093917) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -18,14 +18,26 @@ ActiveRecord::Schema.define(version: 2020_07_02_074922) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "ancestry"
+    t.index ["ancestry"], name: "index_categories_on_ancestry"
+  end
+
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.string "price", null: false
+    t.integer "price", null: false
     t.string "text", null: false
     t.string "status", null: false
-    t.string "size", null: false
+    t.integer "size_id", null: false
     t.string "shipping_fee", null: false
-    t.integer "shipping_date", null: false
+    t.string "shipping_date", null: false
+    t.integer "category_id", null: false
+    t.integer "brand_id"
+    t.integer "user_buyer_id", null: false
+    t.integer "user_seller_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

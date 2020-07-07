@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_category, only: [:new, :edit, :create, :update, :destroy]
 
   # GET /items
   # GET /items.json
@@ -15,8 +16,16 @@ class ItemsController < ApplicationController
   # GET /items/new
   def new
     @item = Item.new
+    @category = Category.all.order("id ASC").limit(13)
   end
 
+  def get_category_children
+    @category_children = Category.find(params[:parent_name]).children
+  end
+
+  def get_category_grandchildren
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
+  end
   # GET /items/1/edit
   def edit
   end
@@ -68,7 +77,23 @@ class ItemsController < ApplicationController
     end
 
     # Only allow a list of trusted parameters through.
+    def set_category  
+      @category_parent_array = Category.where(ancestry: nil)
+    end
+  
     def item_params
-      params.require(:item).permit(:name, :price, :text, :status, :size, :shipping_fee, :shipping_date, :user_id, :category_id, :brand_id)
+      params.require(:item).permit(
+        :name,
+        :price,
+        :text,
+        :status,
+        :size_id,
+        :shopping_fee,
+        :shopping_date,
+        :category_id,
+        :brand_id,
+        :user_buyer_id,
+        :user_seller_id,
+        )
     end
 end
