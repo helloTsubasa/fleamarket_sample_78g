@@ -1,0 +1,57 @@
+.main__container
+  .main__container__content
+    .mypage__link
+      = link_to "#",class:"mypage__box__link" do
+        = image_tag 'member_photo_noimage_thumb.png', class:'user__image'
+        .user_nickname
+          ニックネーム
+        .mypage__number
+          .mypage__number__assessment
+            評価
+          .mypage__number__count
+            "評価数字"
+          .mypage__number__sell
+            出品数
+          .mypage__number__count
+            "出品数字"
+        -# ここまででマイページ部分
+  .mypage-tab__container__notification-todo
+    .mypage__tabs
+      .tabs__title__notification
+        お知らせ
+      .tabs__title__todo
+        やることリスト
+    .mypage__tab-content
+      .tab-content__lists-active
+        .tab-content__lists__link
+          .tab-content__lists__link__icon
+            左アイコン
+          .tab-content__lists__body
+            .tab-content__lists__body__text
+              お知らせ内容
+            .icon-time
+              １日前
+        .tab-content__lists__go
+          .tab-content__lists__summary
+            一覧を見る
+          -# ここまででお知らせとやることリストが終了
+      .tab-content__lists
+        やることリスト
+        .tab-content__lists__body
+          現在やることリストはありません
+  .mypage-tab__container__transaction
+    .mypage-tab__container__header
+      購入した商品
+    .mypage-tabs
+      .mypage-tabs__transaction 取引中
+      .mypage-tabs__transaction__old 過去の取引
+    .tab-contents
+      .mypage__item__list-active
+        .mypage-item-transaction
+          取引中の商品がありません
+      .mypage__item__list
+        .mypage-item-transaction__old
+          過去に取引した商品がありません
+
+-# 00時間前の表示はどうすれば？
+-# = image_tag（ここまでテンプレ） 'pict-reason-03.jpg'(画像の名前), class: 'reason__box__bot__right__image'（クラスの名前）
