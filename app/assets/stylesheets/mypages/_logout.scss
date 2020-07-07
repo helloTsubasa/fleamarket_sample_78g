@@ -11,12 +11,13 @@
       background-color: #ffffff;
       .setting__container{
         // text-align: center;
-        .setting__container__btn--blue{
+        &__btn--blue{
           display: block;
           width: 320px;
           background-color: #3CCACE;
           text-decoration: none;
           text-align: center;
+          color: #ffffff;
         }
       }
     }

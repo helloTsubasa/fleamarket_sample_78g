@@ -1,13 +1,16 @@
-.main__container
-  .card__content
-    .chapter__content  
-      %h2.chapter__header
-        支払い方法
+.default-main
+  = render "header"
+  .main
+    .main__container
+      .card__content
+        .chapter__header
+          支払い方法
         .chapter__inner
           .inner__content
             .chapter__SubHead
               .inner__head
                 クレジットカード一覧
-              %button.blue-submit-btn{type: "button"}クレジットカードを追加する
-              -# .settings-About-payment
-              -#   お支払いについて
+              = link_to "#",class:"inner__btn--blue" do
+                クレジットカードを追加する
+    = render "side"
+  = render "footer"
