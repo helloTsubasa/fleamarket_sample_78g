@@ -4,9 +4,11 @@
     background-color: coral;
     font-size: 14px;
     padding: 20px;
+    background-image: url(background-image.jpg);
     .mypage__link{
       height: 200px;
       text-align: center;
+      text-decoration: none;
       .mypage__box__link{
         .user__image{
           // text-decoration: none;
@@ -15,6 +17,7 @@
         }
         .user_nickname{
           margin: top 8px;
+          text-decoration: none;
         }
         .mypage__number{
           margin-top: 8px;
@@ -27,72 +30,72 @@
       }
     }
   }
-  .mypage-tab__container__notification-todo{
-    background-color: deepskyblue;
-    .mypage__tabs{
-      line-height: 72px;
-      height: 72px;
-      display: flex;
-      justify-content: center;
-      .tabs__title__notification{
-        text-align: center;
-        background-color: red;
-        width: 350px;
-        border-right: solid black 1px;
-      }
-      .tabs__title__todo{
-        text-align: center;
-        background-color: royalblue;
-        width: 350px;
+  // .mypage-tab__container__notification-todo{
+  //   background-color: deepskyblue;
+  //   .mypage__tabs{
+  //     line-height: 72px;
+  //     height: 72px;
+  //     display: flex;
+  //     justify-content: center;
+  //     .tabs__title__notification{
+  //       text-align: center;
+  //       background-color: red;
+  //       width: 350px;
+  //       border-right: solid black 1px;
+  //     }
+  //     .tabs__title__todo{
+  //       text-align: center;
+  //       background-color: royalblue;
+  //       width: 350px;
 
-      }
-    }
+  //     }
+  //   }
 
-    .mypage__tab-content{
-      padding: 16px;
-      background-color: salmon;
-      .tab-content__lists-active{
-        .tab-content__lists__link{
-          display: flex;
-          justify-content: left;
-          background-color: fuchsia;
+  //   .mypage__tab-content{
+  //     padding: 16px;
+  //     background-color: salmon;
+  //     .tab-content__lists-active{
+  //       .tab-content__lists__link{
+  //         display: flex;
+  //         justify-content: left;
+  //         background-color: fuchsia;
 
-          .tab-content__lists__link__icon{
-            width: 48px;
-            height: 48px;
-            background-color: seagreen;
-          }
-          .tab-content__lists__body{
-            background-color: gold;
-            margin: 0 40px 0 68px;
-            .tab-content__lists__body__text{
+  //         .tab-content__lists__link__icon{
+  //           width: 48px;
+  //           height: 48px;
+  //           background-color: seagreen;
+  //         }
+  //         .tab-content__lists__body{
+  //           background-color: gold;
+  //           margin: 0 40px 0 68px;
+  //           .tab-content__lists__body__text{
               
-            }
-          }
-        }
-        .tab-content__lists__go{
-          padding: 16px;
-          background-color: #eeeeee;
-          .tab-content__lists__summary{
-          background-color: cyan;
-          }
-        }
-      }
-      .tab-content__lists{
-        background-color: gray;
-        .tab-content__lists__body{
-          height: 236px;
-          padding: 160px 0 60px;
-          color: #cccccc;
-          text-align: center;
-        }
+  //           }
+  //         }
+  //       }
+  //       .tab-content__lists__go{
+  //         padding: 16px;
+  //         background-color: #eeeeee;
+  //         .tab-content__lists__summary{
+  //         background-color: cyan;
+  //         }
+  //       }
+  //     }
+  //     .tab-content__lists{
+  //       background-color: gray;
+  //       .tab-content__lists__body{
+  //         height: 236px;
+  //         padding: 160px 0 60px;
+  //         color: #cccccc;
+  //         text-align: center;
+  //       }
 
-      }
-    }
-  }
+  //     }
+  //   }
+  // }
 
   .mypage-tab__container__transaction{
-    background-color: mediumspringgreen;
+    background-color: rgb(233, 233, 233);
     margin-top: 40px;
     .mypage-tab__container__header{
       background-color: #fafafafa;
@@ -105,14 +108,13 @@
       height: 72px;
       line-height: 72px;
       text-align: center;
-      background-color: lightcoral;
       .mypage-tabs__transaction{
-        background-color: indigo;
+        border: inset lightgrey 2px;
         width: 350px;
       }
       .mypage-tabs__transaction__old{
-        background-color: lightblue;
         width: 350px;
+        border: inset lightgrey 2px;
       }
     }
     .tab-contents{
@@ -123,7 +125,7 @@
           padding: 160px 0 60px;
           color: #cccccc;
           text-align: center;
-          background-color: yellowgreen;
+          background-color: #ffffff;
         }
       }
       .mypage__item__list{
@@ -133,7 +135,7 @@
           padding: 160px 0 60px;
           color: #cccccc;
           text-align: center;
-          background-color: yellow;
+          background-color: #ffffff;
         }
       }
     }

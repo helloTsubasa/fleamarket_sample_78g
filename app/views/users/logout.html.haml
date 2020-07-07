@@ -1,5 +1,19 @@
-.main__container
-  .logout__container
-    .logout__content
-      .setting__container
-        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__right--btn"
+.default-main
+  = render "header"
+  .main
+    .main__container
+      .logout__container
+        .logout__content
+          .setting__container
+            = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "setting__container__btn--blue"
+    = render "side"
+  = render "footer"
+
+
+
+-# .default-main
+-#   = render "header"
+-#   .main
+-#     =render "main-mypage"
+-#     = render "side"
+-#   = render "footer"

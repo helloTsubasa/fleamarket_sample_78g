@@ -1,16 +1,22 @@
 // ログアウト画面
+
 .main__container{
   .logout__container{
-    background-color: #ffffff;
     .logout__content{
-      // padding: 30% 30%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 700px;
+      height: 180px;
+      background-color: #ffffff;
       .setting__container{
-        text-align: center;
-        background-color: #3CCACE;
-        .submit__btn--blue{
+        // text-align: center;
+        .setting__container__btn--blue{
+          display: block;
           width: 320px;
-          // text-decoration: none;
-          display: inline-block;
+          background-color: #3CCACE;
+          text-decoration: none;
+          text-align: center;
         }
       }
     }
