@@ -2,4 +2,4 @@
   .logout__container
     .logout__content
       .setting__container
-        %button.submit__btn--blue{type: "button"} ログアウト 
+        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__right--btn"

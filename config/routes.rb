@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :brands
   resources :items
   
-  resources :users, only:[:index] do
+  resources :users, only:[:index, :destroy] do
     collection do
       get 'card_data'
       get 'card_register'
