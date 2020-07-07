@@ -1,17 +1,66 @@
-l-container clearfix
-  l-contentl-side
-    mypage-user-icon
-      マイページだけのリンク
-        fiugreタグ
-          image src (60×60)
-        (h3)userの名前
-        class="mypage-number"
-          評価
-          出品数
-    mypage-tab-container-notification-todo
-      mypage-tabs
-      tab-content
-    (謎のmodalクラス。表示はない？)
-    mypage-tab-container
+.main__container
+  .main__container__content
+    .mypage__link
+      = link_to "#",class:"mypage__box__link" do
+        = image_tag 'member_photo_noimage_thumb.png', class:'user__image'
+        .user_nickname
+          ニックネーム
+        .mypage__number
+          .mypage__number__assessment
+            評価
+          .mypage__number__count
+            "評価数字"
+          .mypage__number__sell
+            出品数
+          .mypage__number__count
+            "出品数字"
+        -# ここまででマイページ部分
+  .mypage-tab__container__notification-todo
+    .mypage__tabs
+      .tabs__title__notification
+        お知らせ
+      .tabs__title__todo
+        やることリスト
+    .mypage__tab-content
+      .tab-content__lists-active
+        .tab-content__lists__link
+          .tab-content__lists__link__icon
+            (左にアイコン)
+          .tab-content__lists__body
+            .tab-content__lists__body__text
+              お知らせ内容
+              .icon-time 
+                １日前
+        .tab-content__lists__go
+          %a 一覧を見る
+          -# ここまででお知らせとやることリストが終了
+      %ul.tab-content__lists
+        (id="mypage-tab-todo")(やることリスト)
+        %li.tab-content__lists__body
+          bold>現在やることはありません<
+          -# ここまでがやることリストの中身
+  -# %aside (謎のmodalクラス。表示はない？)
+  %section.mypage-tab__container__transaction
+    %h2.mypage-tab__container__header
+      >購入した商品<
+    %ul.mypage-tabs
+      %li.mypage-tabs__transaction
+        active(クリックアクションで可視化)
+        %h3 
+          %a (取引中)
+      %li.mypage-tabs__transaction__old
+        active(クリックアクションで可視化)
+        %h3
+          %a (過去の取引)
+    .tab-contents
+      %ul.mypage__item__list
+        tab-pane-active(id="mypage-tab-transaction-now(or old)")(クリックで可視)
+        %li.mypage-item-transaction
+          bold>取引中の商品がありません<
+      %ul.mypage__item__list
+        tab-pane-active(id="mypage-tab-transaction-now(or old)")(クリックで可視)
+        %li.mypage-item-transaction__old
+          bold>過去に取引した商品がありません<
 
-  l-side
+-# 00時間前の表示はどうすれば？
+-# = image_tag（ここまでテンプレ） 'pict-reason-03.jpg'(画像の名前), class: 'reason__box__bot__right__image'（クラスの名前）

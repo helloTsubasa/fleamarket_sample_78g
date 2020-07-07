@@ -1,0 +1,96 @@
+.main__container{
+  width: 700px;
+  .main__container__content{
+    background-color: coral;
+    font-size: 14px;
+    padding: 20px;
+    .mypage__link{
+      height: 200px;
+      text-align: center;
+      .mypage__box__link{
+        .user__image{
+          // text-decoration: none;
+          width: 60px;
+          height: 60px;
+        }
+        .user_nickname{
+          margin: top 8px;
+        }
+        .mypage__number{
+          margin-top: 8px;
+          display: flex;
+          justify-content: center;
+          .mypage__number__sell{
+            margin-left: 16px;
+          }
+        }
+      }
+    }
+  }
+.mypage-tab__container__notification-todo{
+  .mypage__tabs{
+    line-height: 72px;
+    height: 72px;
+    display: flex;
+    justify-content: center;
+    .tabs__title__notification{
+      text-align: center;
+      width: 350px;
+      border-right: solid black 1px;
+    }
+    .tabs__title__todo{
+      text-align: center;
+      width: 350px;
+    }
+  }
+  .tab-content__lists-active{
+    .tab-content__lists__link{
+      height: 80px;
+      padding: 16px;
+      background-color: salmon;
+      .tab-content__lists-active{
+        .tab-content__lists__link{
+          display: flex;
+          text-align: center;
+          .tab-content__lists__link__icon{
+            width: 48px;
+            height: 48px;
+            background-color: seagreen;
+          }
+          .tab-content__lists__body{
+            background-color: blanchedalmond;
+            margin: 0 40px 0 68px;
+            .tab-content__lists__body__text{
+              
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .mypage-tab__container__transaction{
+  background-color: mediumspringgreen;
+  }
+}

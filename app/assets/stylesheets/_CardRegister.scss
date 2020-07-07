@@ -1,0 +1,53 @@
+// クレカ追加画面
+.main__container{
+  .card__content{
+    background-color: #ffffff;
+    text-align: center;
+    width: 700px;
+    height: 360px;
+  
+  .chapter__header{
+    font-size: 24px;
+    width: 700px;
+    height: 50px;
+    // padding: 8px 24px;???
+
+    .chapter__inner{
+      // background-color: indianred;
+      width:700px;
+      height: 310px;
+      margin: 0 auto;
+      border-top: solid 1px #f5f5f5;
+
+      .inner__content{
+        // background-color: blue;
+
+        .chapter__SubHead {
+          // background-color: cornflowerblue;
+          height: 15px;
+          font-size: 15px;
+
+          .inner__head{
+            height: 50px;
+            padding: 8px 24px;
+            // background-color: khaki;
+            padding: 24px;
+            font-size: 15px;
+            border-bottom: solid 1px #f5f5f5;
+
+            .blue-submit-btn{
+              // background-color: red;
+              display: block;
+              text-decoration: none;
+              color: red;
+            }
+            button{
+              background-color: red;
+            }
+          }
+        }
+      }
+    } 
+  }
+  }
+}
