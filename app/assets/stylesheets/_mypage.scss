@@ -27,70 +27,113 @@
       }
     }
   }
-.mypage-tab__container__notification-todo{
-  .mypage__tabs{
-    line-height: 72px;
-    height: 72px;
-    display: flex;
-    justify-content: center;
-    .tabs__title__notification{
-      text-align: center;
-      width: 350px;
-      border-right: solid black 1px;
+  .mypage-tab__container__notification-todo{
+    background-color: deepskyblue;
+    .mypage__tabs{
+      line-height: 72px;
+      height: 72px;
+      display: flex;
+      justify-content: center;
+      .tabs__title__notification{
+        text-align: center;
+        background-color: red;
+        width: 350px;
+        border-right: solid black 1px;
+      }
+      .tabs__title__todo{
+        text-align: center;
+        background-color: royalblue;
+        width: 350px;
+
+      }
     }
-    .tabs__title__todo{
-      text-align: center;
-      width: 350px;
-    }
-  }
-  .tab-content__lists-active{
-    .tab-content__lists__link{
-      height: 80px;
+
+    .mypage__tab-content{
       padding: 16px;
       background-color: salmon;
       .tab-content__lists-active{
         .tab-content__lists__link{
           display: flex;
-          text-align: center;
+          justify-content: left;
+          background-color: fuchsia;
+
           .tab-content__lists__link__icon{
             width: 48px;
             height: 48px;
             background-color: seagreen;
           }
           .tab-content__lists__body{
-            background-color: blanchedalmond;
+            background-color: gold;
             margin: 0 40px 0 68px;
             .tab-content__lists__body__text{
               
             }
           }
         }
+        .tab-content__lists__go{
+          padding: 16px;
+          background-color: #eeeeee;
+          .tab-content__lists__summary{
+          background-color: cyan;
+          }
+        }
+      }
+      .tab-content__lists{
+        background-color: gray;
+        .tab-content__lists__body{
+          height: 236px;
+          padding: 160px 0 60px;
+          color: #cccccc;
+          text-align: center;
+        }
+
       }
     }
   }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   .mypage-tab__container__transaction{
-  background-color: mediumspringgreen;
+    background-color: mediumspringgreen;
+    margin-top: 40px;
+    .mypage-tab__container__header{
+      background-color: #fafafafa;
+      height: 72px;
+      padding: 0 16px;
+      line-height: 72px;
+    }
+    .mypage-tabs{
+      display: flex;
+      height: 72px;
+      line-height: 72px;
+      text-align: center;
+      background-color: lightcoral;
+      .mypage-tabs__transaction{
+        background-color: indigo;
+        width: 350px;
+      }
+      .mypage-tabs__transaction__old{
+        background-color: lightblue;
+        width: 350px;
+      }
+    }
+    .tab-contents{
+      .mypage__item__list-active{
+        .mypage-item-transaction{
+          height: 236px;
+          padding: 160px 0 60px;
+          color: #cccccc;
+          text-align: center;
+          background-color: yellowgreen;
+        }
+      }
+      .mypage__item__list{
+        .mypage-item-transaction__old{
+          height: 236px;
+          padding: 160px 0 60px;
+          color: #cccccc;
+          text-align: center;
+          background-color: yellow;
+        }
+      }
+    }
   }
 }
