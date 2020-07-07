@@ -5,7 +5,7 @@
       .logout__container
         .logout__content
           .setting__container
-            = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "setting__container__btn--blue"
+            %button{onclick: "location.pathname='destroy_user_session_path'", type: "button", method: :delete, class: "setting__container__btn--blue"} ログアウト
     = render "side"
   = render "footer"
 

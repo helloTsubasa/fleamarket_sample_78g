@@ -9,15 +9,22 @@
       width: 700px;
       height: 180px;
       background-color: #ffffff;
+      margin: 0 auto;
       .setting__container{
-        // text-align: center;
-        &__btn--blue{
-          display: block;
-          width: 320px;
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        .setting__container__btn--blue{
+          max-width: 320px;
+          width: 80%;
           background-color: #3CCACE;
+          border-radius: 4px;
+          line-height: 48px;
+          font-size: 14px;
+          color: white;
+          border-style: none;
           text-decoration: none;
-          text-align: center;
-          color: #ffffff;
+          cursor: pointer;
         }
       }
     }
