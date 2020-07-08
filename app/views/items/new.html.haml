@@ -1,8 +1,3 @@
--# %h1 New item
-
--# = render 'form'
-
--# = link_to 'Back', items_path
 .new-item
   .new-item_header
     =link_to image_tag("logo.png"), "#"
@@ -20,7 +15,10 @@
                   = image_tag i.image.url, {data: { index: src }}, width: "100", height: '100'
             =f.fields_for :images do |i|
               .image_file{data:{index: i.index}}
-                =i.file_field :image, class: "image_form"
+                =i.label :image do
+                  .form_area
+                    %p クリックしてファイルをアップロード
+                  =i.file_field :image, class: "image_form"
                 %span.image_remove 削除
               -if @item.persisted?
                 = image.check_box :_destroy, {data:{ index: i.index }}, class: 'hidden-destroy' 

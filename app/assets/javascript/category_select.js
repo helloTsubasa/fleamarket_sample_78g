@@ -33,7 +33,9 @@ $(document).on("change","#parent-category", function() {
     $.ajax( {
       type: 'GET',
       url: 'get_category_children',
-      data: { parent_name: parentCategory },
+      data: {
+        parent_name: parentCategory 
+        },
       dataType: 'json'
     })
     .done(function(children) {
