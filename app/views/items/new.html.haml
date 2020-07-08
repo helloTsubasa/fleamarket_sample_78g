@@ -1,3 +1,8 @@
+-# %h1 New item
+
+-# = render 'form'
+
+-# = link_to 'Back', items_path
 .new-item
   .new-item_header
     =link_to image_tag("logo.png"), "#"
@@ -9,10 +14,20 @@
             =f.label :image, '出品画像'
             %span.style-need 必須
           .image_box
+            #previews
+              -if @item.persisted?
+                -@item.images.each_with_index do |i, src|
+                  = image_tag i.image.url, {data: { index: src }}, width: "100", height: '100'
             =f.fields_for :images do |i|
               .image_file{data:{index: i.index}}
                 =i.file_field :image, class: "image_form"
                 %span.image_remove 削除
+              -if @item.persisted?
+                = image.check_box :_destroy, {data:{ index: i.index }}, class: 'hidden-destroy' 
+            -if @item.persisted?
+              .image_file{data:{index: @item.images.count}}
+                =file_field_tag :image, name: "item[images_attributes][#{@item.images.count}][image]"
+                .image_remove 削除
       .frame
         .item-info
           .name_area.area
@@ -63,10 +78,10 @@
             =f.select :shipping_fee, [["選択してください",""],["送料込み(出品者負担)","送料込み(出品者負担)"],["着払い(購入者負担)","着払い(購入者負担)"]]
         .delivery-from_area.area
           .shopping_from_title.title
-            =f.label :shipping_from, '配送元の地域'
-            %span.style-need 必須
-          .delivery_from-form.select-form
-            =f.collection_select :prefecture_id, Prefecture.all, :id, :name, { prompt: "選択してください" }
+          -#   =f.label :shipping_from, '配送元の地域'
+          -#   %span.style-need 必須
+          -# .delivery_from-form.select-form
+          -#   =f.collection_select :prefecture_id, Prefecture.all, :id, :name, { prompt: "選択してください" }
         .delivery-day_area.area
           .shopping_date_title.title
             =f.label :shipping_date, '発送までの日数'

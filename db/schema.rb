@@ -41,10 +41,10 @@ ActiveRecord::Schema.define(version: 2020_07_07_080451) do
     t.string "status", null: false
     t.integer "size_id", null: false
     t.string "shipping_fee", null: false
-    t.string "shipping_date", null: false
+    t.integer "shipping_date", null: false
     t.integer "category_id", null: false
     t.integer "brand_id"
-    t.integer "user_buyer_id", null: false
+    t.integer "user_buyer_id"
     t.integer "user_seller_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

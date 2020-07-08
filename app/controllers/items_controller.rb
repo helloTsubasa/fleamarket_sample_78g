@@ -34,10 +34,10 @@ class ItemsController < ApplicationController
   # POST /items
   # POST /items.json
   def create
-    @item = Item.new(item_params)
+    @item = Item.new(item_params, user_seller_id: @current_user.id)
 
     respond_to do |format|
-      if @item.save
+      if @item.save!
         format.html { redirect_to @item, notice: 'Item was successfully created.' }
         format.json { render :show, status: :created, location: @item }
       else
@@ -89,12 +89,13 @@ class ItemsController < ApplicationController
         :text,
         :status,
         :size_id,
-        :shopping_fee,
-        :shopping_date,
+        :shipping_fee,
+        :shipping_date,
         :category_id,
         :brand_id,
         :user_buyer_id,
         :user_seller_id,
+        images_attributes: [:image, :_destroy, :id]
         )
     end
 end
