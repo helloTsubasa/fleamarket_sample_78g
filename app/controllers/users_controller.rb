@@ -19,4 +19,12 @@ class UsersController < ApplicationController
 
   def profile
   end
+
+  def card_data
+  end
+  def addrress
+  end
+
+  def mail_pass
+  end
 end
