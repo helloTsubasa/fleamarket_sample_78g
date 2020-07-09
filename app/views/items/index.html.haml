@@ -1,24 +1,5 @@
 .wrapper
-  .top-header
-    .top-header__box
-      .top-header__box__top
-        = image_tag 'logo.png', class: 'logo'
-        = form_with class: 'form' do |f|
-          = f.text_field :text, class: 'form__text', placeholder: 'キーワードから探す'
-          = f.label :image, class: 'send' do
-            = image_tag 'icon-search 1.png', class: 'form__send'
-            = f.submit 'send', class: 'hidden'
-      .top-header__box__bot
-        .top-header__box__bot__left
-          .category
-            カテゴリー
-          .brand
-            ブランド
-        .top-header__box__bot__right
-          .login
-            ログイン
-          .sign-up
-            新規会員登録
+  = render 'header'
   .top-main
     .pic
       .pic__box
@@ -29,8 +10,10 @@
           %br
           フリマアプリです
         .pic__box__btn
-          = image_tag 'Download_on_the_App_Store_Badge_JP_RGB_blk_100317.svg', class: 'pic__box__btn__appstore'
-          = image_tag 'google-play-badge.png', class: 'pic__box__btn__googleplay'
+          = link_to '#', class: "" do 
+            = image_tag 'Download_on_the_App_Store_Badge_JP_RGB_blk_100317.svg', class: 'pic__box__btn__appstore'
+          = link_to '#', class: "" do 
+            = image_tag 'google-play-badge.png', class: 'pic__box__btn__googleplay'
     .reason
       .reason__box
         .reason__box__top
@@ -41,8 +24,11 @@
               = image_tag 'pict-reason-01.jpg', class: 'reason__box__bot__left__image'
               .reason__box__bot__left__image__num
                 1
-            .reason__box__bot__left__h2
-              3分 ですぐに出品
+            .reason__box__bot__left__h2-box
+              .reason__box__bot__left__h2-box--green
+                3分
+              .reason__box__bot__left__h2-box__h2
+                ですぐに出品
             .reason__box__bot__left__p
               スマホで入力するだけで簡単に出品できる！
           .reason__box__bot__mid
@@ -50,8 +36,11 @@
               = image_tag 'pict-reason-02.jpg', class: 'reason__box__bot__mid__image'
               .reason__box__bot__mid__image__num
                 2
-            .reason__box__bot__mid__h2
-              シンプル で使いやすい
+            .reason__box__bot__mid__h2-box
+              .reason__box__bot__mid__h2-box--green
+                シンプル
+              .reason__box__bot__mid__h2-box__h2
+                で使いやすい
             .reason__box__bot__mid__p
               めんどくさい入力は必要なく、検索も購入もスムーズ！
           .reason__box__bot__right
@@ -59,8 +48,11 @@
               = image_tag 'pict-reason-03.jpg', class: 'reason__box__bot__right__image'
               .reason__box__bot__right__image__num
                 3
-            .reason__box__bot__right__h2
-              手数料 業界最安
+            .reason__box__bot__right__h2-box
+              .reason__box__bot__right__h2-box--green
+                手数料
+              .reason__box__bot__right__h2-box__h2
+                業界最安
             .reason__box__bot__right__p
               最大3%でお得に出品&購入！
     .No1
@@ -74,8 +66,10 @@
           %br
           ほしかったあの商品に出会えるかもしれません。
         .No1__box__btn
-          = image_tag 'Download_on_the_App_Store_Badge_JP_RGB_blk_100317.svg', class: 'pic__box__btn__appstore'
-          = image_tag 'google-play-badge.png', class: 'pic__box__btn__googleplay'
+          = link_to '#', class: "" do 
+            = image_tag 'Download_on_the_App_Store_Badge_JP_RGB_blk_100317.svg', class: 'pic__box__btn__appstore'
+          = link_to '#', class: "" do 
+            = image_tag 'google-play-badge.png', class: 'pic__box__btn__googleplay'
     .about
       .about__box
         .about__box__top
@@ -139,43 +133,11 @@
         .download__box__botT
           今すぐ無料ダウンロード！
         .download__box__btn
-          = image_tag 'Download_on_the_App_Store_Badge_JP_RGB_blk_100317.svg', class: 'download__box__btn__appstore'
-          = image_tag 'google-play-badge.png', class: 'download__box__btn__googleplay'
-        
-  .top-footer
-    .top-footer__box
-      .top-footer__box__left
-        .top-footer__box__left__title
-          FURIMAについて
-        .top-footer__box__left__p
-          会社概要（運営会社）
-          %br
-          プライバシーポリシー
-          %br
-          FURIMA利用規約
-          %br
-          ポイントに関する特約
-      .top-footer__box__mid
-        .top-footer__box__mid__top
-          .top-footer__box__mid__top__title
-            FURIMAを見る
-          .top-footer__box__mid__top__p
-            カテゴリー一覧
-            %br
-            ブランド一覧
-        .top-footer__box__mid__bot
-          = image_tag 'logo-white.png', class: 'top-footer__box__mid__bot__image'
-          .top-footer__box__mid__bot__at
-            © FURIMA
-      .top-footer__box__right
-        .top-footer__box__right__title
-          ヘルプ＆ガイド
-        .top-footer__box__right__p
-          FURIMAガイド
-          %br
-          FURIMAロゴ利用ガイドライン
-          %br
-          お知らせ
+          = link_to '#', class: "" do 
+            = image_tag 'Download_on_the_App_Store_Badge_JP_RGB_blk_100317.svg', class: 'download__box__btn__appstore'
+          = link_to '#', class: "" do 
+            = image_tag 'google-play-badge.png', class: 'download__box__btn__googleplay'
+    = render 'footer'
 
 -# scaffoldのコード
 
