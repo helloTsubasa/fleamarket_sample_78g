@@ -1,0 +1,25 @@
+.main__container
+  .main__container__content
+    .mypage__link
+      = link_to "#",class:"mypage__box__link" do
+        = image_tag 'member_photo_noimage_thumb.png', class:'user__image'
+        .user_nickname
+          ニックネーム
+        .mypage__number
+          .mypage__number__assessment
+            評価
+          .mypage__number__count
+            "評価数字"
+          .mypage__number__sell
+            出品数
+          .mypage__number__count
+            "出品数字"
+        
+  .mypage-tab__container__transaction
+    .mypage-tab__container__header
+      購入した商品
+    .mypage-tabs
+      = link_to "#", class: "mypage-tabs__link" do
+        .mypage-tabs__transaction 取引中
+      = link_to "#", class: "mypage-tabs__link" do
+        .mypage-tabs__transaction__old 過去の取引

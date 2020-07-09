@@ -1,0 +1,18 @@
+.default-main
+  = render "header"
+  .main
+    .main__container
+      .profile__container
+        .profile__title
+          プロフィール
+        .profile__contet
+          .setting__icon
+            .setting__icon__content
+              = image_tag "member_photo_noimage_thumb.png",class: "setting__icon__img" 
+              %input.setting__icon__nickname{:placeholder => "名前", :type => "text",:name=> "nickname"}
+          .setting__content
+            %textarea.setting__content__text{:cols => "73", :name => "kanso", :rows => "4",:placeholder => "例）こんにちは☆"}
+              挨拶文
+            %input.btn.setting__content__btn{:type => "submit", :value => "変更する"}
+    = render "side"
+  = render "footer"
