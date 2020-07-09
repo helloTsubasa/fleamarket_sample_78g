@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       get 'index'
       get 'logout'
       get 'mypage'
+      get 'profile'
     end
   end
 
