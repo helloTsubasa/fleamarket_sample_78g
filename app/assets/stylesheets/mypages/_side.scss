@@ -1,25 +1,33 @@
 .main__side__content{
-  .mypage-nav__menu{
-    width: 250px;
-    height: 100%;
+  .mypage-nav{
+    &__list{
+      width: 280px;
+      margin-right: 40px;
+      &__item{
+        font-size: 14px;
+        color: #333333;
+        text-decoration: none;
+        padding: 16px;
+        background-color: #ffffff;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #f5f5f5;
+      }
+    }
   }
 }
-
-.mypage-nav__list{
-  .mypage-nav__list__item {
-    font-size: 14px;
-    color: #333333;
-    text-decoration: none;
-    padding: 16px;
-    background-color: #ffffff;
-    width: 200px;
-    display: block;
-    margin: 1px;
-  }
-}
-
 
 // 設定部分
 .setting__menu {
   margin-top: 40px;
+}
+
+// 矢印部分のカラー指定
+.fas{
+  color: gray;
+}
+
+// カーソルを当てた時にカラー変更
+.mypage-nav__list__item:hover{
+  background-color: #b7f3f3;
 }
