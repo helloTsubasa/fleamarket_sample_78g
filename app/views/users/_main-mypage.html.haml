@@ -19,12 +19,14 @@
     .mypage-tab__container__header
       購入した商品
     .mypage-tabs
-      .mypage-tabs__transaction 取引中
-      .mypage-tabs__transaction__old 過去の取引
-    .tab-contents
-      .mypage__item__list-active
-        .mypage-item-transaction
-          取引中の商品がありません
-      .mypage__item__list
-        .mypage-item-transaction__old
-          過去に取引した商品がありません
+      = link_to "#", class: "mypage-tabs__link" do
+        .mypage-tabs__transaction 取引中
+      = link_to "#", class: "mypage-tabs__link" do
+        .mypage-tabs__transaction__old 過去の取引
+    -# .tab-contents
+    -#   .mypage__item__list-active
+    -#     .mypage-item-transaction
+    -#       取引中の商品がありません
+    -#   .mypage__item__list
+    -#     .mypage-item-transaction__old
+    -#       過去に取引した商品がありません

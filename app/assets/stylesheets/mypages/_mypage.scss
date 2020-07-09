@@ -1,6 +1,6 @@
 .main__container{
   width: 700px;
-  .main__container__content{
+  &__content{
     background-color: coral;
     font-size: 14px;
     padding: 20px;
@@ -11,7 +11,6 @@
       text-decoration: none;
       .mypage__box__link{
         .user__image{
-          // text-decoration: none;
           width: 60px;
           height: 60px;
         }
@@ -33,25 +32,40 @@
 
   .mypage-tab__container__transaction{
     background-color: rgb(233, 233, 233);
-    margin-top: 40px;
     .mypage-tab__container__header{
       background-color: #fafafafa;
       height: 72px;
       padding: 0 16px;
       line-height: 72px;
+      font-weight: bold;
     }
     .mypage-tabs{
-      display: flex;
       height: 72px;
       line-height: 72px;
       text-align: center;
-      .mypage-tabs__transaction{
-        border: inset lightgrey 2px;
-        width: 350px;
+      position: relative;
+      &__link{
+        text-decoration: none;
+        font-weight: bold;
+        color: black;
       }
-      .mypage-tabs__transaction__old{
-        width: 350px;
-        border: inset lightgrey 2px;
+      &__transaction{
+        width: 50%;
+        position: absolute;
+        left: 0px;
+      }
+      &__transaction:hover{
+        background-color: white;
+        color: #3ccace;
+      }
+      &__transaction__old{
+        width: 50%;
+        position: absolute;
+        right: 0;
+      }
+      &__transaction__old:hover{
+        background-color: white;
+        color: #3ccace;
       }
     }
     .tab-contents{
