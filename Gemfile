@@ -71,6 +71,7 @@ gem 'carrierwave'
 gem 'mini_magick'	
 gem 'jquery-rails'
 gem 'fog-aws'
+gem 'ancestry'
 
 group :production do
   gem 'unicorn'
