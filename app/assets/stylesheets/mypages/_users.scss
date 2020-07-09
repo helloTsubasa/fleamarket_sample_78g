@@ -18,36 +18,3 @@
     }
   }
 }
-
-
-
-// ログアウト画面
-.main__container{
-  .logout__container{
-    background-color: #ffffff;
-    .logout__content{
-      padding: 64px;
-      .setting__container{
-        text-align: center;
-        background-color: #3CCACE;
-        display: block;
-        .submit__btn--blue{
-
-          width: 320px;
-          background-color: #3CCACE;
-        }
-      }
-    }
-  }
-}
-// ・mainとsideの左右の入れ替え    →OK
-// ・side部分が大きい
-// ・payjp調べて導入→岸さんがやるらしい？
-//  クレカ登録用のビュー。先にpayjp見てからQiitaに入力フォームの記載あり
-// ・ログアウト機能調べて実装
-//  →devise入れて良い？→良いなら自分で入れてみる→別府さん
-//  ログアウト用のhtml
-// ・FURIMAでビューへの遷移が出来ん→岸さんがやってくれた
-// ・リンク(side)を踏んでそれぞれの内容に
-//   遷移するには？→ロジックをきく→OK
-// mypageの  background-color: #f5f5f5;の全画面適用が出来ない
