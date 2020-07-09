@@ -1,7 +1,9 @@
- @import "font-awesome-sprockets";
- @import "font-awesome";
- @import "items";
- @import "modules/users";
- @import "modules/orders";
- @import "modules/login";
+@import "reset";
+@import "items";
+@import "mypages/*";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "modules/users";
+@import "modules/orders";
+@import "modules/login";
  
