@@ -16,4 +16,7 @@ class UsersController < ApplicationController
   
   def destroy
   end
+
+  def profile
+  end
 end

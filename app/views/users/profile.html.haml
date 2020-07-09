@@ -1,0 +1,19 @@
+.main__container
+  .profile__container
+    .profile__title
+      プロフィール
+    .profile__contet
+      .setting__icon
+        .setting__icon__content
+          = image_tag "member_photo_noimage_thumb.png",class: "setting__icon__img" 
+          .setting__icon__nickname
+            神保
+      .setting__content
+        -# %text_field.setting__content__text{:placeholder => テキストエリアがうまくいかない} 
+          ここに紹介文
+        %input.setting__content__text{:name => "text", :placeholder => "テキストエリアがうまくいかない", :type => "number"}
+        %input.btn.setting__content__btn{:type => "submit", :value => "変更する"}
+        
+        7/9
+        profile page~start
+        
