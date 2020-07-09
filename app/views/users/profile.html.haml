@@ -6,14 +6,10 @@
       .setting__icon
         .setting__icon__content
           = image_tag "member_photo_noimage_thumb.png",class: "setting__icon__img" 
-          .setting__icon__nickname
-            神保
+          %input.setting__icon__nickname{:placeholder => "名前", :type => "text",:name=> "nickname"}
+          
       .setting__content
-        -# %text_field.setting__content__text{:placeholder => テキストエリアがうまくいかない} 
-          ここに紹介文
-        %input.setting__content__text{:name => "text", :placeholder => "テキストエリアがうまくいかない", :type => "number"}
+          
+        %textarea#(name="message" cols="30" rows="10" class="setting__content__text")
+        /{:class=>"setting__content__text" :name => "text", :placeholder => "例）こんにちは☆", :type => "text"}
         %input.btn.setting__content__btn{:type => "submit", :value => "変更する"}
-        
-        7/9
-        profile page~start
-        
