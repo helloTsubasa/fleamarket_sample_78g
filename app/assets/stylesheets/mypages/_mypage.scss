@@ -1,0 +1,94 @@
+.main__container{
+  width: 700px;
+  &__content{
+    background-color: coral;
+    font-size: 14px;
+    padding: 20px;
+    background-image: url(background-image.jpg);
+    .mypage__link{
+      height: 200px;
+      text-align: center;
+      text-decoration: none;
+      .mypage__box__link{
+        .user__image{
+          width: 60px;
+          height: 60px;
+        }
+        .user_nickname{
+          margin: top 8px;
+          text-decoration: none;
+        }
+        .mypage__number{
+          margin-top: 8px;
+          display: flex;
+          justify-content: center;
+          .mypage__number__sell{
+            margin-left: 16px;
+          }
+        }
+      }
+    }
+  }
+
+  .mypage-tab__container__transaction{
+    background-color: rgb(233, 233, 233);
+    .mypage-tab__container__header{
+      background-color: #fafafafa;
+      height: 72px;
+      padding: 0 16px;
+      line-height: 72px;
+      font-weight: bold;
+    }
+    .mypage-tabs{
+      height: 72px;
+      line-height: 72px;
+      text-align: center;
+      position: relative;
+      &__link{
+        text-decoration: none;
+        font-weight: bold;
+        color: black;
+      }
+      &__transaction{
+        width: 50%;
+        position: absolute;
+        left: 0px;
+      }
+      &__transaction:hover{
+        background-color: white;
+        color: #3ccace;
+      }
+      &__transaction__old{
+        width: 50%;
+        position: absolute;
+        right: 0;
+      }
+      &__transaction__old:hover{
+        background-color: white;
+        color: #3ccace;
+      }
+    }
+    .tab-contents{
+      .mypage__item__list-active{
+        padding: 16px;
+        .mypage-item-transaction{
+          height: 236px;
+          padding: 160px 0 60px;
+          color: #cccccc;
+          text-align: center;
+          background-color: #ffffff;
+        }
+      }
+      .mypage__item__list{
+        padding: 16px;
+        .mypage-item-transaction__old{
+          height: 236px;
+          padding: 160px 0 60px;
+          color: #cccccc;
+          text-align: center;
+          background-color: #ffffff;
+        }
+      }
+    }
+  }
+}

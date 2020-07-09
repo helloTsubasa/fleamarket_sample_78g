@@ -9,5 +9,19 @@ Rails.application.routes.draw do
   root to:'items#index'
   resources :brands
   resources :items
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  
+  resources :users, only:[:index, :destroy] do
+    collection do
+      get 'card_data'
+      get 'card_register'
+      get 'index'
+      get 'logout'
+      get 'mypage'
+      get 'profile'
+      get 'address'
+      get 'mail_pass'
+      get 'personal_data'
+    end
+  end
+
 end

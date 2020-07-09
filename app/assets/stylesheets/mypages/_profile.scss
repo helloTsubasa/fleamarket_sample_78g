@@ -1,0 +1,60 @@
+.main__container{
+  .profile__container{
+    widows: 700px;
+    .profile__title{
+      padding: 8px 24px;
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+    }
+    .profile__contet{
+      max-width: 700px;
+      width: 700px;
+      .setting__icon{
+        padding: 72px 16px 24px;
+        height: 48px;
+        background-image: url(background-image.jpg);
+        .setting__icon__content{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+          .setting__icon__img{
+            width: 60px;
+            height: 60px;
+            background-color: green($color: #000000);
+          }
+          .setting__icon__nickname{
+            width: 220px;
+            height: 24px;
+            background-color: #ffffff;
+            margin-left: 8px;
+            padding: 10px 16px 8px;
+            vertical-align: middle;
+            border: none;
+          }
+        }
+      }
+      
+      .setting__content{
+        padding: 40px 16px;
+        padding: 10px;
+        height: 362px;
+
+        .setting__content__text{
+          height: 216px;
+          
+        }
+        .setting__content__btn{
+          background-color: #3cace3;
+          margin-top: 16px;
+          width: 680px;
+          text-decoration: none;
+          border-radius: 5px;
+          border: none;
+          height: 40px;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

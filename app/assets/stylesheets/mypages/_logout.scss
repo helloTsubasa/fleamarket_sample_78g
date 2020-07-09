@@ -1,0 +1,32 @@
+// ログアウト画面
+
+.main__container{
+  .logout__container{
+    .logout__content{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 700px;
+      height: 180px;
+      background-color: #ffffff;
+      margin: 0 auto;
+      .setting__container{
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        &__btn--blue{
+          max-width: 320px;
+          width: 80%;
+          background-color: #3CCACE;
+          border-radius: 4px;
+          line-height: 48px;
+          font-size: 14px;
+          color: white;
+          border-style: none;
+          text-decoration: none;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
