@@ -4,7 +4,7 @@ $(document).on('turbolinks:load', ()=>{
                     <input class="image_form" type=file
                     name="item[images_attributes][${index}][image]"
                     id="item_images_attributes_${index}_image">
-                    <div class="image_remove">削除</div>
+                    <span class="image_remove">削除</span>
                   </div>`;
     return html;
   }
@@ -19,6 +19,7 @@ $(document).on('turbolinks:load', ()=>{
 
   $('.image_box').on('change', '.image_form', function(e){
     const targetIndex = $(this).parent().data('index');
+    console.log($(this).parent());
     const file = e.target.files[0];
     const blobUrl = window.URL.createObjectURL(file);
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
@@ -27,7 +28,7 @@ $(document).on('turbolinks:load', ()=>{
       $('#previews').append(buildImg(targetIndex, blobUrl));
       $('.image_box').append(buildFileField(fileIndex[0]));
       fileIndex.shift();
-      fileIndex.push(fileIndex[fileIndex.length - 1] + 1)
+      fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
     }
   });
   $('.image_box').on('click', '.image_remove', function() {

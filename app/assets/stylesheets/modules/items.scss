@@ -47,7 +47,7 @@
     }
     .style-need {
       color: #ffffff;
-      background-color: #ff0211;
+      background-color: #EA352D;
       padding: 2px;
       font-size: 11px;
       border-radius: 3px;
@@ -62,25 +62,21 @@
       margin-left: 5px;
     }
   }
-  .image_area {
-    .image_box{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      .form_area {
-        height: 150px;
-        width: 620px;
-        background-color: #f5f5f5;
-        border: 1px dashed rgb(204, 204, 204);
-        p {
-          text-align: center;
-        }
-      }
-      .image_form {
-        display: none;
-      }
-    }
-  }
+  // .image_area {
+    
+      
+  //     .form_area {
+  //       height: 150px;
+  //       width: 620px;
+  //       background-color: #f5f5f5;
+  //       border: 1px dashed rgb(204, 204, 204);
+  //       p {
+  //         text-align: center;
+  //       }
+  //     }
+      
+    
+  // }
   .item-info {
     width: 620px;
     .name_area {
@@ -110,16 +106,27 @@
       padding: 40px 40px 0;
       .price_area {
         width: 620px;
+        display: flex;
+        justify-content: space-between;
         .price_form {
           height: 46px;
-          width: calc(100% - 10px);
+          width: 285px;
           padding: 0 0px 0 10px;
           border-radius: 5px;
           border: 0.3px solid ;
           font-size: 16px;
         }
       }
-      
+      .item_price-fee {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+      .item_profit {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
     }
   .submit-frame {
     height: 164px;
@@ -128,12 +135,22 @@
     .submit-btn {
       height: 48px;
       width: 360px;
-      background-color: #EA352D;
+      background-color: #3ccace;
       color: #ffffff;
       font-size: 17px;
       padding: 0 24px;
       margin: 0 auto;
       border: none;
+    }
+    .back_home {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+      a {
+        text-decoration: none;
+        color: black;
+      }
     }
   } 
   

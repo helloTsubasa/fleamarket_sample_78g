@@ -11,7 +11,6 @@ function appendChildrenBox(insertHTML) {
        <option value="" data-category="" >選択してください</option>
        ${insertHTML}
       </select>`;
-    //  <i class = "fa a-chevron-down"></i>
   $('#children-category').append(childSelectHtml);
 }
 
@@ -22,12 +21,10 @@ function appendGrandchildrenBox(insertHTML) {
        <option value="" data-category="" >選択してください</option>
        ${insertHTML}
       </select>`;
-    //  <i class = "fa fa-chevron-down"></i>`
   $('#grandchildren-category').append(grandchildSelectHtml);
 }
 
 $(document).on("change","#parent-category", function() {
-  //選択された親カテゴリーの名前取得 → コントローラーに送る
   let parentCategory =  $("#parent-form").val();
   if (parentCategory != "") {
     $.ajax( {
@@ -39,7 +36,6 @@ $(document).on("change","#parent-category", function() {
       dataType: 'json'
     })
     .done(function(children) {
-      //親カテゴリーが変更されたら、子/孫カテゴリー、サイズを削除し、初期値にする
       $("#children-category").empty();
       $("#grandchildren-category").empty();
       $('.size_area').val('');
@@ -61,14 +57,15 @@ $(document).on("change","#parent-category", function() {
   }
 });
 
-//子カテゴリー選択によるイベント発火
 $(document).on('change', '#children-form', function() {
   let childId = $('#children-form option:selected').data('category');
   if (childId != ""){
     $.ajax({
       url: 'get_category_grandchildren',
       type: 'GET',
-      data: { child_id: childId },
+      data: {
+         child_id: childId 
+        },
       datatype: 'json'
     })
     .done(function(grandchildren) {
