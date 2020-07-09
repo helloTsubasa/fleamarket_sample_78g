@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       get 'profile'
       get 'address'
       get 'mail_pass'
+      get 'personal_data'
     end
   end
 

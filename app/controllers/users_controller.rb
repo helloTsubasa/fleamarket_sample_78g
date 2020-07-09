@@ -27,4 +27,7 @@ class UsersController < ApplicationController
   
   def mail_passward
   end
+
+  def personal_data
+  end
 end
