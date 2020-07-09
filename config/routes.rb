@@ -12,6 +12,8 @@ Rails.application.routes.draw do
       get 'logout'
       get 'mypage'
       get 'profile'
+      get 'address'
+      get 'mail_pass'
     end
   end
 
