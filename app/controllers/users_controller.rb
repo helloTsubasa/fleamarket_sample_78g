@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   end
   def addrress
   end
-
-  def mail_pass
+  
+  def mail_passward
   end
 end
