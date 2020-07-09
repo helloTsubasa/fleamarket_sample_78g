@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-  
   has_many :items,  dependent: :destroy
   has_one  :order,  dependent: :destroy
 
@@ -14,5 +13,5 @@ class User < ApplicationRecord
   validates :family_name_kana, presence: true
   validates :first_name_kana, presence: true
   validates :birth_day, presence: true
-
+  has_one :order
 end
