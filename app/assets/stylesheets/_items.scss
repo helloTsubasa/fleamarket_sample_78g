@@ -28,17 +28,19 @@
         align-items: center;
         &__text {
           height: 40px;
-          width: 810px;
-          border: 1px solid #000;
+          width: calc(100% - 40px);
+          border: 1px solid #999;
+          padding: 10px;
         }
-        &__send {
+        &__btn {
           height: 40px;
           width: 40px;
-          margin-top: 5px;
           background-color: #2BCCD1;
+          border: 1px solid #999;
         }
-        .hidden {
-          display: none;
+        &__send {
+          height: 25px;
+          width: 25px;
         }
       }
     }
