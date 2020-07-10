@@ -1,6 +1,5 @@
 .top-header {
   height: 100px;
-  // background-color: red;
   display: flex;
   justify-content: center;
   list-style: none;
@@ -9,10 +8,8 @@
     max-width: 1040px;
     width: 100%;
     padding: 10px;
-    // background-color: rgb(134, 255, 161);
     &__top {
       height: 40px;
-      // background-color: rgb(129, 75, 255);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -44,12 +41,10 @@
     }
     &__bot {
       height: 40px;
-      // background-color: rgb(177, 172, 255);
       display: flex;
       &__left {
         height: 40px;
         width: 100%;
-        // background-color: rgb(74, 255, 134);
         display: flex;
         justify-content: flex-start;
         align-items: center;
@@ -57,31 +52,26 @@
           height: 20px;
           width: 100px;
           margin-right: 10px;
-          // background-color: rgb(221, 74, 250);
         }
         .brand {
           height: 20px;
           width: 100px;
-          // background-color: rgb(225, 0, 255);
         }
       }
       &__right {
         height: 40px;
-        width: 100%;
-        // background-color: rgb(229, 245, 82);
+        width: 100%;;
         display: flex;
         justify-content: flex-end;
         align-items: center;
         .login {
           height: 20px;
           width: 100px;
-          // background-color: #fff;
         }
         .sign-up {
           height: 20px;
           width: 100px;
           margin-left: 10px;
-          // background-color: rgb(180, 180, 180);
         }
       }
     }
