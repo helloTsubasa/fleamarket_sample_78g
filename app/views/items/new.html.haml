@@ -1,5 +1,96 @@
-%h1 New item
+.new_item
+  .new_item_header
+    =link_to image_tag("logo.png"), "#"
+  .new_item_main
+    =form_with model: @item, local: true do |f|
+      .frame
+        .area
+          .title
+            =f.label :image, '出品画像'
+            %span.style_need 必須
+          .image_box
+            #previews
+              -if @item.persisted?
+                -@item.images.each_with_index do |i, src|
+                  = image_tag i.image.url, {data: { index: src }}, width: "100", height: '100'
+            =f.fields_for :images do |i|
+              .image_file{data:{index: i.index}}
+                =i.file_field :image, class: "image_form"
+                %span.image_remove 削除 
+              -if @item.persisted?
+                = image.check_box :_destroy, {data:{ index: i.index }}, class: 'hidden-destroy' 
+            -if @item.persisted?
+              .image_file{data:{index: @item.images.count}}
+                =file_field_tag :image, name: "item[images_attributes][#{@item.images.count}][image]"
+                .image_remove 削除            
+      .frame
+        .item_info
+          .area.name_area
+            .title
+              =f.label :name, '商品名'
+              %span.style_need 必須
+            =f.text_field :name, class: 'name_form', placeholder: "40字まで"
+          .description_area.area
+            .description_title.title
+              =f.label :description, '商品説明'
+              %span.style_need 必須
+            =f.text_area :text, class: "description_form", placeholder: "色・素材・重さ・定価・注意点などを記載しましょう（1000文字まで）例:先月に5,400円で購入したセーターです。着用回数は5回未満です。素材はカシミヤなので着心地がいいです。" 
+      .frame
+        .item_data
+          .area#category_area
+            .category_title.title
+              =f.label :category, 'カテゴリー'
+              %span.style_need 必須
+            .select_form#parent-category
+              =f.select :category_id, options_for_select( @category_parent_array.map{|c| [c[:name], c[:id]]}), {include_blank: "選択してください"}, { class: "category_form", id: "parent-form"}
+            .select_form#children-category
+            .select_form#grandchildren-category
+          -# .area#size_area
+          -#   .size_title.title
+          -#     =f.label :size_id, 'サイズ'
+          -#     %span.style_need 必須
+          -#   .select_form#size-form
+          -#     =f.select :size_id, [["選択してください",""],["XXS以下",1],["XS",2],["S",3],["M",4],["L",5],["XL",6],["XXL",7]]
+          -# .brand_area.area
+          -#   .brand_title.title
+          -#     =f.label :brand, 'ブランド'
+          -#     %span.style_any 任意
+          -#   .brand-form.select_form
+          -#     =f.collection_select :brand_id, Brand.all, :id,:name, {include_blank: "選択してください"}
+          .status_area.area
+            .status_title.title
+              =f.label :status, '商品の状態'
+              %span.style_need 必須
+            .status-form.select_form
+              =f.select :status, [["選択してください",""],["新品、未使用","新品、未使用"],["未使用に近い","未使用に近い"],["目立った傷や汚れなし","目立った傷や汚れなし"],["やや傷や汚れあり","やや傷や汚れあり"],["傷や汚れあり","傷や汚れあり"],["全体的に状態が悪い","全体的に状態が悪い"]]
+      .frame
+        .delivery-fee_area.area
+          .shopping_fee_title.title
+            =f.label :shipping_fee, '配送料の負担'
+            %span.style_need 必須
+          .delivery_fee-form.select_form
+            =f.select :shipping_fee, [["選択してください",""],["送料込み(出品者負担)","送料込み(出品者負担)"],["着払い(購入者負担)","着払い(購入者負担)"]]
+        .delivery-day_area.area
+          .shopping_date_title.title
+            =f.label :shipping_date, '発送までの日数'
+            %span.style_need 必須
+          .delivery_day-form.select_form
+            =f.select :shipping_date, [["選択してください","0"],["1日〜2日","1日〜2日"],["3日〜4日","3日〜4日"],["5日〜6日","5日〜6日"],["7日以降","7日以降"]]
+      .price_frame
+        .price_area.area
+          .price_title.title
+            =f.label :price, '販売価格'
+            %space.style_need 必須
+          =f.number_field :price, class: 'price_form', placeholder: "¥300 ~ 9,999,999"
+        .item_price-fee
+          %p 販売手数料(10%)
+          .right_bar
 
-= render 'form'
-
-= link_to 'Back', items_path
+        .item_profit
+          %p 販売利益
+          %input{type: "number", style: "display: none", id: "price"}
+          .right_bar_2
+      .submit_frame
+        =f.submit '投稿する',class: 'submit_btn'
+        .back_home
+          =link_to "もどる", "#"
