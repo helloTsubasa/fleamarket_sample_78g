@@ -1,28 +1,34 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_category, only: [:new, :edit, :create, :update, :destroy]
 
-  # GET /items
-  # GET /items.json
   def index
     @items = Item.all
   end
 
-  # GET /items/1
-  # GET /items/1.json
+
   def show
   end
 
-  # GET /items/new
+ 
   def new
     @item = Item.new
+    @item.images.new
   end
 
-  # GET /items/1/edit
+  def get_category_children
+    @category_children = Category.find(params[:parent_name]).children
+  end
+
+  def get_category_grandchildren
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
+  end
+
+  
   def edit
   end
 
-  # POST /items
-  # POST /items.json
+
   def create
     @item = Item.new(item_params)
 
@@ -37,8 +43,7 @@ class ItemsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /items/1
-  # PATCH/PUT /items/1.json
+
   def update
     respond_to do |format|
       if @item.update(item_params)
@@ -51,8 +56,7 @@ class ItemsController < ApplicationController
     end
   end
 
-  # DELETE /items/1
-  # DELETE /items/1.json
+
   def destroy
     if @item.user == current_user
       if @item.destroy
@@ -69,13 +73,28 @@ class ItemsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_item
       @item = Item.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
+    def set_category  
+      @category_parent_array = Category.where(ancestry: nil)
+    end
+  
     def item_params
-      params.require(:item).permit(:name, :price, :text, :status, :size, :shipping_fee, :shipping_date, :user_id, :category_id, :brand_id)
+      params.require(:item).permit(
+        :name,
+        :price,
+        :text,
+        :status,
+        :size_id,
+        :shipping_fee,
+        :shipping_date,
+        :category_id,
+        :brand_id,
+        :user_buyer_id,
+        :user_seller_id,
+        images_attributes: [:image, :_destroy, :id]
+        )
     end
 end
