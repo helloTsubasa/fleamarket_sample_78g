@@ -35,3 +35,4 @@
 yarn-debug.log*
 .yarn-integrity
 public/uploads/*
+db/migrate/20200703053958_create_categories.rb
