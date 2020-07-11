@@ -25,9 +25,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
     @user.build_order(@order.attributes)
     if @user.save
-      puts "登録に成功しました"
+      redirect_to root_path, notice: '登録完了'
     else
-      puts "登録に失敗しました"
+      render :new_order
     end
     
     session["devise.regist_data"]["user"].clear
