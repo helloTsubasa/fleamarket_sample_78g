@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users
-  root 'items#index'
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
+  devise_scope :user do
+    get 'orders', to: 'users/registrations#new_order'
+    post 'orders', to: 'users/registrations#create_order'
+  end
+  root to:'items#index'
   resources :brands
   resources :items do
     collection do
