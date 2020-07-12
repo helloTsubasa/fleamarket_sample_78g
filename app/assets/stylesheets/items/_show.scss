@@ -1,0 +1,199 @@
+.main{
+  .show__main{
+    margin: 0 auto;
+    padding: 40px;
+    width: 700px;
+
+    .itemsBox{
+
+      .ItemsInfo{
+        background-color: #ffffff;
+        padding: 24px 40px 40px;
+        
+        &__name{
+          width: 620px;
+          font-size: 24px;
+          font-weight: bold;
+          text-align: center;
+        }
+
+        &__image{
+          background-color: #ffffff;
+          margin-top: 10px;
+
+          &__MainBox{
+            display: flex;
+            justify-content: center;
+            width: 560px;
+            height: 346px;
+            margin: 0 auto;
+            object-fit: cover;
+          }
+
+          &__SubBox{
+            width: 560px;
+            height: 87px;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+
+            &__image{
+              width: 25%;
+              object-fit: cover;
+              margin-right: 10px;
+            }
+          }
+        }
+
+        &__price{
+          margin: 24px 0 24px;
+          text-align: center;
+
+          &__box{
+            font-size: 46px;
+            font-weight: bold;
+          }
+
+          &__tax{
+            font-size: 16px;
+          }
+        }
+
+        &__text{
+          font-size: 18px;
+          margin: 0 0 30px 8px;
+          line-height: 1.5;
+          
+        }
+
+        &__status{
+          margin-bottom: 20px;
+          tr{
+            border-color: #dedede;
+            th{
+              background-color: #eeeeee;
+              width: 20%;
+              font-size: 14px;
+              padding: 8px;
+              font-weight: 400;
+            }
+            td{
+              padding: 8px;
+            }
+          }
+        }
+        //   追加機能分
+        // .ItemsInfo__option{
+        //   .ItemsInfo__option__favorite{
+        //   }
+        //   .ItemsInfo__option__warning{
+        //   }
+        // }
+      }
+      .ItemsComment{
+        background-color:#ffffff;
+        padding: 24px;
+        margin: 10px 0;
+        text-align: center;
+        font-size: 14px;
+
+        &__box{
+          width: 100%;
+          min-height: 104px;
+        }
+        
+        &__msg{
+          background-color: #f8f8f8;
+          page-break-after: 8px;
+          margin: 10px 0;
+          text-align: left
+        }
+        &__btn{
+          line-height: 48px;
+          background-color: #3ccace;
+          border: solid 1px #3ccace;
+          color: #ffffff;
+          width: 60%;
+          font-size: 18px;
+          border-radius: 100px;
+        }
+        
+      }
+
+      .ItemsLinks{
+        display: flex;
+        justify-content: space-between;
+        background-color: #f5f5f5;
+
+        &__before{
+          text-decoration: none;
+          color: #3ccace;
+        }
+        &__after{
+          text-decoration: none;
+          color: #3ccace;
+        
+        }
+      }
+      .ItemsRelated{
+        background-color: #f5f5f5;
+
+        &__category{
+          margin: 24px 0 8px;
+          color: #3ccace;
+          font-size: 22px;
+          text-decoration: none;
+          font-weight: bold;
+        }
+        &__lists{
+          display: flex;
+          align-items: center;
+          width: 100%;
+          background-color: #f5f5f5;
+
+          &__list{
+            font-size: 16px;
+            background-color: #f5f5f5;
+            width: calc(100%/3);
+
+            .items__image{
+              background-color: #ffffff;
+              object-fit: cover;
+              text-decoration: none;
+
+              &__listBox{
+                padding: 16px;
+                text-decoration: none;
+                color: black;
+
+                &__name{
+                  text-decoration: none;
+                  background-color: #ffffff;
+                }
+
+                &__content{
+                  text-decoration: none;
+
+                  &__price{
+                    font-size: 16px;
+                    line-height: 1.5;
+                    font-weight: normal;
+                    background-color: #ffffff;
+                    text-decoration: none;
+                  }
+
+                  &__tax{
+                    font-size: 10px;
+                    text-align: left;
+                    background-color: #ffffff;
+                    text-decoration: none;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,36 +1,94 @@
-%p#notice= notice
+.default-main
+  = render "header"
+  .main
+    .show__main
+      .itemsBox
+        .ItemsInfo
+          .ItemsInfo__name
+            = @item.name
+          .ItemsInfo__image
+            =image_tag "test_items_image.png",class:"ItemsInfo__image__MainBox"
+            .SubBox
+              =image_tag "test_items_image.png",class:"ItemsInfo__image__SubBox__image"
+              =image_tag "test_items_image.png",class:"ItemsInfo__image__SubBox__image"
+          .ItemsInfo__price
+            .ItemsInfo__price__box
+              ¥
+              = @item.price
+            .ItemsInfo__price__tax
+              (税込)送料込み
+          .ItemsInfo__text
+            = @item.text
+          .ItemsInfo__status
+            %table{:border => "1", :bordercolor => "#333333", :cellpadding => "5", :cellspacing => "0"}
+              .ItemsInfo__status__buyers
+                %tr
+                  %th 出品者
+                  %td aaaaa
+              .ItemsInfo__status__Category
+                %tr
+                  %th カテゴリー
+                  %td= @item.category
+              .ItemsInfo__status__brand
+                %tr
+                  %th ブランド
+                  %td= @item.brand
+              .ItemsInfo__status__size
+                %tr
+                  %th 商品のサイズ
+                  %td= @item.size
+              .ItemsInfo__status__status
+                %tr
+                  %th 商品の状態
+                  %td= @item.status
+              .ItemsInfo__status__postage
+                %tr
+                  %th 配送料の負担
+                  %td= @item.shipping_fee
+                  
+              .ItemsInfo__status__delivery
+                %tr
+                  %th 配送地域
+                  %td aaaaa
+              .ItemsInfo__status__estimatedShipping
+                %tr
+                  %th 発送日の目安
+                  %td= @item.shipping_date
+          -# 追加実装分
+          -# .ItemsInfo__option
+          -#   .ItemsInfo__option__favorite
+          -#     c1お気に入り
+          -#   .ItemsInfo__option__warning
+          -#     不適切な商品の通報
+        .ItemsComment
+          %textarea.itemsComment__box{:cols => "60", :name => "comment", :rows => "5"}
+          .itemsComment__msg
+            相手のことを考え丁寧なコメントを心がけましょう。
+            %br
+            不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          %button{name:"buttun", type: "submit", class: "itemsComment__btn"}
+            コメントする
 
-%p
-  %b Name:
-  = @item.name
-%p
-  %b Price:
-  = @item.price
-%p
-  %b Text:
-  = @item.text
-%p
-  %b Status:
-  = @item.status
-%p
-  %b Size:
-  = @item.size
-%p
-  %b Shipping fee:
-  = @item.shipping_fee
-%p
-  %b Shipping date:
-  = @item.shipping_date
-%p
-  %b User:
-  = @item.user
-%p
-  %b Category:
-  = @item.category
-%p
-  %b Brand:
-  = @item.brand
+        .itemsLinks
+          =link_to"#",class: "itemsLinks__before" do
+            < 前の商品
+          =link_to"#",class: "itemsLinks__after" do
+            後ろの商品 >
 
-= link_to 'Edit', edit_item_path(@item)
-\|
-= link_to 'Back', items_path
+        .ItemsRelated
+          =link_to"#", class:"itemsRelated__category" do
+            (カテゴリー名)をもっと見る
+          .itemsRelated__lists
+            =link_to"#",class:"itemsRelated__lists__list" do
+              .items__image
+                =image_tag "test_items_image.png",class:"list__image1"
+                .items__image__listBox
+                  .listBox__name
+                    商品名listBox__name
+                  .listBox__content
+                    .content__price
+                      金額content__price
+                    .content__tax
+                      (税込み)
+           
+  = render "footer"
