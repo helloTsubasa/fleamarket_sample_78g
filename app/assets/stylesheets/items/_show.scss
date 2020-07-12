@@ -10,18 +10,18 @@
         background-color: #ffffff;
         padding: 24px 40px 40px;
         
-        .ItemsInfo__name{
+        &__name{
           width: 620px;
           font-size: 24px;
           font-weight: bold;
           text-align: center;
         }
 
-        .ItemsInfo__image{
+        &__image{
           background-color: #ffffff;
           margin-top: 10px;
 
-          .main-box{
+          &__MainBox{
             display: flex;
             justify-content: center;
             width: 560px;
@@ -30,14 +30,14 @@
             object-fit: cover;
           }
 
-          .sub-box{
+          &__SubBox{
             width: 560px;
             height: 87px;
             display: flex;
             justify-content: center;
             margin-top: 10px;
 
-            .sub-box__image{
+            &__image{
               width: 25%;
               object-fit: cover;
               margin-right: 10px;
@@ -45,28 +45,28 @@
           }
         }
 
-        .ItemsInfo__price{
+        &__price{
           margin: 24px 0 24px;
           text-align: center;
 
-          .ItemsInfo__price__box{
+          &__box{
             font-size: 46px;
             font-weight: bold;
           }
 
-          .ItemsInfo__price__tax{
+          &__tax{
             font-size: 16px;
           }
         }
 
-        .ItemsInfo__title2{
+        &__text{
           font-size: 18px;
           margin: 0 0 30px 8px;
           line-height: 1.5;
           
         }
 
-        .ItemsInfo__status{
+        &__status{
           margin-bottom: 20px;
           tr{
             border-color: #dedede;
@@ -90,23 +90,25 @@
         //   }
         // }
       }
-      .itemsComment{
+      .ItemsComment{
         background-color:#ffffff;
         padding: 24px;
         margin: 10px 0;
         text-align: center;
         font-size: 14px;
-        .comment__box{
+
+        &__box{
           width: 100%;
           min-height: 104px;
         }
-        .comment__msg{
+        
+        &__msg{
           background-color: #f8f8f8;
           page-break-after: 8px;
           margin: 10px 0;
           text-align: left
         }
-        .comment__btn{
+        &__btn{
           line-height: 48px;
           background-color: #3ccace;
           border: solid 1px #3ccace;
@@ -118,61 +120,69 @@
         
       }
 
-      .itemsLinks{
+      .ItemsLinks{
         display: flex;
         justify-content: space-between;
         background-color: #f5f5f5;
-        .itemsLinks__before{
+
+        &__before{
           text-decoration: none;
-        color: #3ccace;
+          color: #3ccace;
         }
-        .itemsLinks__after{
+        &__after{
           text-decoration: none;
           color: #3ccace;
         
         }
       }
-      .itemsRelated{
+      .ItemsRelated{
         background-color: #f5f5f5;
-        .itemsRelated__category{
 
+        &__category{
           margin: 24px 0 8px;
           color: #3ccace;
           font-size: 22px;
           text-decoration: none;
           font-weight: bold;
         }
-        .itemsRelated__lists{
+        &__lists{
           display: flex;
           align-items: center;
           width: 100%;
           background-color: #f5f5f5;
-          .itemsRelated__lists__list{
+
+          &__list{
             font-size: 16px;
             background-color: #f5f5f5;
             width: calc(100%/3);
+
             .items__image{
               background-color: #ffffff;
               object-fit: cover;
               text-decoration: none;
-              .listBox{
+
+              &__listBox{
                 padding: 16px;
                 text-decoration: none;
                 color: black;
-                .listBox__name{
+
+                &__name{
                   text-decoration: none;
                   background-color: #ffffff;
                 }
-                .listBox__content{
+
+                &__content{
                   text-decoration: none;
-                  .content__price{
+
+                  &__price{
                     font-size: 16px;
                     line-height: 1.5;
                     font-weight: normal;
                     background-color: #ffffff;
                     text-decoration: none;
                   }
-                  .content__tax{
+
+                  &__tax{
                     font-size: 10px;
                     text-align: left;
                     background-color: #ffffff;
