@@ -1,5 +1,5 @@
 .default-main
-  = render "header"
+  = render "items/header"
   .main
     .main__container
       .card__content
@@ -72,4 +72,4 @@
               = link_to logout_users_path, class: "mypage-nav__list__item" do
                 %p ログアウト
                 %i.fas.fa-chevron-right.fa-lg
-  = render "footer"
+  = render "items/footer"

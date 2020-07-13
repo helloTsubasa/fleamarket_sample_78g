@@ -5,9 +5,8 @@
         = image_tag 'logo.png', class: 'logo'
       = form_with class: 'form' do |f|
         = f.text_field :text, class: 'form__text', placeholder: 'キーワードから探す'
-        = f.label :image, class: 'send' do
+        = button_tag type: 'submit', class: 'form__btn' do
           = image_tag 'icon-search 1.png', class: 'form__send'
-          = f.submit 'send', class: 'hidden'
     .top-header__box__bot
       .top-header__box__bot__left
         .category
@@ -18,8 +17,8 @@
             ブランド
       .top-header__box__bot__right
         .login
-          = link_to '#', class: "" do 
+          = link_to new_user_session_path, class: "" do 
             ログイン
         .sign-up
-          = link_to '#', class: "" do 
+          = link_to new_user_registration_path, class: "" do 
             新規会員登録 
