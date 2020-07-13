@@ -24,11 +24,11 @@
               .ItemsInfo__status__buyers
                 %tr
                   %th 出品者
-                  %td aaaaa
+                  %td= @seller.nickname
               .ItemsInfo__status__Category
                 %tr
                   %th カテゴリー
-                  = @item.category_id
+                  %td= @category.name
               -# .ItemsInfo__status__brand
               -#   %tr
               -#     %th ブランド
@@ -49,7 +49,7 @@
               .ItemsInfo__status__delivery
                 %tr
                   %th 配送地域
-                  %td aaaaa
+                  %td= @order.prefecuture
               .ItemsInfo__status__estimatedShipping
                 %tr
                   %th 発送日の目安
