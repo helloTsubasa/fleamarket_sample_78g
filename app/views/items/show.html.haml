@@ -28,15 +28,15 @@
               .ItemsInfo__status__Category
                 %tr
                   %th カテゴリー
-                  %td= @item.category
-              .ItemsInfo__status__brand
-                %tr
-                  %th ブランド
-                  %td= @item.brand
-              .ItemsInfo__status__size
-                %tr
-                  %th 商品のサイズ
-                  %td= @item.size
+                  = @item.category_id
+              -# .ItemsInfo__status__brand
+              -#   %tr
+              -#     %th ブランド
+              -#     %td= @item.brand
+              -# .ItemsInfo__status__size
+              -#   %tr
+              -#     %th 商品のサイズ
+              -#     = @item.size_id
               .ItemsInfo__status__status
                 %tr
                   %th 商品の状態
