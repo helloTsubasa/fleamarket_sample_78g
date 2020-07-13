@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_12_060004) do
+ActiveRecord::Schema.define(version: 2020_07_13_023529) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -43,17 +43,23 @@ ActiveRecord::Schema.define(version: 2020_07_12_060004) do
     t.index ["item_id"], name: "index_images_on_item_id"
   end
 
+  create_table "item_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "item_id"
+    t.bigint "category_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_item_categories_on_category_id"
+    t.index ["item_id"], name: "index_item_categories_on_item_id"
+  end
+
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "price", null: false
+    t.string "price", null: false
     t.string "text", null: false
     t.string "status", null: false
+    t.string "size", null: false
     t.string "shipping_fee", null: false
-    t.string "shipping_date", null: false
-    t.integer "category_id", null: false
-    t.integer "brand_id"
-    t.integer "user_buyer_id"
-    t.integer "user_seller_id"
+    t.integer "shipping_date", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -93,4 +99,6 @@ ActiveRecord::Schema.define(version: 2020_07_12_060004) do
 
   add_foreign_key "cards", "users"
   add_foreign_key "images", "items"
+  add_foreign_key "item_categories", "categories"
+  add_foreign_key "item_categories", "items"
 end

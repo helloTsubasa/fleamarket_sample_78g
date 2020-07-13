@@ -1,6 +1,6 @@
 .new_item
   .new_item_header
-    =link_to image_tag("logo.png"), "#"
+    =link_to image_tag("logo.png"), "/"
   .new_item_main
     =form_with model: @item, local: true do |f|
       .frame
@@ -93,4 +93,4 @@
       .submit_frame
         =f.submit '投稿する',class: 'submit_btn'
         .back_home
-          =link_to "もどる", "#"
+          =link_to  "もどる", users_path

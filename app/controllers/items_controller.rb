@@ -8,6 +8,7 @@ class ItemsController < ApplicationController
 
 
   def show
+    @item = Item.find(params[:id])
   end
 
  
@@ -93,8 +94,7 @@ class ItemsController < ApplicationController
         :category_id,
         :brand_id,
         :user_buyer_id,
-        :user_seller_id,
         images_attributes: [:image, :_destroy, :id]
-        )
+      ).merge(user_seller_id: current_user.id)
     end
 end
