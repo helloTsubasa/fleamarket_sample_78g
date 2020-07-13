@@ -62,12 +62,12 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|price|string|null: false|
+|price|integer|null: false|
 |text|string|null: false|
 |status|string|null: false|
 |size|string|null: false|
 |shipping_fee|string|null: false|
-|shipping_date|integer|null: false|
+|shipping_date|string|null: false|
 |user_id|integer|null: false, foreign_key: true|
 |category_id|integer|null: false, foreign_key: true|
 |brand_id|integer|foreign_key: true|
@@ -75,9 +75,23 @@
 
 ### Association
 - has_many :images
+- has_many :categories, through: :item_categories
 - belongs_to :user
 - belongs_to :category
 - belongs_to :brand
+
+
+## items_categoriesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|item_id|string|null: false, foreign_key: true|
+|category_id|string|null: false, foreign_key: true|
+
+
+### Association
+- belongs_to :item
+- belongs_to :category
 
 
 ## categoriesテーブル
@@ -89,7 +103,7 @@
 
 
 ### Association
-- has_many :items
+- has_many :items, through: :item_categories
 - has_ancestry
 
 
@@ -117,5 +131,3 @@
 
 ### Association
 - belongs_to :item
-
-
