@@ -92,8 +92,14 @@ class ItemsController < ApplicationController
         :shipping_date,
         :category_id,
         :brand_id,
+<<<<<<< Updated upstream
         :user_buyer_id,
         images_attributes: [:image, :_destroy, :id]
       ).merge(user_seller_id: current_user.id)
+=======
+        :user_seller_id,
+        images_attributes: [:image, :_destroy, :id]
+        ).merge(user_buyer_id: current_user.id)
+>>>>>>> Stashed changes
     end
 end
