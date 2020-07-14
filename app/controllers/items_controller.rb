@@ -60,12 +60,13 @@ class ItemsController < ApplicationController
 
 
   def destroy
-    if @item.user == current_user
+    if @item.user_seller_id == current_user
       if @item.destroy
         respond_to do |format|
           format.html { redirect_to items_url, notice: '商品が削除されました' }
           format.json { head :no_content }
         end
+      else
         respond_to do |format|
           format.html { redirect_to items_url, notice: '商品の削除に失敗しました' }
           format.json { head :no_content }
