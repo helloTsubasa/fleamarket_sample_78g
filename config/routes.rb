@@ -25,7 +25,6 @@ Rails.application.routes.draw do
     collection do
       get 'card_data'
       get 'card_register'
-      get 'index'
       get 'logout'
       get 'mypage'
       get 'profile'
