@@ -8,9 +8,10 @@ class ItemsController < ApplicationController
 
 
   def show
-    @image = Image.find_by(@item.id)
   end
 
+  def confirmation
+  end
  
   def new
     @item = Item.new

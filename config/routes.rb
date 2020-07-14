@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
   root to:'items#index'
   resources :brands
+
   resources :items do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
     member do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
+      get 'confirmation'
     end
   end
   
