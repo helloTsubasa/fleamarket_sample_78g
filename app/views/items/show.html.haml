@@ -28,7 +28,7 @@
               .ItemsInfo__status__Category
                 %tr
                   %th カテゴリー
-                  %td= @category.name
+                  -# %td= @category.name
               -# .ItemsInfo__status__brand
               -#   %tr
               -#     %th ブランド
@@ -69,11 +69,19 @@
           %button{name:"buttun", type: "submit", class: "itemsComment__btn"}
             コメントする
 
+        .ItemsInfo__delete
+          =link_to 'この商品を削除する', item_path,class:"ItemsInfo__delete__btn",method: :DELETE 
+          -# %button{name:"buttun", type: "submit",path:"/items/:id",class: "ItemsInfo__delete__btn",method: :derete}
+          -#   この商品を削除する
+        .ItemsInfo__edit
+          =link_to 'この商品を編集する', edit_item_path,class:"ItemsInfo__edit__btn"
+
         .itemsLinks
           =link_to"#",class: "itemsLinks__before" do
             < 前の商品
+            -# {(@items)-1}
           =link_to"#",class: "itemsLinks__after" do
-            後ろの商品 >
+            次の商品 >
 
         .ItemsRelated
           =link_to"#", class:"ItemsRelated__category" do

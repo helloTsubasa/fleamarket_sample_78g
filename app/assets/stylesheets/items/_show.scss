@@ -67,21 +67,55 @@
         }
 
         &__status{
+          table{
           margin-bottom: 20px;
-          tr{
-            border-color: #dedede;
-            th{
-              background-color: #eeeeee;
-              width: 20%;
-              font-size: 14px;
-              padding: 8px;
-              font-weight: 400;
-            }
-            td{
-              padding: 8px;
+            tr{
+              border-color: #dedede;
+              th{
+                background-color: #eeeeee;
+                width: 20%;
+                font-size: 14px;
+                padding: 8px;
+                font-weight: 400;
+              }
+              td{
+                padding: 8px;
+              }
             }
           }
-        }
+          .ItemsInfo__delete{
+            width: 500px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            &__btn{
+              font-size: 14px;
+              background-color: red;
+              padding: 10px;
+              border-radius: 100px;
+              border: none;
+              color: #f8f8f8;
+            }
+          }
+          .ItemsInfo__edit{
+            width: 500px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            &__btn{
+              font-size: 14px;
+              background-color: #3ccace;
+              padding: 10px;
+              border-radius: 100px;
+              border: none;
+              color: #f8f8f8;
+            } 
+          }
+
+        
+      }
         //   追加機能分
         // .ItemsInfo__option{
         //   .ItemsInfo__option__favorite{
@@ -118,6 +152,38 @@
           border-radius: 100px;
         }
         
+      }
+      .ItemsInfo__delete{
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        .ItemsInfo__delete__btn{
+          width: 400px;
+          height: 40px;
+          background-color: red;
+          text-decoration: none;
+          border: none;
+          border-radius: 100px;
+          text-align: center;
+          line-height: 40px;
+          color: white;
+        }
+      }
+      .ItemsInfo__edit{
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        .ItemsInfo__edit__btn{
+          background-color: #3ccace;
+          width: 400px;
+          height: 40px;
+          text-decoration: none;
+          border: none;
+          border-radius: 100px;
+          text-align: center;
+          line-height: 40px;
+          color: white;
+        }
       }
 
       .itemsLinks{
