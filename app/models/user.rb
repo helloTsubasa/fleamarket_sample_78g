@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :items,  dependent: :destroy
   has_one  :order,  dependent: :destroy
-  has_many :cards,  dependent: :destroy
+  has_one  :card,  dependent: :destroy
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
