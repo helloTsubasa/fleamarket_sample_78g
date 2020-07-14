@@ -31,6 +31,7 @@ Rails.application.routes.draw do
       get 'mail_pass'
       get 'personal_data'
     end
+    resources :cards
   end
 
 end
