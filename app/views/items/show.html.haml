@@ -7,10 +7,13 @@
           .ItemsInfo__name
             = @item.name
           .ItemsInfo__image
-            =image_tag "test_items_image.png",class:"ItemsInfo__image__MainBox"
+            = image_tag @images.first.image.url(:thumb),class:"ItemsInfo__image__MainBox",:size => '540x400'
             .SubBox
-              =image_tag "test_items_image.png",class:"ItemsInfo__image__SubBox__image"
-              =image_tag "test_items_image.png",class:"ItemsInfo__image__SubBox__image"
+              - @images.each do |image|
+                = image_tag image.image.url(:thumb),class:"ItemsInfo__image__SubBox__image",:size => '127x87'
+              -# 元のコード
+              -# =image_tag "/Users/jinbo/Downloads/cooking_onigiri_man.png",class:"ItemsInfo__image__SubBox__image"
+              -# =image_tag "test_items_image.png",class:"ItemsInfo__image__SubBox__image"
           .ItemsInfo__price
             .ItemsInfo__price__box
               ¥
@@ -28,7 +31,7 @@
               .ItemsInfo__status__Category
                 %tr
                   %th カテゴリー
-                  -# %td= @category.name
+                  %td= @category.name
               -# .ItemsInfo__status__brand
               -#   %tr
               -#     %th ブランド
@@ -71,15 +74,12 @@
 
         .ItemsInfo__delete
           =link_to 'この商品を削除する', item_path,class:"ItemsInfo__delete__btn",method: :DELETE 
-          -# %button{name:"buttun", type: "submit",path:"/items/:id",class: "ItemsInfo__delete__btn",method: :derete}
-          -#   この商品を削除する
         .ItemsInfo__edit
           =link_to 'この商品を編集する', edit_item_path,class:"ItemsInfo__edit__btn"
 
         .itemsLinks
           =link_to"#",class: "itemsLinks__before" do
             < 前の商品
-            -# {(@items)-1}
           =link_to"#",class: "itemsLinks__after" do
             次の商品 >
 

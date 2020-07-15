@@ -9,9 +9,9 @@
       .ItemsInfo{
         background-color: #ffffff;
         padding: 24px 40px 40px;
-        
+        // display: flex;
         &__name{
-          width: 620px;
+          width: 540px;
           font-size: 24px;
           font-weight: bold;
           text-align: center;
@@ -22,10 +22,10 @@
           margin-top: 10px;
 
           &__MainBox{
-            display: flex;
-            justify-content: center;
-            width: 560px;
-            height: 346px;
+            // display: flex;
+            // justify-content: center;
+            // width: 540px;
+            // height: 400px;
             margin: 0 auto;
             object-fit: cover;
           }
@@ -38,9 +38,10 @@
             margin-top: 10px;
 
             &__image{
-              width: 25%;
+              // width: 25%;
+              // height: 87px;
               object-fit: cover;
-              margin-right: 10px;
+              margin-right: 3px;
             }
           }
         }
