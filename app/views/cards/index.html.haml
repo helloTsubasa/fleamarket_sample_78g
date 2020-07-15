@@ -1,10 +1,18 @@
 .default-main
   = render "items/header"
   .main
-    .card-data__container
-      .card-data__title
-        クレジットカード情報入力
-      .card-data__content
+    .main__container
+      .card__content
+        .chapter__header
+          支払い方法
+        .chapter__inner
+          .inner__content
+            .chapter__SubHead
+              .inner__head
+                クレジットカード一覧
+              .inner__btn
+                %script.payjp-button{"data-key" => "pk_test_0383a1b8f91e8a6e3ea0e2a9", "data-partial" => "true", "data-submit-text" => "クレジットカードを追加する", src: "https://checkout.pay.jp/", type: "text/javascript"}
+
     .main__side__content
       %nav.mypage-nav
         %ul.mypage-nav__list
@@ -49,7 +57,7 @@
                 %p 発送元・お届け先住所変更
                 %i.fas.fa-chevron-right.fa-lg
             %li
-              = link_to card_register_users_path, class: "mypage-nav__list__item-active" do
+              = link_to new_user_card_path, class: "mypage-nav__list__item-active" do
                 %p 支払い方法
                 %i.fas.fa-chevron-right.fa-lg
             %li
