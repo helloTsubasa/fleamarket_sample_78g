@@ -10,9 +10,13 @@ class ItemsController < ApplicationController
   def show
     @seller = User.find_by(params[@item.user_seller_id])
     @order = Order.find_by("#{params[@seller.order.id]}")
-    @category = Category.find_by(params[@item.category_id])
-    
+    @category = @item.category.root
+    @category2 = @item.category.parent
+    @category3 = @item.category
     @images = Image.where(item_id: params[:id])
+    # 関連商品表示用
+    # @relating = Category.where(params[@item.category_id],category.id)
+    
   end
 
  
@@ -63,18 +67,9 @@ class ItemsController < ApplicationController
 
 
   def destroy
-    if @item.user == current_user
-      if @item.destroy
-        respond_to do |format|
-          format.html { redirect_to items_url, notice: '商品が削除されました' }
-          format.json { head :no_content }
-        end
-        respond_to do |format|
-          format.html { redirect_to items_url, notice: '商品の削除に失敗しました' }
-          format.json { head :no_content }
-        end
-      end
-    end
+    @item = Item.find(params[:id])
+    @item.destroy
+    redirect_to root_path
   end
 
   private
