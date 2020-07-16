@@ -64,8 +64,10 @@
             -#     c1お気に入り
             -#   .ItemsInfo__option__warning
             -#     不適切な商品の通報
-        .ItemsBuy
-          = link_to '購入画面に進む',"/items/purchase",class: "ItemsBuy__btn"
+        - if user_signed_in? && current_user.id != @item.user_seller_id
+          .ItemsBuy
+            = link_to '購入画面に進む',"/items/purchase",class: "ItemsBuy__btn"
+          
         .ItemsComment
           %textarea.itemsComment__box{:cols => "60", :name => "comment", :rows => "5"}
           .itemsComment__msg
