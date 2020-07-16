@@ -5,7 +5,8 @@
       .logout__container
         .logout__content
           .setting__container
-            %button{onclick: "location.pathname='destroy_user_session_path'", type: "button", method: :delete, class: "setting__container__btn--blue"} ログアウト
+            = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "setting__container__btn--blue"
+            -# %button{onclick: pathname=destroy_user_session_path, type: "button", method: :delete, class: "setting__container__btn--blue"} ログアウト
     .main__side__content
       %nav.mypage-nav
         %ul.mypage-nav__list
