@@ -23,8 +23,6 @@ Rails.application.routes.draw do
   
   resources :users, only:[:index, :destroy] do
     collection do
-      get 'card_data'
-      get 'card_register'
       get 'logout'
       get 'mypage'
       get 'profile'
@@ -33,5 +31,7 @@ Rails.application.routes.draw do
       get 'personal_data'
     end
   end
+
+  resources :cards, only:[:new, :index, :create, :destroy]
 
 end
