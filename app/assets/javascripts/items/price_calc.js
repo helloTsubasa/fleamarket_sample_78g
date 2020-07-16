@@ -13,4 +13,4 @@ $(function(){
     $('.right_bar').html('');
     }
   })
-})
+});

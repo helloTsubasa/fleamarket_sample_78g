@@ -8,10 +8,25 @@
         .chapter__inner
           .inner__content
             .chapter__SubHead
-              .inner__head
-                クレジットカード一覧
-              .inner__btn
-                %script.payjp-button{"data-key" => "pk_test_0383a1b8f91e8a6e3ea0e2a9", "data-partial" => "true", "data-submit-text" => "クレジットカードを追加する", src: "https://checkout.pay.jp/", type: "text/javascript"}
+              -if @card.present?
+                .inner__head
+                  クレジットカード情報
+                  %p.inner__head__card-name
+                    = "**** **** ****" + @default_card_information.last4
+                  %p.inner__head__card-exp
+                    - exp_month = @default_card_information.exp_month.to_s
+                    - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+                    = exp_month + " / " + exp_year
+                .inner__btn
+                  = link_to "クレジットカードを削除", card_path(@card.id), method: :delete, class:"inner__btn--blue"
+              -else
+                .inner__head
+                  クレジットカードが登録されていません
+                .inner__btn
+                  = link_to new_card_path, class:"inner__btn--blue" do
+                    クレジットカードを追加する
+
+
 
     .main__side__content
       %nav.mypage-nav
@@ -57,7 +72,7 @@
                 %p 発送元・お届け先住所変更
                 %i.fas.fa-chevron-right.fa-lg
             %li
-              = link_to new_user_card_path, class: "mypage-nav__list__item-active" do
+              = link_to new_card_path, class: "mypage-nav__list__item-active" do
                 %p 支払い方法
                 %i.fas.fa-chevron-right.fa-lg
             %li

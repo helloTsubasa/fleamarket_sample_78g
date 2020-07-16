@@ -6,7 +6,7 @@
       .CardContents__head
         クレジットカード情報入力
       .CardContents__content
-        = form_with(model: @card, method: :post, id: 'card-form') do |f|
+        = form_with(model: @card, method: :post, id: 'card-form', html:{name: "inputForm"}) do |f|
           .CardForm
             .CardForm__name
               %f.label カード番号
@@ -68,7 +68,6 @@
             = f.text_field :cvc, class: "cvc", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc"
             #card_token
             = f.submit "追加する", id: "token_submit", class: "blue-btn"
-            -# %script.payjp-button{"data-key" => "pk_test_f177dddf95565b7acbbdae54", "data-partial" => "true", "data-submit-text" => "クレジットカードを追加する", src: "https://checkout.pay.jp/", type: "text/javascript"}
 
     .main__side__content
       %nav.mypage-nav
@@ -114,7 +113,7 @@
                 %p 発送元・お届け先住所変更
                 %i.fas.fa-chevron-right.fa-lg
             %li
-              = link_to new_user_card_path(current_user), class: "mypage-nav__list__item-active" do
+              = link_to new_card_path, class: "mypage-nav__list__item-active" do
                 %p 支払い方法
                 %i.fas.fa-chevron-right.fa-lg
             %li
