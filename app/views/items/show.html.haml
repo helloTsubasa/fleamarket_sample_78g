@@ -72,12 +72,12 @@
             不快な言葉遣いなどは利用制限や退会処分となることがあります。
           %button{name:"buttun", type: "submit", class: "itemsComment__btn"}
             コメントする
+        - if user_signed_in? && current_user.id == @item.user_seller_id 
+          .ItemsInfo__delete
+            =link_to 'この商品を削除する', item_path(@item.id),class:"ItemsInfo__delete__btn",method: :delete,:confirm => "OK?"
 
-        .ItemsInfo__delete
-          =link_to 'この商品を削除する', item_path(@item.id),class:"ItemsInfo__delete__btn",method: :delete,:confirm => "OK?"
-
-        .ItemsInfo__edit
-          =link_to 'この商品を編集する', edit_item_path,class:"ItemsInfo__edit__btn"
+          .ItemsInfo__edit
+            =link_to 'この商品を編集する', edit_item_path,class:"ItemsInfo__edit__btn"
 
         .itemsLinks
           =link_to"#",class: "itemsLinks__before" do
