@@ -1,8 +1,8 @@
 class CardsController < ApplicationController
+  before_action :set_card, only: [:new, :index, :destroy]
   require "payjp"
 
   def new
-    @card = Card.find_by(user_id: current_user.id)
     if @card.present?
       redirect_to cards_path
     else
@@ -11,7 +11,6 @@ class CardsController < ApplicationController
   end
 
   def index
-    @card = Card.find_by(user_id: current_user.id)
     if @card.present?
       Payjp.api_key = Rails.application.credentials[:payjp][:secret_key]
       customer = Payjp::Customer.retrieve(@card.customer_id)
@@ -43,12 +42,16 @@ class CardsController < ApplicationController
   end
 
   def destroy #PayjpとCardデータベースを削除
-    @card = Card.find_by(user_id: current_user.id)
     Payjp.api_key = Rails.application.credentials[:payjp][:secret_key]
     customer = Payjp::Customer.retrieve(@card.customer_id)
     customer.delete
     @card.delete
     redirect_to new_card_path
   end
+
+  private
+    def set_card
+      @card = Card.find_by(user_id: current_user.id)
+    end
 
 end
