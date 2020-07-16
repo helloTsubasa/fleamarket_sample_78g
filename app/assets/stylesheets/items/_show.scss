@@ -114,8 +114,25 @@
               color: #f8f8f8;
             } 
           }
+        }
+      }
+      .ItemsBuy{
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        .ItemsBuy__btn{
+          width: 500px;
+          font-size: 14px;
+          background-color: #3ccace;
+          padding: 10px;
+          border-radius: 100px;
+          border: none;
+          color: #f8f8f8;
+          text-align: center;
+          line-height: 35px;
+        }
 
-        
       }
         //   追加機能分
         // .ItemsInfo__option{
@@ -124,7 +141,7 @@
         //   .ItemsInfo__option__warning{
         //   }
         // }
-      }
+
       .ItemsComment{
         background-color:#ffffff;
         padding: 24px;
