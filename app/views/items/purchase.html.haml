@@ -1,0 +1,31 @@
+.bodybuy
+  .headerbuy
+    .header_icon
+      =link_to root_path do
+        = image_tag 'logo.png', class: 'logo2'
+  .mainbuy
+    .mainbuy_body
+      .mainbuy_body_image
+        = image_tag(@item.images.first.image.url(:thumb),class:"mainbuy_body_image")
+        .mainbuy_body_image_name
+          =@item.name
+      .mainbuy_body_pay
+        支払い金額
+        .mainbuy_body_pay_imag
+          = number_to_currency(@item.price,format: "%u%n",unit:"¥",precision: 0)
+      .mainbuy_body_method
+        支払い方法
+        .mainbuy_body_method_temporary
+          クレジットカード
+      .mainbuy_body_place
+        配送先
+        .mainbuy_body_temporay
+          〒
+          = @order.zip_code
+          = @order.prefecuture
+          = @order.city
+          = @order.local
+  .formbuy
+    .formbuy_formbuy
+      = form_with local: true, url: "#" do |f|
+        = f.submit "商品を購入する",class: "formbuy2"

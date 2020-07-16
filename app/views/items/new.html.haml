@@ -19,7 +19,7 @@
               =f.fields_for :images do |i|
                 =i.label :image do
                   .image_file{data:{index: i.index}}
-                    =i.file_field :image, type: 'file',  name: "item[images_attributes][][image_url]", value:"", class: "image_form hidden"
+                    =i.file_field :image, type: 'file', value:"", class: "image_form hidden"
                     %label{for: "img-file"}
                       %i.fas.fa-camera
             -#       %span.image_remove.hidden 削除 
