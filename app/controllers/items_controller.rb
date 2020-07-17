@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, only: [:show, :edit, :update, :destroy, :pay]
   before_action :set_category, only: [:new, :edit, :create, :update, :destroy]
+
+  require "payjp"
 
   def index
     @items = Item.all
@@ -73,6 +75,21 @@ class ItemsController < ApplicationController
         end
       end
     end
+  end
+  
+  def pay  #支払い処理
+    Payjp.api_key = Rails.application.credentials[:payjp][:secret_key]
+    charge = Payjp::Charge.create(
+    amount: @item.price,
+    card: params['payjp-token'],
+    customer: @card.customer_id,
+    currency: 'jpy'
+    )
+    @item.update(buyer_id: current_user.id)
+    redirect_to action: :done
+  end
+  
+  def done
   end
 
   private

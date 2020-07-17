@@ -11,6 +11,8 @@
               -if @card.present?
                 .inner__head
                   クレジットカード情報
+                  %figure
+                    = image_tag "#{@card_src}",alt: @card_brand, id: "card_image"
                   %p.inner__head__card-name
                     = "**** **** ****" + @default_card_information.last4
                   %p.inner__head__card-exp
