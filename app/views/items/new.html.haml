@@ -11,10 +11,6 @@
             %br
             %p.image_info 最大5枚までアップロードできます
           .image_box
-            -# #previews
-            -#   -if @item.persisted?
-            -#     -@item.images.each_with_index do |i, src|
-            -#       = image_tag i.image.url, {data: { index: src }}, width: "100", height: '100'
             .image_form_field.item-num-0#image-box__container
               =f.fields_for :images do |i|
                 =i.label :image do
@@ -22,13 +18,6 @@
                     =i.file_field :image, type: 'file', value:"", class: "image_form hidden"
                     %label{for: "img-file"}
                       %i.fas.fa-camera
-            -#       %span.image_remove.hidden 削除 
-            -#   -if @item.persisted?
-            -#     = image.check_box :_destroy, {data:{ index: i.index }}, class: 'hidden-destroy' 
-            -# -if @item.persisted?
-            -#   .image_file{data:{index: @item.images.count}}
-            -#     =file_field_tag :image, name: "item[images_attributes][#{@item.images.count}][image]"
-            -#     .image_remove 削除
       .frame
         .item_info
           .area.name_area

@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   before_action :set_order, except: [:index, :new, :create, :show]
 
   def index
-    @items = Item.all
+    @items = Item.limit(4).includes(:images).order('created_at DESC')
   end
 
 
