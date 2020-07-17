@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
-  before_action :set_category, only: [:index, :new, :edit, :create, :update, :destroy]
+  before_action :set_item, only: [:show, :edit, :update, :destroy,:purchase]
+  before_action :set_category, only: [:new, :edit, :create, :update, :destroy]
+  before_action :set_order, except: [:index, :new, :create, :show]
 
   def index
     @items = Item.limit(4).includes(:images).order('created_at DESC')
@@ -10,7 +11,7 @@ class ItemsController < ApplicationController
   def show
   end
 
-  def confirmation
+  def purchase
   end
  
   def new
@@ -98,5 +99,9 @@ class ItemsController < ApplicationController
         :user_buyer_id,
         images_attributes: [:image, :_destroy, :id]
       ).merge(user_seller_id: current_user.id)
+    end
+
+    def set_order
+      @order = Order.find(current_user.id)
     end
 end
