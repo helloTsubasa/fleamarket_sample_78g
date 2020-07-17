@@ -29,6 +29,14 @@
       font-weight: bold;
       padding: 0 100px 5% 100px;
 
+      &_head{
+        font-size: 20px;
+        .purchase-title{
+          font-weight: bold;
+          padding: 10px;
+        }
+      }
+
       &_image{
         padding: 32px 16px;
         &_name{
@@ -75,6 +83,26 @@
       align-items: center;
       color: #ffffff;
       cursor: pointer;
+      border-style: none;
+      border-radius: 10px;
+    }
+    .root_btn{
+      height: 50px;
+      width: 400px;
+      justify-content: center;
+      display: flex;
+      align-items: center;
+      color: #2bccd1;
+      cursor: pointer;
+      background-color: white;
+      border: 3px solid #2bccd1;
+      border-radius: 10px;
+    }
+    .root_btn:hover{
+      color: white;
+      background-color: #2bccd1;
+      border-style: none;
+      border-radius: 10px;
     }
   }
 }
