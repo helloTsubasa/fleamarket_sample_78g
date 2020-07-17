@@ -2,12 +2,6 @@ class UsersController < ApplicationController
   def index
   end
 
-  def card_data
-  end
-
-  def card_register
-  end
-
   def logout
   end
 
@@ -20,8 +14,6 @@ class UsersController < ApplicationController
   def profile
   end
 
-  def card_data
-  end
   def addrress
   end
   
@@ -30,4 +22,5 @@ class UsersController < ApplicationController
 
   def personal_data
   end
+
 end

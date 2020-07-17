@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
   root to:'items#index'
   resources :brands
+
   resources :items do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
@@ -16,14 +17,12 @@ Rails.application.routes.draw do
     member do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
+      get 'confirmation'
     end
   end
   
   resources :users, only:[:index, :destroy] do
     collection do
-      get 'card_data'
-      get 'card_register'
-      get 'index'
       get 'logout'
       get 'mypage'
       get 'profile'
@@ -32,5 +31,7 @@ Rails.application.routes.draw do
       get 'personal_data'
     end
   end
+
+  resources :cards, only:[:new, :index, :create, :destroy]
 
 end
