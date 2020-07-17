@@ -1,7 +1,11 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy,:purchase]
+
+  before_action :set_item, only: [:show, :edit, :update, :destroy, :purchase, :pay, :done]
   before_action :set_category, only: [:new, :edit, :create, :update, :destroy]
   before_action :set_order, except: [:index, :new, :create, :show]
+  before_action :set_card, only: [:purchase, :pay, :done]
+
+  require "payjp"
 
   def index
     @items = Item.limit(4).includes(:images).order('created_at DESC')
@@ -9,9 +13,6 @@ class ItemsController < ApplicationController
 
 
   def show
-  end
-
-  def purchase
   end
  
   def new
@@ -76,6 +77,53 @@ class ItemsController < ApplicationController
     end
   end
 
+  def purchase
+    if @item.user_buyer_id.present?
+      redirect_to item_path(@item.id)
+    elsif @item.user_seller_id == current_user.id
+      redirect_to item_path(@item.id)
+    else
+      if @card.present?
+        Payjp.api_key = Rails.application.credentials[:payjp][:secret_key]
+        customer = Payjp::Customer.retrieve(@card.customer_id)
+        @default_card_information = customer.cards.retrieve(@card.card_id)
+        @card_brand = @default_card_information.brand
+        case @card_brand
+        when "Visa"
+          @card_src = "cards/visa.svg"
+        when "JCB"
+          @card_src = "cards/jcb.svg"
+        when "MasterCard"
+          @card_src = "cards/master-card.svg"
+        when "American Express"
+          @card_src = "cards/american_express.svg"
+        when "Diners Club"
+          @card_src = "cards/dinersclub.svg"
+        when "Discover"
+          @card_src = "cards/discover.svg"
+        end
+      else
+        redirect_to new_card_path, alert: 'クレジットカード情報を登録してください'
+      end
+    end
+  end
+
+  
+  def pay  #支払い処理
+    Payjp.api_key = Rails.application.credentials[:payjp][:secret_key]
+    charge = Payjp::Charge.create(
+    amount: @item.price,
+    card: params['payjp-token'],
+    customer: @card.customer_id,
+    currency: 'jpy'
+    )
+    @item.update(user_buyer_id: current_user.id)
+    redirect_to action: :done
+  end
+  
+  def done #購入完了画面
+  end
+
   private
     def set_item
       @item = Item.find(params[:id])
@@ -104,4 +152,9 @@ class ItemsController < ApplicationController
     def set_order
       @order = Order.find(current_user.id)
     end
+
+    def set_card
+      @card = Card.find_by(user_id: current_user.id)
+    end
+
 end

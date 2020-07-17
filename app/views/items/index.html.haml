@@ -111,6 +111,11 @@
                   %br
                   = item.price
                   円
+                  -if item.user_buyer_id.present? 
+                    .items__sold
+                      .items__sold__inner
+                        SOLD
+                    
     .pickup-brand
       .pickup-brand__box
         .pickup-brand__box__top
@@ -128,6 +133,10 @@
                   %br
                   = item.price
                   円
+                  -if item.user_buyer_id.present? 
+                    .items__sold
+                      .items__sold__inner
+                        SOLD
     .download
       .download__box
         .download__box__topT

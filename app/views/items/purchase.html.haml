@@ -16,7 +16,17 @@
       .mainbuy_body_method
         支払い方法
         .mainbuy_body_method_temporary
-          クレジットカード
+          .mainbuy_body_method_temporary_figure
+            %figure
+              = image_tag "#{@card_src}",alt: @card_brand, class: "card_image"
+          .mainbuy_body_method_temporary_card
+            %p.inner__head__card-name
+              = "**** **** **** " + @default_card_information.last4
+            %p.inner__head__card-exp
+              - exp_month = @default_card_information.exp_month.to_s
+              - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+              = "有効期限：" + exp_month + " / " + exp_year
+
       .mainbuy_body_place
         配送先
         .mainbuy_body_temporay
@@ -25,7 +35,7 @@
           = @order.prefecuture
           = @order.city
           = @order.local
-  .formbuy
-    .formbuy_formbuy
-      = form_with local: true, url: "#" do |f|
-        = f.submit "商品を購入する",class: "formbuy2"
+      .formbuy
+        .formbuy_formbuy
+          = form_with url:pay_item_path, method: :post do |f|
+            = f.submit "商品を購入する", class: "formbuy2"

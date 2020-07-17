@@ -4,7 +4,8 @@
   .main
     .CardContents
       .CardContents__head
-        クレジットカード情報入力
+        = alert
+        %p クレジットカード情報入力
       .CardContents__content
         = form_with(model: @card, method: :post, id: 'card-form', html:{name: "inputForm"}) do |f|
           .CardForm

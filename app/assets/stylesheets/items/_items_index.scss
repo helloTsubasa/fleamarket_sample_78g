@@ -400,6 +400,27 @@
         display: flex;
         &__items {
           background-color: #fff;
+          position: relative;
+          .items__sold{
+            width: 0;
+            height: 0;
+            border-top: 60px solid #ea352d ;
+            border-right: 60px solid transparent;
+            border-bottom: 60px solid transparent;
+            border-left: 60px solid #ea352d ;
+            z-index:100;
+            position: absolute;
+            top: 0;
+            left: 0;
+            &__inner{
+              transform: rotate(-45deg);
+              font-size: 24px;
+              margin:-30px 0px 0px -55px;
+              color: #fff;
+              letter-spacing: 2px;
+              font-weight: 600;
+            }
+          }
           &__image {
             height: 150px;
             width: 200px;
@@ -436,6 +457,27 @@
         display: flex;
         &__items {
           background-color: #fff;
+          position: relative;
+          .items__sold{
+            width: 0;
+            height: 0;
+            border-top: 60px solid #ea352d ;
+            border-right: 60px solid transparent;
+            border-bottom: 60px solid transparent;
+            border-left: 60px solid #ea352d ;
+            z-index:100;
+            position: absolute;
+            top: 0;
+            left: 0;
+            &__inner{
+              transform: rotate(-45deg);
+              font-size: 24px;
+              margin:-28px 0px 0px -55px;
+              color: #fff;
+              letter-spacing: 2px;
+              font-weight: 600;
+            }
+          }
           &__image {
             height: 150px;
             width: 200px;
@@ -529,7 +571,10 @@
           line-height: 30px;
         }
       }
-      &__bot {
+      &__bot{
+        &__items{
+          position: absolute;
+        }
         &__image {
           height: 50px;
           width: 200px;
@@ -553,6 +598,7 @@
     }
   }
 }
+
 
 .buy-items {
   height: 120px;
@@ -580,3 +626,4 @@ a {
   text-decoration: none;
   color: #000;
 } 
+
