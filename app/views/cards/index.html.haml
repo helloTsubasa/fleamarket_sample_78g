@@ -14,7 +14,7 @@
                   %figure
                     = image_tag "#{@card_src}",alt: @card_brand, id: "card_image"
                   %p.inner__head__card-name
-                    = "**** **** ****" + @default_card_information.last4
+                    = "**** **** **** " + @default_card_information.last4
                   %p.inner__head__card-exp
                     - exp_month = @default_card_information.exp_month.to_s
                     - exp_year = @default_card_information.exp_year.to_s.slice(2,3)

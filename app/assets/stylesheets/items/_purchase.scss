@@ -4,8 +4,6 @@
 
 .bodybuy{
   background: #f5f5f5;
-  height: 100vh;
-  width: 100vw;
   .headerbuy{
     height: 128px;
     width: 100vw;
@@ -20,14 +18,16 @@
     }
   }
   .mainbuy{
+    padding-bottom: 10%;
     &_body{
       background-color:#fff;
       height: calc(100vh-128px);
-      width: 85vw;
+      width: 85%;
+      max-width: 800px;
       margin: 0 auto;
       text-align: center;
       font-weight: bold;
-      padding: 0 100px 0 100px;
+      padding: 0 100px 5% 100px;
 
       &_image{
         padding: 32px 16px;
@@ -38,17 +38,27 @@
       &_pay{
         display: flex;
         justify-content: space-between;
-        padding: 32px 16px;
+        padding: 20px 16px;
       }
       &_method{
         display: flex;
         justify-content: space-between;
-        padding: 32px 16px;
+        padding: 20px 16px;
+        .card_image{
+          height: 50px;
+          width: 60px;
+        }
+        &_temporary{
+          display: flex;
+          &_card{
+            margin: auto 0;
+          }
+        }
       }
       &_place{
         display: flex;
         justify-content: space-between;
-        padding: 32px 16px;
+        padding: 20px 16px;
       }
     }
   }
@@ -64,7 +74,7 @@
       display: flex;
       align-items: center;
       color: #ffffff;
-      
+      cursor: pointer;
     }
   }
 }
