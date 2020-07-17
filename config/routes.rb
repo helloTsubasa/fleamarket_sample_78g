@@ -19,7 +19,6 @@ Rails.application.routes.draw do
       get 'get_category_grandchildren', defaults: { format: 'json' }
       get 'purchase'
     end
-    # get '/item/:id/confirmation',to: 'item#confirmation'
 
   end
   
