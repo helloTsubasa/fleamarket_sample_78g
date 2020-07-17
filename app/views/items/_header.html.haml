@@ -16,9 +16,15 @@
           = link_to '#', class: "" do 
             ブランド
       .top-header__box__bot__right
-        .login
-          = link_to new_user_session_path, class: "" do 
-            ログイン
-        .sign-up
-          = link_to new_user_registration_path, class: "" do 
-            新規会員登録 
+        - if user_signed_in?
+          .login
+            = link_to "ログアウト", destroy_user_session_path, method: :delete
+          .sign-up
+            = link_to "マイページ", users_path
+        - else
+          .login
+            = link_to new_user_session_path, class: "" do 
+              ログイン
+          .sign-up
+            = link_to new_user_registration_path, class: "" do 
+              新規会員登録 

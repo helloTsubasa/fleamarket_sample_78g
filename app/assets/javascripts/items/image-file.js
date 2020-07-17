@@ -1,41 +1,55 @@
-$(document).on('turbolinks:load', ()=>{
-  const buildFileField = (index)=>{
-    const html = `<div data-index="${index}" class="image_file">
-                    <input class="image_form" type=file
-                    name="item[images_attributes][${index}][image]"
-                    id="item_images_attributes_${index}_image">
-                    <span class="image_remove">削除</span>
-                  </div>`;
-    return html;
-  }
-  const buildImg = (index, url)=> {
-    const html = `<img data-index="${index}" src="${url}" width="100px" height="100px">`;
-    return html;
-  }
+$(function(){
+  var dataBox = new DataTransfer();
+  var file_field = document.querySelector('input[type=file]')
+  $('.image_form').change(function(){
+    var files = $('input[type="file"]').prop('files')[0];
+    $.each(this.files, function(i, file){
+      var fileReader = new FileReader();
 
-  let fileIndex = [1,2,3,4,5,6,7,8,9,10];
-  lastIndex = $('.image_form:last').data('index');
-  fileIndex.splice(0, lastIndex);
+      dataBox.items.add(file)
+      file_field.files = dataBox.files
 
-  $('.image_box').on('change', '.image_form', function(e){
-    const targetIndex = $(this).parent().data('index');
-    const file = e.target.files[0];
-    const blobUrl = window.URL.createObjectURL(file);
-    if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
-      img.setAttribute('src', blobUrl);
-    } else {
-      $('#previews').append(buildImg(targetIndex, blobUrl));
-      $('.image_box').append(buildFileField(fileIndex[0]));
-      fileIndex.shift();
-      fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
+      var num = $('.item-image').length + 1 + i
+      fileReader.readAsDataURL(file);
+      if (num == 5){
+        $('#image-box__container').css('display', 'none')   
+      }
+      fileReader.onloadend = function() {
+        var src = fileReader.result
+        var html= `<div class='item-image' data-image="${file.name}">
+                    <div class=' item-image__content'>
+                      <div class='item-image__content--icon'>
+                        <img src=${src} width="114" height="80" >
+                      </div>
+                    </div>
+                    <div class='item-image__operation'>
+                      <div class='item-image__operation--delete'>削除</div>
+                    </div>
+                  </div>`
+        $('#image-box__container').before(html);
+      };
+      $('#image-box__container').attr('class', `item-num-${num}`)
+    });
+  });
+
+  $(document).on("click", '.item-image__operation--delete', function(){
+    var target_image = $(this).parent().parent()
+    var target_name = $(target_image).data('image')
+    if(file_field.files.length==1){
+      $('input[type=file]').val(null)
+      dataBox.clearData();
+      console.log(dataBox)
+    }else{
+      $.each(file_field.files, function(i,input){
+        if(input.name==target_name){
+          dataBox.items.remove(i) 
+        }
+      })
+      file_field.files = dataBox.files
     }
-  });
-  $('.image_box').on('click', '.image_remove', function() {
-    const targetIndex = $(this).parent().data('index');
-    const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
-    if (hiddenCheck) hiddenCheck.prop('checked', true);
-    $(this).parent().remove();
-    $(`img[data-index="${targetIndex}"]`).remove();
-    if ($('.image_form').length == 0) $('.image_box').append(buildFileField(fileIndex[0]));
-  });
+    target_image.remove()
+    var num = $('.item-image').length
+    $('#image-box__container').show()
+    $('#image-box__container').attr('class', `item-num-${num}`)
+  })
 });

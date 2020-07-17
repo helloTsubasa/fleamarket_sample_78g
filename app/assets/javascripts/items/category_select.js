@@ -72,7 +72,7 @@ $(document).on('change', '#children-form', function() {
       if (grandchildren.length != 0) {
         $("#grandchildren-category").empty();
         $('.size_area').val('');
-        $('#size_area').css('display', 'none');
+        $('.size_area').css('display', 'none');
         let insertHTML = '';
         grandchildren.forEach(function(grandchild) {
           insertHTML += appendOption(grandchild);
