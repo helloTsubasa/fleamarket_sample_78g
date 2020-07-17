@@ -102,15 +102,15 @@
           .pickup-category__box__top__sub
             新規投稿商品
         .pickup-category__box__bot
-          .pickup-category__box__bot__items
-            
-            = image_tag 'bg-appBanner-pict.jpg', class: 'image'
-          .pickup-category__box__bot__items
-            = image_tag 'bg-appBanner-pict.jpg', class: 'image'
-          .pickup-category__box__bot__items
-            = image_tag 'bg-appBanner-pict.jpg', class: 'image'
-          .pickup-category__box__bot__items
-            = image_tag 'bg-appBanner-pict.jpg', class: 'image'
+          - @items.each do |item|
+            = link_to '#' do
+              .pickup-category__box__bot__items
+                = image_tag item.images.first.image.url(:thumb), class: 'pickup-category__box__bot__items__image'
+                .pickup-category__box__bot__items__text
+                  = item.name
+                  %br
+                  = item.price
+                  円
     .pickup-brand
       .pickup-brand__box
         .pickup-brand__box__top
@@ -119,14 +119,15 @@
           .pickup-brand__box__top__sub
             アーカイバ
         .pickup-brand__box__bot
-          .pickup-brand__box__bot__items
-            = image_tag 'bg-appBanner-pict.jpg', class: 'image'
-          .pickup-brand__box__bot__items
-            = image_tag 'bg-appBanner-pict.jpg', class: 'image'
-          .pickup-brand__box__bot__items
-            = image_tag 'bg-appBanner-pict.jpg', class: 'image'
-          .pickup-brand__box__bot__items
-            = image_tag 'bg-appBanner-pict.jpg', class: 'image'
+          - @items.each do |item|
+            = link_to '#' do
+              .pickup-brand__box__bot__items
+                = image_tag item.images.first.image.url(:thumb), class: 'pickup-category__box__bot__items__image'
+                .pickup-brand__box__bot__items__text
+                  = item.name
+                  %br
+                  = item.price
+                  円
     .download
       .download__box
         .download__box__topT
@@ -138,4 +139,9 @@
             = image_tag 'Download_on_the_App_Store_Badge_JP_RGB_blk_100317.svg', class: 'download__box__btn__appstore'
           = link_to '#', class: "" do 
             = image_tag 'google-play-badge.png', class: 'download__box__btn__googleplay'
+    = link_to '#' do
+      .buy-items
+        .buy-items__p
+          出品する
+        = image_tag 'icon_camera.png', class: 'buy-items__icon'
     = render 'footer'
