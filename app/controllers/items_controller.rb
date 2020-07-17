@@ -122,11 +122,6 @@ class ItemsController < ApplicationController
   end
   
   def done #購入完了画面
-    if @item.user_buyer_id.present?
-      redirect_to item_path(@item.id)
-    elsif @item.user_seller_id == current_user.id
-      redirect_to item_path(@item.id)
-    end
   end
 
   private
