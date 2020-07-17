@@ -103,7 +103,7 @@
             新規投稿商品
         .pickup-category__box__bot
           - @items.each do |item|
-            = link_to '#' do
+            = link_to item_path(item.id) do
               .pickup-category__box__bot__items
                 = image_tag item.images.first.image.url(:thumb), class: 'pickup-category__box__bot__items__image'
                 .pickup-category__box__bot__items__text
@@ -120,7 +120,7 @@
             アーカイバ
         .pickup-brand__box__bot
           - @items.each do |item|
-            = link_to '#' do
+            = link_to item_path(item.id) do
               .pickup-brand__box__bot__items
                 = image_tag item.images.first.image.url(:thumb), class: 'pickup-category__box__bot__items__image'
                 .pickup-brand__box__bot__items__text
@@ -139,7 +139,7 @@
             = image_tag 'Download_on_the_App_Store_Badge_JP_RGB_blk_100317.svg', class: 'download__box__btn__appstore'
           = link_to '#', class: "" do 
             = image_tag 'google-play-badge.png', class: 'download__box__btn__googleplay'
-    = link_to '#' do
+    = link_to new_item_path do
       .buy-items
         .buy-items__p
           出品する
