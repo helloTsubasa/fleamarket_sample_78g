@@ -36,7 +36,7 @@
           height: 40px;
           width: 40px;
           background-color: #2BCCD1;
-          border: 1px solid #999;
+          border: 1px solid #2BCCD1;
         }
         &__send {
           height: 25px;
@@ -336,6 +336,7 @@
             margin: 10px 0;
           }
           &__p {
+            padding: 10px;
           }
         }
         &__midbox {
@@ -352,6 +353,7 @@
             margin: 10px 0;
           }
           &__p {
+            padding: 10px;
           }
         }
         &__rightbox {
@@ -368,6 +370,7 @@
             margin: 10px 0;
           }
           &__p { 
+            padding: 10px;
           }
         }
       }
@@ -378,6 +381,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #eee;
     &__box {
       &__top {
         &__title {
@@ -395,16 +399,25 @@
         margin-top: 20px;
         display: flex;
         &__items {
-
+          background-color: #fff;
+          &__image {
+            height: 150px;
+            width: 200px;
+          }
+          &__text {
+            padding: 10px;
+            line-height: 30px;
+          }
         }
       }
     }
   }
   .pickup-brand {
-    height: 400px;
+    height: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #eee;
     &__box {
       &__top {
         &__title {
@@ -422,7 +435,15 @@
         margin-top: 20px;
         display: flex;
         &__items {
-
+          background-color: #fff;
+          &__image {
+            height: 150px;
+            width: 200px;
+          }
+          &__text {
+            padding: 10px;
+            line-height: 30px;
+          }
         }
       }
     }
@@ -533,9 +554,26 @@
   }
 }
 
-.image {
-  height: 200px;
-  width: 250px;
+.buy-items {
+  height: 120px;
+  width: 120px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #2BCCD1;
+  &__p {
+    color: #fff;
+  }
+  &__icon {
+    padding-top: 10px;
+    height: 70px;
+    width: 60px;
+  }
 }
 
 a {
