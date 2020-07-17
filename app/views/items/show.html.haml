@@ -16,45 +16,36 @@
               ¥
               = @item.price
             .ItemsInfo__price__tax
-              (税込)送料込み
+              (税込)
           .ItemsInfo__text
             = @item.text
           .ItemsInfo__status
             %table{:border => "1", :bordercolor => "#333333", :cellpadding => "5", :cellspacing => "0"}
-              %tbody
-                .ItemsInfo__status__buyers
-                  %tr
-                    %th 出品者
-                    %td= @seller.nickname
-                .ItemsInfo__status__Category
-                  %tr
-                    %th カテゴリー
-                    %td= @category.name
-                .ItemsInfo__status__Category
-                  %tr
-                    %th カテゴリー
-                    %td= @child_category.name
-                .ItemsInfo__status__Category
-                  %tr
-                    %th カテゴリー
-                    %td= @Grandchild_category.name
-                .ItemsInfo__status__status
-                  %tr
-                    %th 商品の状態
-                    %td= @item.status
-                .ItemsInfo__status__postage
-                  %tr
-                    %th 配送料の負担
-                    %td= @item.shipping_fee
-                    
-                .ItemsInfo__status__delivery
-                  %tr
-                    %th 配送地域
-                    %td= @order.prefecuture
-                .ItemsInfo__status__estimatedShipping
-                  %tr
-                    %th 発送日の目安
-                    %td= @item.shipping_date
+              %tr
+                %th 出品者
+                %td= @seller.nickname
+              %tr
+                %th カテゴリー
+
+                %td
+                  = link_to @category.name,"#",class:"ItemsInfo__status__category"
+                  %br
+                  = link_to @child_category.name,"#",class:"ItemsInfo__status__category"
+                  %br
+                  = link_to @Grandchild_category.name,"#",class:"ItemsInfo__status__category"
+              %tr
+                %th 商品の状態
+                %td= @item.status
+              %tr
+                %th 配送料の負担
+                %td= @item.shipping_fee
+                
+              %tr
+                %th 配送地域
+                %td= @order.prefecuture
+              %tr
+                %th 発送日の目安
+                %td= @item.shipping_date
             -# 追加実装分
             -# .ItemsInfo__option
             -#   .ItemsInfo__option__favorite
@@ -80,59 +71,23 @@
           .ItemsInfo__edit
             =link_to 'この商品を編集する', edit_item_path,class:"ItemsInfo__edit__btn"
 
-        -# .itemsLinks
-        -#   =link_to"#",class: "itemsLinks__before" do
-        -#     < 前の商品
-        -#   =link_to"#",class: "itemsLinks__after" do
-        -#     次の商品 >
-
         .ItemsRelated
           =link_to"#", class:"ItemsRelated__category" do
             = @category.name
             をもっと見る
-
-
-
-
-          -# .itemsRelated__lists
-          -#   =link_to"#",class:"itemsRelated__lists__list" do
-          -#     .items__image
-          -#       =image_tag "test_items_image.png",class:"list__image1"
-          -#       .items__image__listBox
-          -#         .listBox__name
-          -#           商品名listBox__name
-          -#         .listBox__content
-          -#           .content__price
-          -#             金額content__price
-          -#           .content__tax
-          -#             (税込み)
-           
           .ItemsRelated__lists
             - @relating.each do |item|
               .ItemsRelated__lists__box
-                = link_to '#',class:"ItemsRelated__lists__box__list" do
+                = link_to item_path(item.id),class:"ItemsRelated__lists__box__list" do
                   .items__image
                     = image_tag item.images.first.image.url(:thumb), class: "list__image1"
                     .items__image__listBox
                       .listBox__name
-                      = item.name
-                      -# %br
+                        = item.name
                       .listBox__content
                         .content__price
                         = item.price
                         円
                       .content__tax
                         (税込み)
-          -# .pickup-brand__box__bot
-          -#   - @items.each do |item|
-          -#     = link_to '#' do
-          -#       .pickup-brand__box__bot__items
-          -#         = image_tag item.images.first.image.url(:thumb), class: 'pickup-category__box__bot__items__image'
-          -#         .pickup-brand__box__bot__items__text
-          -#           = item.name
-          -#           %br
-          -#           = item.price
-          -#           円
-
-
   = render "footer"

@@ -9,7 +9,6 @@
       .ItemsInfo{
         background-color: #ffffff;
         padding: 24px 40px 40px;
-        // display: flex;
         &__name{
           width: 540px;
           font-size: 24px;
@@ -22,10 +21,6 @@
           margin-top: 10px;
 
           &__MainBox{
-            // display: flex;
-            // justify-content: center;
-            // width: 540px;
-            // height: 400px;
             margin: 0 auto;
             object-fit: cover;
           }
@@ -38,8 +33,6 @@
             margin-top: 10px;
 
             &__image{
-              // width: 25%;
-              // height: 87px;
               object-fit: cover;
               margin-right: 3px;
             }
@@ -81,6 +74,9 @@
               }
               td{
                 padding: 8px;
+              }
+              .ItemsInfo__status__category{
+                color: #3ccace;
               }
             }
           }
@@ -205,46 +201,51 @@
           align-items: center;
           width: 100%;
           background-color: #f5f5f5;
+          &__box{
+              width: 25%;
+            
+            &__list{
+              font-size: 16px;
+              background-color: #f5f5f5;
 
-          &__list{
-            font-size: 16px;
-            background-color: #f5f5f5;
-            width: calc(100%/3);
-
-            .items__image{
-              background-color: #ffffff;
-              text-decoration: none;
-              .list__image1{
-                object-fit: cover;
-
-              }
-
-              &__listBox{
-                padding: 16px;
+              .items__image{
+                background-color: #ffffff;
                 text-decoration: none;
-                color: black;
+                .list__image1{
+                  object-fit: cover;
+                  width: 100%;
+                  height: 150px;
 
-                &__name{
-                  text-decoration: none;
-                  background-color: #ffffff;
                 }
 
-                &__content{
+                &__listBox{
+                  padding: 16px;
                   text-decoration: none;
+                  color: black;
+                  background-color: #ffffff;
 
-                  &__price{
-                    font-size: 16px;
-                    line-height: 1.5;
-                    font-weight: normal;
-                    background-color: #ffffff;
+                  &__name{
                     text-decoration: none;
+                    background-color: #ffffff;
                   }
 
-                  &__tax{
-                    font-size: 10px;
-                    text-align: left;
-                    background-color: #ffffff;
+                  &__content{
                     text-decoration: none;
+
+                    &__price{
+                      font-size: 16px;
+                      line-height: 1.5;
+                      font-weight: normal;
+                      background-color: #ffffff;
+                      text-decoration: none;
+                    }
+
+                    &__tax{
+                      font-size: 10px;
+                      text-align: left;
+                      background-color: #ffffff;
+                      text-decoration: none;
+                    }
                   }
                 }
               }
