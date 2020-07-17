@@ -8,15 +8,18 @@ class ItemsController < ApplicationController
 
 
   def show
+    @item = Item.find(params[:id])
+    @items = Item.all
     @seller = User.find_by(params[@item.user_seller_id])
     @order = Order.find_by("#{params[@seller.order.id]}")
     @category = @item.category.root
-    @category2 = @item.category.parent
-    @category3 = @item.category
+    @child_category = @item.category.parent
+    @Grandchild_category = @item.category
     @images = Image.where(item_id: params[:id])
+    @relating = Item.page(params[:page]).per(4)
     # 関連商品表示用
     # @relating = Category.where(params[@item.category_id],category.id)
-    
+    @relating = Item.where(category_id: @category)
   end
 
  

@@ -73,6 +73,7 @@ gem 'jquery-rails'
 gem 'fog-aws'
 gem 'ancestry'
 gem 'active_hash'
+gem 'kaminari'
 
 group :production do
   gem 'unicorn'

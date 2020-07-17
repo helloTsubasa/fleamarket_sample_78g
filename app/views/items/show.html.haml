@@ -11,9 +11,6 @@
             .SubBox
               - @images.each do |image|
                 = image_tag image.image.url(:thumb),class:"ItemsInfo__image__SubBox__image",:size => '127x87'
-              -# 元のコード
-              -# =image_tag "/Users/jinbo/Downloads/cooking_onigiri_man.png",class:"ItemsInfo__image__SubBox__image"
-              -# =image_tag "test_items_image.png",class:"ItemsInfo__image__SubBox__image"
           .ItemsInfo__price
             .ItemsInfo__price__box
               ¥
@@ -31,16 +28,16 @@
                     %td= @seller.nickname
                 .ItemsInfo__status__Category
                   %tr
-                    %thカテゴリー
+                    %th カテゴリー
                     %td= @category.name
                 .ItemsInfo__status__Category
                   %tr
                     %th カテゴリー
-                    %td= @category2.name
+                    %td= @child_category.name
                 .ItemsInfo__status__Category
                   %tr
                     %th カテゴリー
-                    %td= @category3.name
+                    %td= @Grandchild_category.name
                 .ItemsInfo__status__status
                   %tr
                     %th 商品の状態
@@ -83,28 +80,59 @@
           .ItemsInfo__edit
             =link_to 'この商品を編集する', edit_item_path,class:"ItemsInfo__edit__btn"
 
-        .itemsLinks
-          =link_to"#",class: "itemsLinks__before" do
-            < 前の商品
-          =link_to"#",class: "itemsLinks__after" do
-            次の商品 >
+        -# .itemsLinks
+        -#   =link_to"#",class: "itemsLinks__before" do
+        -#     < 前の商品
+        -#   =link_to"#",class: "itemsLinks__after" do
+        -#     次の商品 >
 
         .ItemsRelated
           =link_to"#", class:"ItemsRelated__category" do
-            
             = @category.name
             をもっと見る
-          .itemsRelated__lists
-            =link_to"#",class:"itemsRelated__lists__list" do
-              .items__image
-                =image_tag "test_items_image.png",class:"list__image1"
-                .items__image__listBox
-                  .listBox__name
-                    商品名listBox__name
-                  .listBox__content
-                    .content__price
-                      金額content__price
-                    .content__tax
-                      (税込み)
+
+
+
+
+          -# .itemsRelated__lists
+          -#   =link_to"#",class:"itemsRelated__lists__list" do
+          -#     .items__image
+          -#       =image_tag "test_items_image.png",class:"list__image1"
+          -#       .items__image__listBox
+          -#         .listBox__name
+          -#           商品名listBox__name
+          -#         .listBox__content
+          -#           .content__price
+          -#             金額content__price
+          -#           .content__tax
+          -#             (税込み)
            
+          .ItemsRelated__lists
+            - @relating.each do |item|
+              .ItemsRelated__lists__box
+                = link_to '#',class:"ItemsRelated__lists__box__list" do
+                  .items__image
+                    = image_tag item.images.first.image.url(:thumb), class: "list__image1"
+                    .items__image__listBox
+                      .listBox__name
+                      = item.name
+                      -# %br
+                      .listBox__content
+                        .content__price
+                        = item.price
+                        円
+                      .content__tax
+                        (税込み)
+          -# .pickup-brand__box__bot
+          -#   - @items.each do |item|
+          -#     = link_to '#' do
+          -#       .pickup-brand__box__bot__items
+          -#         = image_tag item.images.first.image.url(:thumb), class: 'pickup-category__box__bot__items__image'
+          -#         .pickup-brand__box__bot__items__text
+          -#           = item.name
+          -#           %br
+          -#           = item.price
+          -#           円
+
+
   = render "footer"

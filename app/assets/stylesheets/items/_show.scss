@@ -84,36 +84,7 @@
               }
             }
           }
-          .ItemsInfo__delete{
-            width: 500px;
-            height: 50px;
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
-            &__btn{
-              font-size: 14px;
-              background-color: red;
-              padding: 10px;
-              border-radius: 100px;
-              border: none;
-              color: #f8f8f8;
-            }
-          }
-          .ItemsInfo__edit{
-            width: 500px;
-            height: 50px;
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
-            &__btn{
-              font-size: 14px;
-              background-color: #3ccace;
-              padding: 10px;
-              border-radius: 100px;
-              border: none;
-              color: #f8f8f8;
-            } 
-          }
+          // 
         }
       }
       .ItemsBuy{
@@ -242,8 +213,11 @@
 
             .items__image{
               background-color: #ffffff;
-              object-fit: cover;
               text-decoration: none;
+              .list__image1{
+                object-fit: cover;
+
+              }
 
               &__listBox{
                 padding: 16px;
