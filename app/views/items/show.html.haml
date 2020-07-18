@@ -7,59 +7,55 @@
           .ItemsInfo__name
             = @item.name
           .ItemsInfo__image
-            =image_tag "test_items_image.png",class:"ItemsInfo__image__MainBox"
+            = image_tag @images.first.image.url(:thumb),class:"ItemsInfo__image__MainBox",:size => '540x400'
             .SubBox
-              =image_tag "test_items_image.png",class:"ItemsInfo__image__SubBox__image"
-              =image_tag "test_items_image.png",class:"ItemsInfo__image__SubBox__image"
+              - @images.each do |image|
+                = image_tag image.image.url(:thumb),class:"ItemsInfo__image__SubBox__image",:size => '127x87'
           .ItemsInfo__price
             .ItemsInfo__price__box
               ¥
               = @item.price
             .ItemsInfo__price__tax
-              (税込)送料込み
+              (税込)
           .ItemsInfo__text
             = @item.text
           .ItemsInfo__status
             %table{:border => "1", :bordercolor => "#333333", :cellpadding => "5", :cellspacing => "0"}
-              .ItemsInfo__status__buyers
-                %tr
-                  %th 出品者
-                  %td aaaaa
-              .ItemsInfo__status__Category
-                %tr
-                  %th カテゴリー
-                  = @item.category_id
-              -# .ItemsInfo__status__brand
-              -#   %tr
-              -#     %th ブランド
-              -#     %td= @item.brand
-              -# .ItemsInfo__status__size
-              -#   %tr
-              -#     %th 商品のサイズ
-              -#     = @item.size_id
-              .ItemsInfo__status__status
-                %tr
-                  %th 商品の状態
-                  %td= @item.status
-              .ItemsInfo__status__postage
-                %tr
-                  %th 配送料の負担
-                  %td= @item.shipping_fee
-                  
-              .ItemsInfo__status__delivery
-                %tr
-                  %th 配送地域
-                  %td aaaaa
-              .ItemsInfo__status__estimatedShipping
-                %tr
-                  %th 発送日の目安
-                  %td= @item.shipping_date
-          -# 追加実装分
-          -# .ItemsInfo__option
-          -#   .ItemsInfo__option__favorite
-          -#     c1お気に入り
-          -#   .ItemsInfo__option__warning
-          -#     不適切な商品の通報
+              %tr
+                %th 出品者
+                %td= @seller.nickname
+              %tr
+                %th カテゴリー
+
+                %td
+                  = link_to @category.name,"#",class:"ItemsInfo__status__category"
+                  %br
+                  = link_to @child_category.name,"#",class:"ItemsInfo__status__category"
+                  %br
+                  = link_to @Grandchild_category.name,"#",class:"ItemsInfo__status__category"
+              %tr
+                %th 商品の状態
+                %td= @item.status
+              %tr
+                %th 配送料の負担
+                %td= @item.shipping_fee
+                
+              %tr
+                %th 配送地域
+                %td= @order.prefecuture
+              %tr
+                %th 発送日の目安
+                %td= @item.shipping_date
+            -# 追加実装分
+            -# .ItemsInfo__option
+            -#   .ItemsInfo__option__favorite
+            -#     c1お気に入り
+            -#   .ItemsInfo__option__warning
+            -#     不適切な商品の通報
+        - if user_signed_in? && current_user.id != @item.user_seller_id
+          .ItemsBuy
+            = link_to '購入画面に進む',"/items/purchase",class: "ItemsBuy__btn"
+          
         .ItemsComment
           %textarea.itemsComment__box{:cols => "60", :name => "comment", :rows => "5"}
           .itemsComment__msg
@@ -68,27 +64,31 @@
             不快な言葉遣いなどは利用制限や退会処分となることがあります。
           %button{name:"buttun", type: "submit", class: "itemsComment__btn"}
             コメントする
+        - if user_signed_in? && current_user.id == @item.user_seller_id 
+          .ItemsDelete
+            =link_to 'この商品を削除する', item_path(@item.id),class:"ItemsDelete__btn",method: :delete,:confirm => "OK?"
 
-        .itemsLinks
-          =link_to"#",class: "itemsLinks__before" do
-            < 前の商品
-          =link_to"#",class: "itemsLinks__after" do
-            後ろの商品 >
+          .ItemsEdit
+            =link_to 'この商品を編集する', edit_item_path,class:"ItemsEdit__btn"
 
         .ItemsRelated
-          =link_to"#", class:"itemsRelated__category" do
-            (カテゴリー名)をもっと見る
-          .itemsRelated__lists
-            =link_to"#",class:"itemsRelated__lists__list" do
-              .items__image
-                =image_tag "test_items_image.png",class:"list__image1"
-                .items__image__listBox
-                  .listBox__name
-                    商品名listBox__name
-                  .listBox__content
-                    .content__price
-                      金額content__price
-                    .content__tax
-                      (税込み)
-          =link_to '削除', item_path , method: :delete
+          =link_to"#", class:"ItemsRelated__category" do
+            = @category.name
+            をもっと見る
+          .ItemsRelated__lists
+            - @relating.each do |item|
+              .ItemsRelated__lists__box
+                = link_to item_path(item.id),class:"ItemsRelated__lists__box__list" do
+                  .ItemsContent
+                    = image_tag item.images.first.image.url(:thumb), class: "ItemsContent__image"
+                    .ItemsContent__Box
+                      .ItemsContent__Box__name
+                        = item.name
+                      .ItemsContent__Box__content
+                        .ItemsContent__Box__content__price
+                        = item.price
+                        円
+                      .ItemsContent__Box__tax
+                        (税込み)
+
   = render "footer"

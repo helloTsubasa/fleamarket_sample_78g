@@ -13,6 +13,14 @@ class ItemsController < ApplicationController
 
 
   def show
+    @item = Item.find(params[:id])
+    @seller = User.find_by(params[@item.user_seller_id])
+    @order = Order.find_by("#{params[@seller.order.id]}")
+    @category = @item.category.root
+    @child_category = @item.category.parent
+    @Grandchild_category = @item.category
+    @images = Image.where(item_id: params[:id])
+    @relating = Item.where(category_id: @Grandchild_category)
   end
  
   def new
@@ -60,22 +68,14 @@ class ItemsController < ApplicationController
     end
   end
 
-
   def destroy
-    if @item.user_seller_id == current_user
-      if @item.destroy
-        respond_to do |format|
-          format.html { redirect_to items_url, notice: '商品が削除されました' }
-          format.json { head :no_content }
-        end
-      else
-        respond_to do |format|
-          format.html { redirect_to items_url, notice: '商品の削除に失敗しました' }
-          format.json { head :no_content }
-        end
-      end
+    if @item.destroy
+      redirect_to root_path
+    else
+      redirect_to item_path(@item.id)
     end
   end
+  
 
   def purchase
     if @item.user_buyer_id.present?
