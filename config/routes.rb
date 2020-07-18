@@ -21,7 +21,6 @@ Rails.application.routes.draw do
       post 'pay'
       get  'done'
     end
-
   end
   
   resources :users, only:[:index, :destroy] do

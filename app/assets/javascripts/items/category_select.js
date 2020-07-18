@@ -61,8 +61,8 @@ $(document).on('change', '#children-form', function() {
   let childId = $('#children-form option:selected').data('category');
   if (childId != ""){
     $.ajax({
-      url: 'get_category_grandchildren',
       type: 'GET',
+      url: 'get_category_grandchildren',
       data: {
          child_id: childId 
         },

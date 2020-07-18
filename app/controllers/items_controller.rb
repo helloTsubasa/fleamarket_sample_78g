@@ -28,6 +28,15 @@ class ItemsController < ApplicationController
     @item.images.new
   end
 
+  def create
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to @item, notice: 'Item was successfully created.'
+    else
+      render :new
+    end
+  end
+
   def get_category_children
     @category_children = Category.find(params[:parent_name]).children
   end
@@ -35,31 +44,19 @@ class ItemsController < ApplicationController
   def get_category_grandchildren
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
-
   
   def edit
+    @images = Image.where(item_id: params[:id])
+    @category = Category.where(params[:category_id])
+    @grandchild_category = @item.category
+    @child_category = @grandchild_category.parent
+    @parent_category = @child_category.parent
   end
-
-
-  def create
-    @item = Item.new(item_params)
-
-    respond_to do |format|
-      if @item.save
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
-        format.json { render :show, status: :created, location: @item }
-      else
-        format.html { render :new }
-        format.json { render json: @item.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
 
   def update
     respond_to do |format|
       if @item.update(item_params)
-        format.html { redirect_to @item, notice: 'Item was successfully updated.' }
+        format.html { redirect_to @item, notice: '編集しました' }
         format.json { render :show, status: :ok, location: @item }
       else
         format.html { render :edit }
@@ -134,19 +131,7 @@ class ItemsController < ApplicationController
     end
   
     def item_params
-      params.require(:item).permit(
-        :name,
-        :price,
-        :text,
-        :status,
-        :size_id,
-        :shipping_fee,
-        :shipping_date,
-        :category_id,
-        :brand_id,
-        :user_buyer_id,
-        images_attributes: [:image, :_destroy, :id]
-      ).merge(user_seller_id: current_user.id)
+      params.require(:item).permit(:name, :price, :text, :status, :size_id, :shipping_fee, :shipping_date, :category_id, :brand_id, :user_buyer_id, images_attributes: [:image, :_destroy, :id]).merge(user_seller_id: current_user.id)
     end
 
     def set_order

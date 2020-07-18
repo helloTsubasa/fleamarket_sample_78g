@@ -11,13 +11,28 @@
             %br
             %p.image_info 最大5枚までアップロードできます
           .image_box
-            .image_form_field.item-num-0#image-box__container
-              =f.fields_for :images do |i|
-                =i.label :image do
-                  .image_file{data:{index: i.index}}
-                    =i.file_field :image, type: 'file', value:"", class: "image_form hidden"
-                    %label{for: "img-file"}
-                      %i.fas.fa-camera
+            #previews
+              -if @item.persisted?
+                -@item.images.each_with_index do |src, i|
+                  =image_tag src.image.url, {data: {index: i}}
+            =f.fields_for :images do |src|
+              .image_file{data:{inde: src.index}}
+                =src.file_field :image, class: 'image_form'
+                .image_remove 削除
+              -if @item.persisted?
+                =image.check_box :_destroy, {data:{ index: src.index }}, class: 'hidden_destroy'
+            -if @item.persisted?
+              .image_file{data:{index: @item.images.count}}
+                =file_field_tag :image,  name: "item[images_attributes][#{@item.images.count}][image]", class: 'image_form'
+                .image_remove 削除
+            -# .image_form_field.item-num-0#image-box__container
+            -#   =f.fields_for :images do |i|
+            -#     =i.label :image do
+            -#       .image_file{data:{index: i.index}}
+            -#         =i.file_field :image, type: 'file', value:"", class: "image_form hidden"
+            -#         %label{for: "img-file"}
+            -#           %i.fas.fa-camera
+
       .frame
         .item_info
           .area.name_area
@@ -86,6 +101,6 @@
           %input{type: "number", style: "display: none", id: "price"}
           .right_bar_2
       .submit_frame
-        =f.submit '投稿する',class: 'submit_btn'
+        =f.submit '出品する',class: 'submit_btn'
         .back_home
           =link_to  "もどる", users_path
