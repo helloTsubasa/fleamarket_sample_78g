@@ -4,7 +4,7 @@
       = link_to "#",class:"mypage__box__link" do
         = image_tag 'member_photo_noimage_thumb.png', class:'user__image'
         .user_nickname
-          ニックネーム
+          = current_user.nickname
         .mypage__number
           .mypage__number__assessment
             評価
