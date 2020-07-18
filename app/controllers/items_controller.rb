@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
     @child_category = @item.category.parent
     @Grandchild_category = @item.category
     @images = Image.where(item_id: params[:id])
-    @relating = Item.where(category_id: @category)
+    @relating = Item.where(category_id: @Grandchild_category)
   end
  
   def new
@@ -72,9 +72,10 @@ class ItemsController < ApplicationController
     if @item.destroy
       redirect_to root_path
     else
-      redirect_to item_path
+      redirect_to item_path(@item.id)
     end
   end
+  
 
   def purchase
     if @item.user_buyer_id.present?
