@@ -65,11 +65,11 @@
           %button{name:"buttun", type: "submit", class: "itemsComment__btn"}
             コメントする
         - if user_signed_in? && current_user.id == @item.user_seller_id 
-          .ItemsInfo__delete
-            =link_to 'この商品を削除する', item_path(@item.id),class:"ItemsInfo__delete__btn",method: :delete,:confirm => "OK?"
+          .ItemsDelete
+            =link_to 'この商品を削除する', item_path(@item.id),class:"ItemsDelete__btn",method: :delete,:confirm => "OK?"
 
-          .ItemsInfo__edit
-            =link_to 'この商品を編集する', edit_item_path,class:"ItemsInfo__edit__btn"
+          .ItemsEdit
+            =link_to 'この商品を編集する', edit_item_path,class:"ItemsEdit__btn"
 
         .ItemsRelated
           =link_to"#", class:"ItemsRelated__category" do
@@ -79,15 +79,15 @@
             - @relating.each do |item|
               .ItemsRelated__lists__box
                 = link_to item_path(item.id),class:"ItemsRelated__lists__box__list" do
-                  .items__image
-                    = image_tag item.images.first.image.url(:thumb), class: "list__image1"
-                    .items__image__listBox
-                      .listBox__name
+                  .ItemsContent
+                    = image_tag item.images.first.image.url(:thumb), class: "ItemsContent__image"
+                    .ItemsContent__Box
+                      .ItemsContent__Box__name
                         = item.name
-                      .listBox__content
-                        .content__price
+                      .ItemsContent__Box__content
+                        .ItemsContent__Box__content__price
                         = item.price
                         円
-                      .content__tax
+                      .ItemsContent__Box__tax
                         (税込み)
   = render "footer"
