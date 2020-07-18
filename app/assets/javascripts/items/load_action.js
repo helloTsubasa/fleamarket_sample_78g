@@ -1,9 +1,11 @@
 // $(function(){
 //   var dataBox = new DataTransfer();
 //   var file_field = document.querySelector('input[type=file]')
-//   $('.image_form').change(function(){
+//   $('window').on('load',function(){
 //     var files = $('input[type="file"]').prop('files')[0];
+//     var img = $()
 //     $.each(this.files, function(i, file){
+//       console.log(this);
 //       var fileReader = new FileReader();
 
 //       dataBox.items.add(file)
@@ -17,7 +19,7 @@
 //       fileReader.onloadend = function() {
 //         var src = fileReader.result
 //         var html= `<div class='item-image' data-image="${file.name}">
-//                     <div class='item-image__content'>
+//                     <div class=' item-image__content'>
 //                       <div class='item-image__content--icon'>
 //                         <img src=${src} width="114" height="80" >
 //                       </div>

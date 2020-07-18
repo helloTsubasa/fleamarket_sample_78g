@@ -28,7 +28,7 @@
               .ItemsInfo__status__Category
                 %tr
                   %th カテゴリー
-                  = @item.category_id
+                  %td= @grandchild_category.name
               -# .ItemsInfo__status__brand
               -#   %tr
               -#     %th ブランド

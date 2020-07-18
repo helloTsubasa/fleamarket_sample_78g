@@ -16,3 +16,12 @@ module FleamarketSample78g
     # the framework and any gems in your application.
   end
 end
+# config.i18n.default_locale = :ja
+# ja:
+#   activerecord:
+#     models:
+#       user: ユーザー
+#     attributes:
+#       user:
+#         name: 名前
+#         email: メールアドレス
