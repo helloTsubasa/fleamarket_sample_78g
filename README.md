@@ -1,5 +1,5 @@
 # DB設計
-![データベース ER 図](https://user-images.githubusercontent.com/66294265/86117198-8e9d6180-bb09-11ea-86c4-9588eca436ba.jpeg)
+![データベース ER 図](https://user-images.githubusercontent.com/66294265/87296127-433f7600-c541-11ea-85b1-fe8db630e4e0.png)
 
 
 ## usersテーブル
@@ -62,12 +62,12 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|price|string|null: false|
+|price|integer|null: false|
 |text|string|null: false|
 |status|string|null: false|
 |size|string|null: false|
 |shipping_fee|string|null: false|
-|shipping_date|integer|null: false|
+|shipping_date|string|null: false|
 |user_id|integer|null: false, foreign_key: true|
 |category_id|integer|null: false, foreign_key: true|
 |brand_id|integer|foreign_key: true|
@@ -75,9 +75,23 @@
 
 ### Association
 - has_many :images
+- has_many :categories, through: :item_categories
 - belongs_to :user
 - belongs_to :category
 - belongs_to :brand
+
+
+## items_categoriesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|item_id|string|null: false, foreign_key: true|
+|category_id|string|null: false, foreign_key: true|
+
+
+### Association
+- belongs_to :item
+- belongs_to :category
 
 
 ## categoriesテーブル
@@ -89,7 +103,7 @@
 
 
 ### Association
-- has_many :items
+- has_many :items, through: :item_categories
 - has_ancestry
 
 
@@ -117,5 +131,3 @@
 
 ### Association
 - belongs_to :item
-
-

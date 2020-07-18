@@ -36,7 +36,7 @@
           height: 40px;
           width: 40px;
           background-color: #2BCCD1;
-          border: 1px solid #999;
+          border: 1px solid #2BCCD1;
         }
         &__send {
           height: 25px;
@@ -88,7 +88,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url(bg-mainVisual-pict_pc.jpg);
+    background-image: image-url("bg-mainVisual-pict_pc.jpg");
     background-size: cover;
     &__box {
       margin-top: 50px;
@@ -274,7 +274,7 @@
   }
   .No1 {
     height: 400px;
-    background-image: url(bg-topMiddleDl-pict.jpg);
+    background-image: image-url("bg-topMiddleDl-pict.jpg");
     background-size: cover;
     background-position: center;
     display: flex;
@@ -336,6 +336,7 @@
             margin: 10px 0;
           }
           &__p {
+            padding: 10px;
           }
         }
         &__midbox {
@@ -352,6 +353,7 @@
             margin: 10px 0;
           }
           &__p {
+            padding: 10px;
           }
         }
         &__rightbox {
@@ -368,6 +370,7 @@
             margin: 10px 0;
           }
           &__p { 
+            padding: 10px;
           }
         }
       }
@@ -378,6 +381,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #eee;
     &__box {
       &__top {
         &__title {
@@ -395,16 +399,46 @@
         margin-top: 20px;
         display: flex;
         &__items {
-
+          background-color: #fff;
+          position: relative;
+          .items__sold{
+            width: 0;
+            height: 0;
+            border-top: 60px solid #ea352d ;
+            border-right: 60px solid transparent;
+            border-bottom: 60px solid transparent;
+            border-left: 60px solid #ea352d ;
+            z-index:100;
+            position: absolute;
+            top: 0;
+            left: 0;
+            &__inner{
+              transform: rotate(-45deg);
+              font-size: 24px;
+              margin:-30px 0px 0px -55px;
+              color: #fff;
+              letter-spacing: 2px;
+              font-weight: 600;
+            }
+          }
+          &__image {
+            height: 150px;
+            width: 200px;
+          }
+          &__text {
+            padding: 10px;
+            line-height: 30px;
+          }
         }
       }
     }
   }
   .pickup-brand {
-    height: 400px;
+    height: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #eee;
     &__box {
       &__top {
         &__title {
@@ -422,14 +456,43 @@
         margin-top: 20px;
         display: flex;
         &__items {
-
+          background-color: #fff;
+          position: relative;
+          .items__sold{
+            width: 0;
+            height: 0;
+            border-top: 60px solid #ea352d ;
+            border-right: 60px solid transparent;
+            border-bottom: 60px solid transparent;
+            border-left: 60px solid #ea352d ;
+            z-index:100;
+            position: absolute;
+            top: 0;
+            left: 0;
+            &__inner{
+              transform: rotate(-45deg);
+              font-size: 24px;
+              margin:-28px 0px 0px -55px;
+              color: #fff;
+              letter-spacing: 2px;
+              font-weight: 600;
+            }
+          }
+          &__image {
+            height: 150px;
+            width: 200px;
+          }
+          &__text {
+            padding: 10px;
+            line-height: 30px;
+          }
         }
       }
     }
   }
   .download {
     height: 300px;
-    background-image: url(bg-appBanner-pict.jpg);
+    background-image: image-url("bg-appBanner-pict.jpg");
     background-size: cover;
     background-position: center;
     display: flex;
@@ -508,7 +571,10 @@
           line-height: 30px;
         }
       }
-      &__bot {
+      &__bot{
+        &__items{
+          position: absolute;
+        }
         &__image {
           height: 50px;
           width: 200px;
@@ -533,12 +599,31 @@
   }
 }
 
-.image {
-  height: 200px;
-  width: 250px;
+
+.buy-items {
+  height: 120px;
+  width: 120px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #2BCCD1;
+  &__p {
+    color: #fff;
+  }
+  &__icon {
+    padding-top: 10px;
+    height: 70px;
+    width: 60px;
+  }
 }
 
 a {
   text-decoration: none;
   color: #000;
 } 
+

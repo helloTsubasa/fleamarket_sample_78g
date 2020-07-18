@@ -1,7 +1,7 @@
 .top-header
   .top-header__box
     .top-header__box__top
-      = link_to '#', class: "" do 
+      = link_to root_path, class: "" do 
         = image_tag 'logo.png', class: 'logo'
       = form_with class: 'form' do |f|
         = f.text_field :text, class: 'form__text', placeholder: 'キーワードから探す'
@@ -10,15 +10,21 @@
     .top-header__box__bot
       .top-header__box__bot__left
         .category
-          = link_to '#', class: "" do 
+          = link_to '#', class: "category__link" do 
             カテゴリー
         .brand
           = link_to '#', class: "" do 
             ブランド
       .top-header__box__bot__right
-        .login
-          = link_to new_user_session_path, class: "" do 
-            ログイン
-        .sign-up
-          = link_to new_user_registration_path, class: "" do 
-            新規会員登録 
+        - if user_signed_in?
+          .login
+            = link_to "ログアウト", destroy_user_session_path, method: :delete
+          .sign-up
+            = link_to "マイページ", users_path
+        - else
+          .login
+            = link_to new_user_session_path, class: "" do 
+              ログイン
+          .sign-up
+            = link_to new_user_registration_path, class: "" do 
+              新規会員登録 
