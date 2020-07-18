@@ -1,7 +1,7 @@
 .main__container
   .main__container__content
     .mypage__link
-      = link_to "#",class:"mypage__box__link" do
+      = link_to profile_users_path,class:"mypage__box__link" do
         = image_tag 'member_photo_noimage_thumb.png', class:'user__image'
         .user_nickname
           = current_user.nickname
