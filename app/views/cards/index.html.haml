@@ -1,10 +1,35 @@
 .default-main
   = render "items/header"
   .main
-    .card-data__container
-      .card-data__title
-        クレジットカード情報入力
-      .card-data__content
+    .main__container
+      .card__content
+        .chapter__header
+          支払い方法
+        .chapter__inner
+          .inner__content
+            .chapter__SubHead
+              -if @card.present?
+                .inner__head
+                  クレジットカード情報
+                  %figure
+                    = image_tag "#{@card_src}",alt: @card_brand, id: "card_image"
+                  %p.inner__head__card-name
+                    = "**** **** **** " + @default_card_information.last4
+                  %p.inner__head__card-exp
+                    - exp_month = @default_card_information.exp_month.to_s
+                    - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+                    = exp_month + " / " + exp_year
+                .inner__btn
+                  = link_to "クレジットカードを削除", card_path(@card.id), method: :delete, class:"inner__btn--blue"
+              -else
+                .inner__head
+                  クレジットカードが登録されていません
+                .inner__btn
+                  = link_to new_card_path, class:"inner__btn--blue" do
+                    クレジットカードを追加する
+
+
+
     .main__side__content
       %nav.mypage-nav
         %ul.mypage-nav__list
@@ -49,7 +74,7 @@
                 %p 発送元・お届け先住所変更
                 %i.fas.fa-chevron-right.fa-lg
             %li
-              = link_to card_register_users_path, class: "mypage-nav__list__item-active" do
+              = link_to new_card_path, class: "mypage-nav__list__item-active" do
                 %p 支払い方法
                 %i.fas.fa-chevron-right.fa-lg
             %li

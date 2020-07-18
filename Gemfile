@@ -74,6 +74,7 @@ gem 'fog-aws'
 gem 'ancestry'
 gem 'active_hash'
 gem 'kaminari'
+gem 'payjp'
 
 group :production do
   gem 'unicorn'
