@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
     @child_category = @item.category.parent
     @Grandchild_category = @item.category
     @images = Image.where(item_id: params[:id])
-    @relating = Item.where(category_id: @Grandchild_category)
+    @relating = Item.where(category_id: @Grandchild_category).limit(4)
   end
  
   def new
