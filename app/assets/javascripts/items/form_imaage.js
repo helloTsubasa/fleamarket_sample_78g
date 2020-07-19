@@ -19,7 +19,7 @@ $(document).on('turbolinks:load', ()=>{
 
   $('.image_box').on('change', '.image_form', function(e){
     const targetIndex = $(this).parent().data('index');
-    console.log($(this).parent());
+    console.log(targetIndex);
     const file = e.target.files[0];
     const blobUrl = window.URL.createObjectURL(file);
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
