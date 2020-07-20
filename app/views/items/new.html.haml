@@ -16,7 +16,7 @@
                 -@item.images.each_with_index do |src, i|
                   =image_tag src.image.url, {data: {index: i}}
             =f.fields_for :images do |src|
-              .image_file{data:{inde: src.index}}
+              .image_file{data:{index: src.index}}
                 =src.file_field :image, class: 'image_form'
                 %span.image_remove 削除
               -if @item.persisted?
