@@ -1,5 +1,6 @@
 .main__container{
   .profile__container{
+    background-color: #ffffff;
     widows: 700px;
     .profile__title{
       padding: 8px 24px;
@@ -12,12 +13,14 @@
       width: 700px;
       .setting__icon{
         // padding: 72px 16px 24px;
-        height: 60px;
+        height: 160px;
         background-image: url(background-image.jpg);
         .setting__icon__content{
           display: flex;
           justify-content: center;
           align-items: center;
+          height: 160px;
+          
 
           .setting__icon__img{
             width: 60px;
@@ -47,7 +50,7 @@
           
         }
         .setting__content__btn{
-          background-color: #3cace3;
+          background-color: #3ccace;
           margin-top: 16px;
           width: 680px;
           text-decoration: none;
@@ -55,6 +58,7 @@
           border: none;
           height: 40px;
           font-size: 14px;
+          color: #ffffff;
         }
       }
     }
