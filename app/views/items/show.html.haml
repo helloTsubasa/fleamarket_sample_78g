@@ -8,6 +8,10 @@
             = @item.name
           .ItemsInfo__image
             = image_tag @images.first.image.url(:thumb),class:"ItemsInfo__image__MainBox",:size => '540x400'
+            -if @item.user_buyer_id.present? 
+              .items__sold
+                .items__sold__inner
+                  SOLD
             .SubBox
               - @images.each do |image|
                 = image_tag image.image.url(:thumb),class:"ItemsInfo__image__SubBox__image",:size => '127x87'
