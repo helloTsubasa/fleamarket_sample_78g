@@ -7,5 +7,4 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :images, allow_destroy: true
   # validates :images, presence: true
   # validates :name, presence: true
-  # validates :name, presence: { message: "名前を入力してください" }
 end

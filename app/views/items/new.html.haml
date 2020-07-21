@@ -17,8 +17,9 @@
                   =image_tag src.image.url, {data: {index: i}}
             =f.fields_for :images do |src|
               .image_file{data:{index: src.index}}
-                =src.file_field :image, class: 'image_form'
-                %span.image_remove 削除
+                =src.label :image do
+                  .image_file__field
+                  =src.file_field :image, class: 'image_form'
               -if @item.persisted?
                 =src.check_box :_destroy, {data:{ index: src.index }}, class: 'hidden_destroy'
             -if @item.persisted?
