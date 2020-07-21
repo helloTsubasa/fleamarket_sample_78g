@@ -1,5 +1,7 @@
 .default-main
   = render "items/header"
+  - breadcrumb :mypage
+  = render "layouts/breadcrumbs"
   .main
     = render "main-mypage"
     .main__side__content
