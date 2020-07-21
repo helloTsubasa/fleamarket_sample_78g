@@ -55,7 +55,9 @@
             .select_form#parent-category
               =f.select :category_id, options_for_select( @category_parent_array.map{|c| [c[:name], c[:id]]}), {include_blank: "選択してください"}, { class: "category_form", id: "parent-form"}
             .select_form#children-category
+              =f.select :category_id, Category.all
             .select_form#grandchildren-category
+              =f.select :category_id, Category.all
           -# .area#size_area
           -#   .size_title.title
           -#     =f.label :size_id, 'サイズ'
