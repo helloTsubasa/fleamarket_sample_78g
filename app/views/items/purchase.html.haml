@@ -7,8 +7,8 @@
     .mainbuy_body
       .mainbuy_body_image
         = image_tag(@item.images.first.image.url(:thumb),class:"mainbuy_body_image")
-        .mainbuy_body_image_name
-          = @item.name
+      .mainbuy_body_image_name
+        = @item.name
       .mainbuy_body_pay
         支払い金額
         .mainbuy_body_pay_imag

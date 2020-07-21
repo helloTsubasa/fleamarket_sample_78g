@@ -38,10 +38,14 @@
       }
 
       &_image{
-        padding: 32px 16px;
-        &_name{
-          margin: 0 auto;
-        }
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        padding: 20px 0;
+      }
+      &_name{
+        margin: 0 auto;
       }
       &_pay{
         display: flex;
