@@ -11,7 +11,7 @@
         padding: 24px 40px 40px;
         &__name{
           width: 540px;
-          font-size: 24px;
+          font-size: 26px;
           font-weight: bold;
           text-align: center;
         }
@@ -19,6 +19,28 @@
         &__image{
           background-color: #ffffff;
           margin-top: 10px;
+          position: relative;
+          .items__sold{
+            width: 0;
+            height: 0;
+            border-top: 120px solid #ea352d ;
+            border-right: 120px solid transparent;
+            border-bottom: 120px solid transparent;
+            border-left: 120px solid #ea352d ;
+            z-index:100;
+            position: absolute;
+            top: 0;
+            left: 0;
+            &__inner{
+              transform: rotate(-45deg);
+              font-size: 50px;
+              margin:-40px 45px 0px -90px;
+              color: #fff;
+              letter-spacing: 2px;
+              font-weight: 600;
+            }
+          }
+
 
           &__MainBox{
             margin: 0 auto;
