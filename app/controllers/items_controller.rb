@@ -13,9 +13,8 @@ class ItemsController < ApplicationController
 
 
   def show
-    @item = Item.find(params[:id])
-    @seller = User.find_by(params[@item.user_seller_id])
-    @order = Order.find_by("#{params[@seller.order.id]}")
+    @seller = User.find(@item.user_seller_id)
+    @order = Order.find(@seller.order.id)
     @category = @item.category.root
     @child_category = @item.category.parent
     @Grandchild_category = @item.category
