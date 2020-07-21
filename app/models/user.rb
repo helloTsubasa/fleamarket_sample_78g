@@ -7,7 +7,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
+  
+  validates :password, presence: true, length: { minimum: 7 }
   validates :nickname, presence: true
   validates :family_name, presence: true
   validates :first_name, presence: true
