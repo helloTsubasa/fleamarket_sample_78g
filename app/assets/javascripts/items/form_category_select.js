@@ -7,7 +7,7 @@ function appendOption(category) {
 function appendChildrenBox(insertHTML) {
   let childSelectHtml = '';
   childSelectHtml = 
-    `<select class="category_form" id="children-form">
+    `<select class="category_form required" id="children-form">
        <option value="" data-category="" >選択してください</option>
        ${insertHTML}
       </select>`;
@@ -17,7 +17,7 @@ function appendChildrenBox(insertHTML) {
 function appendGrandchildrenBox(insertHTML) {
   let grandchildSelectHtml = '';
   grandchildSelectHtml = 
-    `<select class="category_form" id="grandchildren-form" name="item[category_id]">
+    `<select class="category_form required" id="grandchildren-form" name="item[category_id]">
        <option value="" data-category="" >選択してください</option>
        ${insertHTML}
       </select>`;
