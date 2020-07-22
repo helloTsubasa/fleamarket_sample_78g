@@ -21,6 +21,8 @@ class ItemsController < ApplicationController
     @Grandchild_category = @item.category
     @images = Image.where(item_id: params[:id])
     @relating = Item.where(category_id: @Grandchild_category)
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user)
   end
  
   def new

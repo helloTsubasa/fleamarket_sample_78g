@@ -60,15 +60,29 @@
         - if user_signed_in? && current_user.id != @item.user_seller_id
           .ItemsBuy
             = link_to '購入画面に進む', purchase_item_path(@item.id), class: "ItemsBuy__btn"
-          
+
         .ItemsComment
-          %textarea.itemsComment__box{:cols => "60", :name => "comment", :rows => "5"}
-          .itemsComment__msg
-            相手のことを考え丁寧なコメントを心がけましょう。
-            %br
-            不快な言葉遣いなどは利用制限や退会処分となることがあります。
-          %button{name:"buttun", type: "submit", class: "itemsComment__btn"}
-            コメントする
+          - if current_user
+            = form_with(model: [@item, @comment], local: true) do |form| 
+              .itemsComment__msg
+              相手のことを考え丁寧なコメントを心がけましょう。
+              %br
+              不快な言葉遣いなどは利用制限や退会処分となること があります。
+              = form.text_area :text, rows:"5", cols:"60"
+              = form.submit "コメントする" 
+          - else
+            %strong
+              %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
+          .comments
+            %h4 ＜コメント一覧＞
+            - if @comments
+              - @comments.each do |comment|
+                %p
+                  %strong
+                    = link_to comment.user.nickname, "/users/#{comment.user_id}"
+                    ：
+                  = comment.text
+
         - if user_signed_in? && current_user.id == @item.user_seller_id 
           .ItemsDelete
             =link_to 'この商品を削除する', item_path(@item.id),class:"ItemsDelete__btn",method: :delete,:confirm => "OK?"
