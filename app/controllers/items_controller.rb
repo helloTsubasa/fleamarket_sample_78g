@@ -32,7 +32,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to @item, notice: 'Item was successfully created.'
     else
-      render :new
+      redirect_to new_item_path
     end
   end
 
@@ -46,21 +46,19 @@ class ItemsController < ApplicationController
   
   def edit
     @images = Image.where(item_id: params[:id])
-    @category = Category.where(params[:category_id])
+    @category = Category.find(params[:id])
     @grandchild_category = @item.category
     @child_category = @grandchild_category.parent
     @parent_category = @child_category.parent
+    @category_children = @item.category.parent.parent.children
+    @category_grandchildren = @item.category.parent.children
   end
 
   def update
-    respond_to do |format|
-      if @item.update(item_params)
-        format.html { redirect_to @item, notice: '編集しました' }
-        format.json { render :show, status: :ok, location: @item }
-      else
-        format.html { render :edit }
-        format.json { render json: @item.errors, status: :unprocessable_entity }
-      end
+    if @item.update(item_params)
+      redirect_to @item, notice: '編集しました'
+    else
+      redirect_to edit_item_path
     end
   end
 

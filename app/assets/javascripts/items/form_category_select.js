@@ -7,7 +7,7 @@ function appendOption(category) {
 function appendChildrenBox(insertHTML) {
   let childSelectHtml = '';
   childSelectHtml = 
-    `<select class="category_form" id="children-form">
+    `<select class="category_form required" id="children-form">
        <option value="" data-category="" >選択してください</option>
        ${insertHTML}
       </select>`;
@@ -17,7 +17,7 @@ function appendChildrenBox(insertHTML) {
 function appendGrandchildrenBox(insertHTML) {
   let grandchildSelectHtml = '';
   grandchildSelectHtml = 
-    `<select class="category_form" id="grandchildren-form" name="item[category_id]">
+    `<select class="category_form required" id="grandchildren-form" name="item[category_id]">
        <option value="" data-category="" >選択してください</option>
        ${insertHTML}
       </select>`;
@@ -38,8 +38,6 @@ $(document).on("change","#parent-category", function() {
     .done(function(children) {
       $("#children-category").empty();
       $("#grandchildren-category").empty();
-      $('.size_area').val('');
-      $('#size_area').css('display', 'none');
       let insertHTML = '';
       children.forEach(function(child) {
         insertHTML += appendOption(child);
@@ -52,8 +50,6 @@ $(document).on("change","#parent-category", function() {
   }else{
     $("#children-category").empty();
     $("#grandchildren-category").empty();
-    $('.size_area').val('');
-    $('#size_area').css('display', 'none');
   }
 });
 
@@ -71,8 +67,6 @@ $(document).on('change', '#children-form', function() {
     .done(function(grandchildren) {
       if (grandchildren.length != 0) {
         $("#grandchildren-category").empty();
-        $('.size_area').val('');
-        $('.size_area').css('display', 'none');
         let insertHTML = '';
         grandchildren.forEach(function(grandchild) {
           insertHTML += appendOption(grandchild);
@@ -84,19 +78,35 @@ $(document).on('change', '#children-form', function() {
       alert('error:孫カテゴリーの取得に失敗');
     })
   }else{
-    $("#grandchildren-category").empty();
-    $('.size_area').val('');
-    $('#size_area').css('display', 'none');      
+    $("#grandchildren-category").empty();   
   }
 });
 
-$(document).on('change', '#grandchildren-form', function() {
-  let grandchildId = $('#grandchildren-category option:selected').data('category');
-  if (grandchildId != "") {
-    $('.size_area').val('');
-    $('#size_area').css('display', 'block');
-  } else {
-    $('.size_area').val('');
-    $('#size_area').css('display', 'none');
+$(document).on("change","#edit-children-form", function() {
+  let childId =  $("#edit-children-form").val();
+  if (childId != "") {
+    $.ajax( {
+      type: 'GET',
+      url: 'get_category_grandchildren',
+      data: {
+         child_id: childId 
+        },
+      datatype: 'json'
+    })
+    .done(function(grandchildren) {
+      if (grandchildren.length != 0) {
+        $("#grandchildren-category").empty();
+        let insertHTML = '';
+        grandchildren.forEach(function(grandchild) {
+          insertHTML += appendOption(grandchild);
+        });
+        appendGrandchildrenBox(insertHTML);
+      }
+    })
+    .fail(function() {
+      alert('error:孫カテゴリーの取得に失敗');
+    })
+  }else{
+    $("#grandchildren-category").empty();   
   }
 });

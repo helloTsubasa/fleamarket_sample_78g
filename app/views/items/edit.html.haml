@@ -2,7 +2,7 @@
   .new_item_header
     =link_to image_tag("logo.png"), "/"
   .new_item_main
-    =form_with model: @item, local: true do |f|
+    =form_with model: @item,id: 'item_form', local: true do |f|
       .frame
         .area
           .title
@@ -12,18 +12,19 @@
             #previews
               -if @item.persisted?
                 -@item.images.each_with_index do |src, i|
-                  =image_tag src.image.url, {data: {index: i}}
-            =f.fields_for :images do |src|
-              .image_file{data:{index: src.index}}
+                  .image_view{data:{index: i}}
+                    .image_src
+                      =image_tag src.image.url, {data: {index: i}}
+                    .image_remove 削除
+              =f.fields_for :images do |src|
                 =src.file_field :image, class: 'image_form'
-                %span.image_remove 削除
-              -if @item.persisted?
-                =src.check_box :_destroy, {data:{ index: src.index }}, class: 'hidden_destroy'
+                -if @item.persisted?
+                  =src.check_box :_destroy, {data:{ index: src.index }}, :class => 'hidden_destroy'
             -if @item.persisted?
               .image_file{data:{index: @item.images.count}}
-                =file_field_tag :image,  name: "item[images_attributes][#{@item.images.count}][image]", class: 'image_form'
-                %span.image_remove 削除
-            
+                =f.label :image do
+                  .image_file__field
+                  =f.file_field :image,  name: "item[images_attributes][#{@item.images.count}][image]", class: 'image_edit_form'
       .frame
         .item_info
           .area.name_area
@@ -53,23 +54,11 @@
               %li
                 =@grandchild_category.name
             .select_form#parent-category
-              =f.select :category_id, options_for_select( @category_parent_array.map{|c| [c[:name], c[:id]]}), {include_blank: "選択してください"}, { class: "category_form", id: "parent-form"}
+              =f.select :category_id, options_for_select( @category_parent_array.map{|c| [c[:name], c[:id]]}, @parent_category.id ), { class: "category_form", id: "parent-form"}
             .select_form#children-category
-              =f.select :category_id, Category.all
+              =f.select :category_id, options_for_select( @category_children.map{|c| [c[:name], c[:id]]}, @child_category.id ), { class: "category_form", id: "edit-children-form"}
             .select_form#grandchildren-category
-              =f.select :category_id, Category.all
-          -# .area#size_area
-          -#   .size_title.title
-          -#     =f.label :size_id, 'サイズ'
-          -#     %span.style_need 必須
-          -#   .select_form#size-form
-          -#     =f.select :size_id, [["選択してください",""],["XXS以下",1],["XS",2],["S",3],["M",4],["L",5],["XL",6],["XXL",7]]
-          -# .brand_area.area
-          -#   .brand_title.title
-          -#     =f.label :brand, 'ブランド'
-          -#     %span.style_any 任意
-          -#   .brand-form.select_form
-          -#     =f.collection_select :brand_id, Brand.all, :id,:name, {include_blank: "選択してください"}
+              =f.select :category_id, options_for_select( @category_grandchildren.map{|c| [c[:name], c[:id]]}, @grandchild_category.id ), { class: "category_form", id: "grandchildren-form"}
           .status_area.area
             .status_title.title
               =f.label :status, '商品の状態'
@@ -104,6 +93,6 @@
           %input{type: "number", style: "display: none", id: "price"}
           .right_bar_2
       .submit_frame
-        =f.submit '編集を保存する',class: 'submit_btn'
+        =f.submit '編集を保存する',class: 'submit_edit_btn'
         .back_home
           =link_to  "もどる", users_path
