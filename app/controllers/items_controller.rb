@@ -47,10 +47,12 @@ class ItemsController < ApplicationController
   
   def edit
     @images = Image.where(item_id: params[:id])
-    @category = Category.where(params[:category_id])
+    @category = Category.find(params[:id])
     @grandchild_category = @item.category
     @child_category = @grandchild_category.parent
     @parent_category = @child_category.parent
+    @category_children = @item.category.parent.parent.children
+    @category_grandchildren = @item.category.parent.children
   end
 
   def update

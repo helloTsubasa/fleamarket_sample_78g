@@ -2,7 +2,7 @@
   .new_item_header
     =link_to image_tag("logo.png"), "/"
   .new_item_main
-    =form_with model: @item, local: true do |f|
+    =form_with model: @item, id: 'item_form', local: true do |f|
       .frame
         .area
           .title
@@ -26,7 +26,6 @@
               .image_file{data:{index: @item.images.count}}
                 =file_field_tag :image,  name: "item[images_attributes][#{@item.images.count}][image]", class: 'image_form'
                 %span.image_remove 削除
-
       .frame
         .item_info
           .area.name_area
