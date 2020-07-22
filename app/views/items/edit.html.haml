@@ -54,11 +54,11 @@
               %li
                 =@grandchild_category.name
             .select_form#parent-category
-              =f.select :category_id, options_for_select( @category_parent_array.map{|c| [c[:name], c[:id]]}, @parent_category.id ), { class: "category_form", id: "parent-form"}
+              =f.select :category_id, options_for_select( @category_parent_array.map{|c| [c[:name], c[:id]]}, @parent_category.id ), {include_blank: "選択してください"}, { class: "category_form", id: "parent-form"}
             .select_form#children-category
-              =f.select :category_id, options_for_select( @category_children.map{|c| [c[:name], c[:id]]}, @child_category.id ), { class: "category_form", id: "edit-children-form"}
+              =f.select :category_id, options_for_select( @category_children.map{|c| [c[:name], c[:id]]}, @child_category.id ), {include_blank: "選択してください"}, { class: "category_form", id: "edit-children-form"}
             .select_form#grandchildren-category
-              =f.select :category_id, options_for_select( @category_grandchildren.map{|c| [c[:name], c[:id]]}, @grandchild_category.id ), { class: "category_form", id: "grandchildren-form"}
+              =f.select :category_id, options_for_select( @category_grandchildren.map{|c| [c[:name], c[:id]]}, @grandchild_category.id ), {include_blank: "選択してください"}, { class: "category_form", id: "grandchildren-form"}
           .status_area.area
             .status_title.title
               =f.label :status, '商品の状態'
