@@ -1,6 +1,6 @@
 .new_item
   .new_item_header
-    =link_to image_tag("logo.png"), "/"
+    =link_to image_tag("logo.png"), root_path
   .new_item_main
     =form_with model: @item, id: 'item_form', local: true do |f|
       .frame
@@ -19,6 +19,8 @@
               .image_file{data:{index: src.index}}
                 =src.label :image do
                   .image_file__field
+                    = icon('fas', 'camera')
+                    %p クリックして画像をアップロード
                   =src.file_field :image, class: 'image_form required'
               -if @item.persisted?
                 =src.check_box :_destroy, {data:{ index: src.index }}, class: 'hidden_destroy'
