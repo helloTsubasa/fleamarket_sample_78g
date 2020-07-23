@@ -38,7 +38,7 @@ $(document).on('turbolinks:load', ()=>{
   lastEditIndex = $('.image_view:last').data('index');
   fileEditIndex.splice(0, lastEditIndex);
 
-  $('.hidden-destroy').hide();
+  $('.hidden_destroy').hide();
 
   $('.image_box').on('change', '.image_form', function(e){
     const targetIndex = $(this).parent().parent().data('index');
