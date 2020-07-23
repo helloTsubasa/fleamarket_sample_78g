@@ -47,7 +47,7 @@
               =f.label :category, 'カテゴリー'
               %span.style_need 必須
             .select_form#parent-category
-              =f.select :category_id, options_for_select( @category_parent_array.map{|c| [c[:name], c[:id]]}), {include_blank: "選択してください"}, { class: "category_form required", id: "parent-form"}
+              =f.select :category_id, options_for_select( @category_parent_array.map{|c| [c[:name], c[:id]]}), {include_blank: "選択してください"}, { class: "category_form  required", id: "parent-form"}
             .select_form#children-category
             .select_form#grandchildren-category
           .status_area.area
