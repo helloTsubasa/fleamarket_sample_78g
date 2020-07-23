@@ -23,8 +23,8 @@ Rails.application.routes.draw do
     end
 
   end
-  
-  resources :users, only:[:index, :destroy] do
+
+  resources :users, only:[:index,:edit, :update, :destroy] do
     collection do
       get 'logout'
       get 'mypage'
@@ -32,6 +32,8 @@ Rails.application.routes.draw do
       get 'address'
       get 'mail_pass'
       get 'personal_data'
+      put 'address'
+      patch 'edit'
     end
   end
 

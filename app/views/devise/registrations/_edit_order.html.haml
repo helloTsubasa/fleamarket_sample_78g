@@ -1,0 +1,54 @@
+.mainoder_body_form
+  = form_with local: true,model:@order, url: edit_user_path(@order) do |f|
+    = render "devise/shared/error_messages", resource: @order
+    .field
+      = f.label :苗字
+      %span 必須
+      %br/
+      = f.text_field :family_name,class:"box",placeholder: '例）田中'
+    .field
+      = f.label :名前
+      %span 必須
+      %br/
+      = f.text_field :first_name,class:"box",placeholder: '例）太郎'
+    .field
+      = f.label :苗字（かな）
+      %span 必須
+      %br/
+      = f.text_field :family_name_kana,class:"box",placeholder: '例）たなか'
+    .field
+      = f.label :名前（かな）
+      %span 必須
+      %br/
+      = f.text_field :first_name_kana,class:"box",placeholder: '例）たろう'
+    .field
+      = f.label :郵便番号
+      %span 必須
+      %br/
+      = f.text_field :zip_code,class:"box",placeholder: '例）123-1234'
+    .field
+      = f.label :都道府県
+      %span 必須
+      %br/
+      = f.text_field :prefecuture,class:"box",placeholder: '例）東京都'
+    .field
+      = f.label :市区町村
+      %span 必須
+      %br/
+      = f.text_field :city,class:"box",placeholder: '例）渋谷区'
+    .field
+      = f.label :番地
+      %span 必須
+      %br/
+      = f.text_field :local,class:"box",placeholder: '例）1-23-45'
+    .field
+      = f.label :マンション名やビル名、部屋番号
+      %br/
+      = f.text_field :building_name,class:"box",placeholder: '例) Aマンション101'
+    .field
+      = f.label :お届け先の電話番号
+      %br/
+      = f.text_field :phone_number,class:"box",placeholder: '例）123-4567-8910'
+    .actions
+      = f.submit "登録",class:"send"
+  = render "devise/shared/links"
