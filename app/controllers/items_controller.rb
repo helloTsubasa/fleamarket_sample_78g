@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   before_action :set_category, only: [:new, :edit, :create, :update, :destroy]
   before_action :set_order, except: [:index, :new, :create, :show]
   before_action :set_card, only: [:purchase, :pay, :done]
+  before_action :authenticate_user!, only: [:new, :edit]
 
   require "payjp"
 
