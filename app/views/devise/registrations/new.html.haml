@@ -1,9 +1,10 @@
 - breadcrumb :users_new
-= render "layouts/breadcrumbs"
 .body
+  = render "layouts/breadcrumbs"
   .header
     .header_icon
-      = image_tag 'logo.png', class: 'logo2'
+      =link_to root_path do
+        = image_tag 'logo.png', class: 'logo2'
   .main
     .main_body
       .main_body_user
