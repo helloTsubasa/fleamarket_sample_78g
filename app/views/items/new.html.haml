@@ -23,7 +23,7 @@
                     %p クリックして画像をアップロード
                   =src.file_field :image, class: 'image_form required'
               -if @item.persisted?
-                =src.check_box :_destroy, {data:{ index: src.index }}, class: 'hidden_destroy'
+                =src.check_box :_destroy, {data:{ index: src.index }}
             -if @item.persisted?
               .image_file{data:{index: @item.images.count}}
                 =file_field_tag :image,  name: "item[images_attributes][#{@item.images.count}][image]", class: 'image_form'

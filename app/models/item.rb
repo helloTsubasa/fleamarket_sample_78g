@@ -6,6 +6,5 @@ class Item < ApplicationRecord
   has_many :images,dependent: :destroy
   has_many :comments
   accepts_nested_attributes_for :images, allow_destroy: true
-  # validates :images, presence: true
-  # validates :name, presence: true
+  validates :images, :category, :text, :name, :price, :status, :shipping_date, :shipping_fee, presence: true
 end
