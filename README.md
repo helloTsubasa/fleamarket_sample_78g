@@ -1,5 +1,5 @@
 # DB設計
-![データベース ER 図](https://user-images.githubusercontent.com/66294265/87296127-433f7600-c541-11ea-85b1-fe8db630e4e0.png)
+![フリマアプリ - データベース ER 図](https://user-images.githubusercontent.com/66294265/88257900-cc04a180-ccf9-11ea-8fac-f136c28c9c72.png)
 
 
 ## usersテーブル
@@ -18,7 +18,8 @@
 
 ### Association
 - has_many :items
-- has_many :cards
+- has_many :comments
+- has_one :cards
 - has_one :order
 
 
@@ -41,6 +42,19 @@
 
 ### Association
 - belongs_to :user
+
+
+## commentsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|item_id|integer|null: false, foreign_key: true|
+|text|text||
+
+### Association
+- belongs_to :user
+- belongs_to :item
 
 
 
@@ -75,23 +89,12 @@
 
 ### Association
 - has_many :images
-- has_many :categories, through: :item_categories
+- has_many :comments
+- belongs_to :categories
 - belongs_to :user
 - belongs_to :category
 - belongs_to :brand
 
-
-## items_categoriesテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|item_id|string|null: false, foreign_key: true|
-|category_id|string|null: false, foreign_key: true|
-
-
-### Association
-- belongs_to :item
-- belongs_to :category
 
 
 ## categoriesテーブル
