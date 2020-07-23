@@ -18,7 +18,8 @@
 
 ### Association
 - has_many :items
-- has_many :cards
+- has_many :comments
+- has_one :cards
 - has_one :order
 
 
@@ -41,6 +42,19 @@
 
 ### Association
 - belongs_to :user
+
+
+## commentsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|item_id|integer|null: false, foreign_key: true|
+|text|text||
+
+### Association
+- belongs_to :user
+- belongs_to :item
 
 
 
@@ -75,23 +89,12 @@
 
 ### Association
 - has_many :images
-- has_many :categories, through: :item_categories
+- has_many :comments
+- belongs_to :categories
 - belongs_to :user
 - belongs_to :category
 - belongs_to :brand
 
-
-## items_categoriesテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|item_id|string|null: false, foreign_key: true|
-|category_id|string|null: false, foreign_key: true|
-
-
-### Association
-- belongs_to :item
-- belongs_to :category
 
 
 ## categoriesテーブル
