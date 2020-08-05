@@ -1,9 +1,25 @@
 <h1>FURIMA</h1>
-## :link: アプリケーションの概要
+
+## アプリケーションの概要
 <ul>
   <li>フリーマーケットサイトです。</li>
-  <li>TECH CAMP 78期短期集中コースEチームで作成。</li>
-  <li>作成期間 2020/6/29 ~ 2020/7/20</li>
+  <li>TECH CAMP 78期短期集中コースGチームで作成。</li>
+  <li>作成期間 </li>
+  <li>開発環境</li>
+  <ul>
+    <li>Ruby/Ruby on Rails/MySQL/Github/AWS/Visual Studio Code</li>
+  </ul>
+  <li>開発期間と平均作業時間</li>
+  <ul>
+    <li>開発期間：2020/6/29 ~ 2020/7/23（25日間）</li>
+    <li>1日あたりの平均作業時間：10時間</li>
+  </ul>
+  <li>開発体制</li>
+  <ul>
+    <li>人数：5</li>
+    <li>アジャイル型開発（スクラム）</li>
+    <li>Trelloによるタスク管理</li>
+  </ul>
 </ul>
 
 ## :globe_with_meridians: 本番環境
