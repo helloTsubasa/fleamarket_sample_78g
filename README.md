@@ -53,7 +53,7 @@
 
 
 ## :page_facing_up: 説明資料
-https://docs.google.com/document/d/e/2PACX-1vROjb9nURZEDlhmQmVbW8n4BObv5LQYkwlj9sRfAssKbllOQlRa2y048-hPd7UHmxmVUUKOZxQbDbFO/pub
+https://docs.google.com/document/d/1IOaq0vNh_Vr6h03ToDrD4UkDAP4xoB9kqP5QmSQ9e2A/edit?usp=sharing
 
 
 ## :link: アプリケーションの機能
