@@ -36,39 +36,19 @@
     <ul>
       <li>メールアドレス : buyer_user@gmail.com</li>
       <li>パスワード : 1234567</li>
-        <ul>
-          <li>メールアドレス : buyer_user@gmail.com</li>
-          <li>パスワード : 1234567</li>
-        </ul>
     </ul>
-    <li></li>
+    <li>購入用カード情報</li>
+    <ul>
+      <li>番号： 4242424242424242</li>
+      <li>期限： 2 / 22</li>
+      <li>セキュリティコード：123</li>
+    </ul>
+    <li>出品者用</li>
+    <ul>
+      <li>メールアドレス名: seller_user@gmail.com</li>
+      <li>パスワード: 1234567</li>
+    </ul>
   </ul>
-</ul>
-
-
-
-購入用カード情報
-番号： 4242424242424242
-期限： 2 / 22
-セキュリティコード：123
-出品者用
-メールアドレス名: seller_user@gmail.com
-パスワード: 1234567
-
-
-## :bust_in_silhouette: テスト用アカウント等
-<ul>○ 出品者用
-  <li>メールアドレス: test@gmail.com</li>
-  <li>パスワード: aaaaaaa</li>
-</ul>
-<ul>○ 購入者用
-  <li>メールアドレス: test2@gmail.com</li>
-  <li>パスワード: aaaaaaa</li>
-</ul>
-<ul>○ 購入用カード情報
-  <li>番号： 4242424242424242</li>
-  <li>期限： 04/26</li>
-  <li>セキュリティコード：123</li>
 </ul>
 
 
