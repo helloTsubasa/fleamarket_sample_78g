@@ -4,7 +4,6 @@
 <ul>
   <li>フリーマーケットサイトです。</li>
   <li>TECH CAMP 78期短期集中コースGチームで作成。</li>
-  <li>作成期間 </li>
   <li>開発環境</li>
   <ul>
     <li>Ruby/Ruby on Rails/MySQL/Github/AWS/Visual Studio Code</li>
